@@ -49,5 +49,6 @@ sus encabezados de intercambio.
 
 ## Licencia
 
-Este repositorio no impone una licencia por defecto. Añade la licencia que
-corresponda antes de redistribuirlo.
+Este repositorio se distribuye bajo la [GNU General Public License v3.0 o
+posterior](https://www.gnu.org/licenses/gpl-3.0.html). Consulta `LICENSE` para
+el identificador SPDX y la referencia oficial del texto completo.
