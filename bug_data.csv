@@ -1,0 +1,39 @@
+list_id,parent_list_id,parent_value,value,list_label
+products,,,Portal de informes (demo),Producto
+products,,,Gestor documental (demo),Producto
+statuses,,,Abierto,
+statuses,,,En análisis,
+statuses,,,Resuelto,
+statuses,,,Cerrado,
+priorities,,,P0 - Urgente,
+priorities,,,P1 - Alta,
+priorities,,,P2 - Normal,
+priorities,,,P3 - Baja,
+severities,,,Bloqueante,
+severities,,,Mayor,
+severities,,,Menor,
+resolutions,,,Pendiente,
+resolutions,,,Corregido,
+resolutions,,,Duplicado,
+resolutions,,,No reproducible,
+platforms,,,Linux,
+platforms,,,Windows,
+platforms,,,macOS,
+browsers,,,Chromium,
+browsers,,,Firefox,
+browsers,,,WebKit,
+environments,,,Local - datos sintéticos,
+environments,,,Pruebas - datos sintéticos,
+regressionStatuses,,,Pendiente,
+regressionStatuses,,,Verificado Corregido,
+regressionStatuses,,,Aún Presente,
+regressionStatuses,,,No Reproducible,
+mediaTypes,,,Captura,
+mediaTypes,,,Registro,
+mediaTypes,,,InformePrueba,
+components,products,Portal de informes (demo),Exportación CSV,Componente
+components,products,Portal de informes (demo),Filtros,Componente
+components,products,Portal de informes (demo),Tabla de resultados,Componente
+components,products,Gestor documental (demo),Búsqueda,Componente
+components,products,Gestor documental (demo),Importación,Componente
+components,products,Gestor documental (demo),Metadatos,Componente

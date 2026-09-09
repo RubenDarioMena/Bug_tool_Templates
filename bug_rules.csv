@@ -1,0 +1,16 @@
+form_id,rule_type,rule_id,when_expression,action,target,value,severity,color,group,message,editor_condition,setting_name,setting_value
+GLOBAL,setting,media_fmt,,,,,,,,,,media_fmt,{type}_{issueId}_{platform}_{cl}_(1)
+GLOBAL,setting,issue_re,,,,,,,,,,issue_re,^DEMO-[0-9]+$
+GLOBAL,setting,version_re,,,,,,,,,,version_re,^[0-9]+\.[0-9]+\.[0-9]+$
+GLOBAL,setting,count_re,,,,,,,,,,count_re,^[0-9]+$
+GLOBAL,setting,default_environment,,,,,,,,,,default_environment,Local - datos sintéticos
+bug,condition,resolved_date_show,"status in (""Resuelto"", ""Cerrado"")",show,resolved,,,,,,,,
+bug,condition,resolved_date_required,"status in (""Resuelto"", ""Cerrado"") AND resolved empty",error,resolved,Indica la fecha de resolución.,,,,,,,
+bug,condition,resolution_required,"status in (""Resuelto"", ""Cerrado"") AND resolution = ""Pendiente""",error,resolution,Selecciona el resultado de la resolución.,,,,,,,
+bug,condition,attempts_positive,attempts < 1,error,attempts,Registra al menos un intento.,,,,,,,
+bug,condition,failures_bound,failures > attempts,error,failures,Las reproducciones no pueden superar los intentos.,,,,,,,
+bug,tile,demo_notice,issueId notEmpty,,issueId,Muestra ficticia · datos sintéticos,warn,blue,Contexto,,,,
+bug,tile,urgent_impact,"priority = ""P0 - Urgente"" AND impact empty",,impact,Documenta el impacto de la prioridad urgente,warn,amber,Revisión,,,,
+regression,condition,verified_attempts,"regressionStatus = ""Verificado Corregido"" AND attempts < 1",error,attempts,Realiza al menos un intento antes de verificar.,,,,,,,
+regression,condition,verified_failures,"regressionStatus = ""Verificado Corregido"" AND failures > 0",error,failures,No marques corregido si el fallo persiste.,,,,,,,
+regression,condition,failures_bound,failures > attempts,error,failures,Las reproducciones no pueden superar los intentos.,,,,,,,
