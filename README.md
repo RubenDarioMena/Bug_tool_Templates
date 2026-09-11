@@ -218,6 +218,14 @@ un reporte. Los controles del sistema operativo, permisos de carpeta, cifrado de
 disco, copias de seguridad y políticas de distribución siguen siendo responsabilidad
 del entorno donde se ejecute.
 
+## Diagrama de arquitectura
+
+El flujo runtime completo está documentado en el
+[diagrama interactivo de arquitectura](docs/architecture/bug-tool-runtime.architecture.html).
+La [especificación y evidencia de validación](docs/architecture/README.md)
+incluyen las referencias al código, el recibo de Archify y las capturas de QA
+en temas claro y oscuro.
+
 ## Estructura de la distribución
 
 ```text

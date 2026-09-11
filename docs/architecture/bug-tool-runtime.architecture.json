@@ -1,0 +1,395 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Arquitectura runtime de Bug Report Tool",
+    "output": "bug-tool-runtime.architecture.html",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/RubenDarioMena/Bug_tool_Templates",
+      "provider": "github",
+      "revision": "7b754d3ad12133bc904527df9e59589cdcbb7de8"
+    }
+  },
+  "layout": {
+    "mode": "grid",
+    "origin": [48, 92],
+    "cols": 5,
+    "gapX": 56,
+    "gapY": 92,
+    "cellW": 120,
+    "cellH": 72
+  },
+  "components": [
+    {
+      "id": "tester",
+      "type": "external",
+      "label": "Tester",
+      "sublabel": "Captura, revisa y copia",
+      "row": 1,
+      "col": 0
+    },
+    {
+      "id": "launcher",
+      "type": "external",
+      "label": "Launcher de Windows",
+      "sublabel": "Start Bug Tool.bat",
+      "tag": "opcional",
+      "sources": [
+        {
+          "path": "Start Bug Tool.bat",
+          "line": 5,
+          "end_line": 8,
+          "label": "Arranque de PowerShell"
+        }
+      ],
+      "row": 0,
+      "col": 0
+    },
+    {
+      "id": "server",
+      "type": "backend",
+      "label": "Servidor loopback",
+      "sublabel": "PowerShell · 127.0.0.1:8765",
+      "tag": "GET / HEAD",
+      "sources": [
+        {
+          "path": "BugTool_Server.ps1",
+          "line": 8,
+          "end_line": 15,
+          "label": "Allowlist de archivos"
+        },
+        {
+          "path": "BugTool_Server.ps1",
+          "line": 47,
+          "end_line": 58,
+          "label": "Listener local"
+        },
+        {
+          "path": "BugTool_Server.ps1",
+          "line": 71,
+          "end_line": 90,
+          "label": "Despacho HTTP"
+        }
+      ],
+      "row": 0,
+      "col": 1
+    },
+    {
+      "id": "csv",
+      "type": "database",
+      "label": "Config Live CSV",
+      "sublabel": "datos · campos · rules",
+      "tag": "UTF-8",
+      "sources": [
+        {
+          "path": "bug_data.csv",
+          "line": 1,
+          "label": "Listas y relaciones"
+        },
+        {
+          "path": "bug_fields.csv",
+          "line": 1,
+          "label": "Schema de formularios"
+        },
+        {
+          "path": "bug_rules.csv",
+          "line": 1,
+          "label": "Reglas y settings"
+        }
+      ],
+      "row": 0,
+      "col": 2
+    },
+    {
+      "id": "spa",
+      "type": "frontend",
+      "label": "Bug Tool SPA",
+      "sublabel": "HTML, CSS y JS autocontenido",
+      "tag": "sin dependencias",
+      "sources": [
+        {
+          "path": "bug_tool_multilanguage.html",
+          "line": 3462,
+          "end_line": 3468,
+          "label": "Metadatos y archivos Live"
+        },
+        {
+          "path": "bug_tool_multilanguage.html",
+          "line": 15292,
+          "end_line": 15331,
+          "label": "Secuencia de boot"
+        }
+      ],
+      "row": 1,
+      "col": 1
+    },
+    {
+      "id": "config",
+      "type": "backend",
+      "label": "Config efectiva",
+      "sublabel": "parsea, valida y combina",
+      "tag": "Live + overrides",
+      "sources": [
+        {
+          "path": "bug_tool_multilanguage.html",
+          "line": 5386,
+          "end_line": 5412,
+          "label": "Carga y migración"
+        },
+        {
+          "path": "bug_tool_multilanguage.html",
+          "line": 13596,
+          "end_line": 13607,
+          "label": "Construcción desde CSV"
+        },
+        {
+          "path": "bug_tool_multilanguage.html",
+          "line": 14098,
+          "end_line": 14154,
+          "label": "Refresh y fallback"
+        }
+      ],
+      "row": 1,
+      "col": 2
+    },
+    {
+      "id": "forms",
+      "type": "frontend",
+      "label": "Forms + Rules",
+      "sublabel": "render y validación",
+      "sources": [
+        {
+          "path": "bug_tool_multilanguage.html",
+          "line": 6400,
+          "end_line": 6438,
+          "label": "Render desde schema"
+        },
+        {
+          "path": "bug_tool_multilanguage.html",
+          "line": 9351,
+          "end_line": 9380,
+          "label": "Efectos condicionales"
+        },
+        {
+          "path": "bug_tool_multilanguage.html",
+          "line": 9414,
+          "end_line": 9435,
+          "label": "Validación de campos"
+        }
+      ],
+      "row": 1,
+      "col": 3
+    },
+    {
+      "id": "composer",
+      "type": "backend",
+      "label": "Output y Media",
+      "sublabel": "output editable + Media",
+      "sources": [
+        {
+          "path": "bug_tool_multilanguage.html",
+          "line": 10264,
+          "end_line": 10315,
+          "label": "Output con procedencia"
+        },
+        {
+          "path": "bug_tool_multilanguage.html",
+          "line": 11462,
+          "end_line": 11515,
+          "label": "Nombres de Media"
+        }
+      ],
+      "row": 1,
+      "col": 4
+    },
+    {
+      "id": "delivery",
+      "type": "external",
+      "label": "Entregables",
+      "sublabel": "reporte · CSV · sesión · HTML",
+      "sources": [
+        {
+          "path": "bug_tool_multilanguage.html",
+          "line": 14547,
+          "end_line": 14583,
+          "label": "Exportación autocontenida"
+        }
+      ],
+      "row": 2,
+      "col": 4
+    },
+    {
+      "id": "embedded",
+      "type": "database",
+      "label": "Fallback embebido",
+      "sublabel": "#vanillaConfig dentro del HTML",
+      "sources": [
+        {
+          "path": "bug_tool_multilanguage.html",
+          "line": 2763,
+          "end_line": 2768,
+          "label": "Configuración vanilla"
+        }
+      ],
+      "row": 2,
+      "col": 2
+    },
+    {
+      "id": "storage",
+      "type": "database",
+      "label": "localStorage",
+      "sublabel": "config · sesión · snapshots",
+      "tag": "namespace por proyecto",
+      "sources": [
+        {
+          "path": "bug_tool_multilanguage.html",
+          "line": 3470,
+          "end_line": 3483,
+          "label": "Claves namespaced"
+        },
+        {
+          "path": "bug_tool_multilanguage.html",
+          "line": 5250,
+          "end_line": 5272,
+          "label": "Adaptador de storage"
+        },
+        {
+          "path": "bug_tool_multilanguage.html",
+          "line": 5993,
+          "end_line": 6016,
+          "label": "Persistencia de estado"
+        }
+      ],
+      "row": 2,
+      "col": 3
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "Equipo local · operación offline",
+      "wraps": [
+        "launcher",
+        "server",
+        "csv",
+        "spa",
+        "config",
+        "forms",
+        "composer",
+        "delivery",
+        "embedded",
+        "storage"
+      ],
+      "pad": 24
+    }
+  ],
+  "connections": [
+    {
+      "id": "tester-spa",
+      "from": "tester",
+      "to": "spa",
+      "label": "captura",
+      "variant": "emphasis"
+    },
+    {
+      "id": "launcher-server",
+      "from": "launcher",
+      "to": "server",
+      "label": "inicia",
+      "variant": "dashed"
+    },
+    {
+      "id": "server-spa",
+      "from": "server",
+      "to": "spa",
+      "label": "sirve HTML por HTTP",
+      "labelAt": [284, 166]
+    },
+    {
+      "id": "server-csv",
+      "from": "server",
+      "to": "csv",
+      "label": "lee CSV"
+    },
+    {
+      "id": "spa-config",
+      "from": "spa",
+      "to": "config",
+      "label": "boot()"
+    },
+    {
+      "id": "csv-config",
+      "from": "csv",
+      "to": "config",
+      "label": "fetch paralelo no-store",
+      "labelAt": [460, 166]
+    },
+    {
+      "id": "embedded-config",
+      "from": "embedded",
+      "to": "config",
+      "label": "fallback si Live falla",
+      "variant": "dashed"
+    },
+    {
+      "id": "config-forms",
+      "from": "config",
+      "to": "forms",
+      "label": "schema"
+    },
+    {
+      "id": "forms-composer",
+      "from": "forms",
+      "to": "composer",
+      "label": "valida"
+    },
+    {
+      "id": "composer-delivery",
+      "from": "composer",
+      "to": "delivery",
+      "label": "copia/descarga",
+      "variant": "emphasis",
+      "labelAt": [812, 330]
+    },
+    {
+      "id": "forms-storage",
+      "from": "forms",
+      "to": "storage",
+      "label": "autosave",
+      "labelAt": [504, 330]
+    },
+    {
+      "id": "storage-config",
+      "from": "storage",
+      "to": "config",
+      "label": "restaura"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Arranque portable",
+      "items": [
+        "El HTML puede abrirse directamente o servirse por loopback.",
+        "El servidor solo expone el HTML y los tres CSV previstos."
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Configuración resiliente",
+      "items": [
+        "Live valida los tres CSV como un conjunto antes de activarlos.",
+        "Ante un fallo conserva snapshot válido o usa vanilla embebida."
+      ]
+    },
+    {
+      "dot": "violet",
+      "title": "Datos bajo control local",
+      "items": [
+        "Sesiones, overrides y preferencias permanecen en el navegador.",
+        "Los resultados salen solo por copia o descarga iniciada por el tester."
+      ]
+    }
+  ]
+}
