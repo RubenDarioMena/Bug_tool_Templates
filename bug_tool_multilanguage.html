@@ -1515,20 +1515,43 @@
       letter-spacing: 0;
       font-size: 10px;
     }
-    .cond-table select, .cond-table input[type="text"] {
+    .cond-table select, .cond-table input[type="text"], .cond-table textarea {
       font-size: 11px;
       padding: 3px 4px;
     }
     .cond-table td { white-space: nowrap; }
     .cond-then { color: var(--accent-text); font-weight: 700; font-size: 10px; text-transform: uppercase; }
     .cond-expr-cell { white-space: normal; min-width: 320px; }
-    .cond-table input.cond-expr {
+    .cond-table textarea.cond-expr {
       width: 100%;
       font-size: 11px;
+      height: 24px;
+      min-height: 24px;
+      max-height: 240px;
+      resize: none;
+      overflow: hidden;
     }
-    .cond-table input.cond-expr.cond-bad {
+    .cond-table .cond-expr.cond-bad {
       border-color: var(--danger);
       background: var(--danger-soft);
+    }
+    .floating-text-editor {
+      position: fixed !important;
+      z-index: 3000 !important;
+      margin: 0 !important;
+      max-width: none !important;
+      max-height: none !important;
+      background: var(--field-bg) !important;
+      color: var(--field-text) !important;
+      border: 1px solid var(--primary) !important;
+      box-shadow: var(--shadow-pop) !important;
+      resize: none !important;
+      overflow: auto !important;
+    }
+    .tile-table input.tile-text-input:not(:focus) {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
     .cond-err {
       color: var(--danger-text);
@@ -7149,6 +7172,24 @@ function nearestScrollParent(el) {
 // recorta. Se llama con la lista ya visible para poder medir su alto real.
 function positionAutocomplete(wrap, list) {
   wrap.classList.remove("drop-up");
+  const floating = wrap.querySelector('.floating-text-editor');
+  if (floating) {
+    if (!list.hasAttribute('data-floating-style')) list.setAttribute('data-floating-style', list.style.cssText);
+    const rect = floating.getBoundingClientRect();
+    const below = window.innerHeight - rect.bottom - 8;
+    const above = rect.top - 8;
+    const up = below < Math.min(list.scrollHeight, 200) && above > below;
+    Object.assign(list.style, { position: 'fixed', left: `${rect.left}px`, right: 'auto',
+      width: `${rect.width}px`, minWidth: '0', maxWidth: `${rect.width}px`,
+      top: up ? 'auto' : `${rect.bottom}px`,
+      bottom: up ? `${window.innerHeight - rect.top}px` : 'auto',
+      maxHeight: `${Math.max(0, Math.min(200, up ? above : below))}px`, zIndex: '3001' });
+    return;
+  }
+  if (list.hasAttribute('data-floating-style')) {
+    list.style.cssText = list.getAttribute('data-floating-style');
+    list.removeAttribute('data-floating-style');
+  }
   const rect = wrap.getBoundingClientRect();
   const sp = nearestScrollParent(wrap);
   const topBound = sp ? sp.getBoundingClientRect().top : 0;
@@ -12225,9 +12266,9 @@ function renderRulesTab() {
       return `<tr>
         <td class="cond-then">${escapeHtml(t("rules.if"))}</td>
         <td class="cond-expr-cell"><div class="autocomplete cond-expr-ac">
-          <input type="text" class="cond-expr${err ? " cond-bad" : ""}"
-             data-cr="${k}|whenExpr" value="${escapeHtml(expr)}"
-             placeholder="${escapeHtml(t("rules.conditionExample"))}" />
+          <textarea class="cond-expr${err ? " cond-bad" : ""}" rows="1"
+             data-cr="${k}|whenExpr"
+             placeholder="${escapeHtml(t("rules.conditionExample"))}">${escapeHtml(expr)}</textarea>
           <div class="autocomplete-list"></div>
         </div>
           <div class="cond-err" data-cr-err="${k}">${err ? escapeHtml(err) : ""}</div></td>
@@ -12261,12 +12302,13 @@ function renderRulesTab() {
       const sevOpts = TILE_SEVERITIES.map(([v, l]) =>
         `<option value="${v}"${tile.severity === v ? " selected" : ""}>${escapeHtml(t(l))}</option>`).join("");
       return `<tr>
-        <td><input type="text" data-tr="${k}|text" value="${escapeHtml(tile.text)}" placeholder="${escapeHtml(t("rules.tileTextPlaceholder"))}" style="width:110px" /></td>
+        <td><input type="text" class="tile-text-input" data-tr="${k}|text" value="${escapeHtml(tile.text)}"
+          title="${escapeHtml(tile.text)}" placeholder="${escapeHtml(t("rules.tileTextPlaceholder"))}" style="width:110px" /></td>
         <td><input type="text" data-tr="${k}|message" value="${escapeHtml(tile.message || "")}" placeholder="${escapeHtml(t("rules.tileMessagePlaceholder"))}" style="min-width:190px" /></td>
         <td class="cond-expr-cell"><div class="autocomplete cond-expr-ac">
-          <input type="text" class="cond-expr${err ? " cond-bad" : ""}"
-             data-tr="${k}|whenExpr" value="${escapeHtml(expr)}"
-             placeholder="${escapeHtml(t("rules.tileConditionPlaceholder"))}" />
+          <textarea class="cond-expr${err ? " cond-bad" : ""}" rows="1"
+             data-tr="${k}|whenExpr"
+             placeholder="${escapeHtml(t("rules.tileConditionPlaceholder"))}">${escapeHtml(expr)}</textarea>
           <div class="autocomplete-list"></div>
         </div>
           <div class="cond-err" data-tr-err="${k}">${err ? escapeHtml(err) : ""}</div></td>
@@ -12496,6 +12538,7 @@ function renderRulesTab() {
       const tile = form && getFormTiles(form)[+idx];
       if (!tile) return;
       tile[prop] = el.value;
+      if (prop === "text") el.title = el.value;
       if (prop === "color") renderRulesTab(); // refresca el color del propio select
       scheduleSave();
     });
@@ -14399,6 +14442,11 @@ function renderSettingsComparison() {
   const wrap = $("settingsComparisonTable");
   if (!wrap) return;
   const category = state.settings.category;
+  document.querySelectorAll("[data-settings-category]").forEach(button => {
+    const active = button.dataset.settingsCategory === category;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
   const orphanMarkup = settingsOrphanMarkup(category, state.settings.view);
   if (state.settings.view === "database") {
     if (!liveState.previous || !liveState.previous.config || !liveState.current || !liveState.current.config) {
@@ -14871,6 +14919,99 @@ function wireKeyboardShortcuts() {
   });
 }
 
+function wireFloatingTextEditors() {
+  let active = null;
+  const properties = ["width", "height", "left", "top"];
+  const restore = () => {
+    if (!active) return;
+    const { input, placeholder, saved } = active;
+    input.classList.remove("floating-text-editor");
+    const wrap = input.closest('.autocomplete');
+    const list = wrap && wrap.querySelector('.autocomplete-list');
+    if (list) positionAutocomplete(wrap, list);
+    properties.forEach(key => {
+      const [value, priority] = saved[key];
+      if (value) input.style.setProperty(key, value, priority);
+      else input.style.removeProperty(key);
+    });
+    placeholder.remove();
+    active = null;
+  };
+  const eligible = input => input instanceof HTMLElement &&
+    // Solo tablas de configuración: los formularios, output, notas y modales
+    // conservan su layout y sus propios mecanismos de edición/redimensionado.
+    !!input.closest('#rulesContainer table.data-table, #dataTableWrap table.data-table') &&
+    input.matches('input[type="text"], textarea') && !input.disabled && !input.readOnly &&
+    !input.matches('[data-rsearch], [type="search"], [data-no-expand]') &&
+    (!input.closest('.autocomplete') || input.classList.contains('cond-expr')) &&
+    !/search/i.test(input.id || "");
+  const position = () => {
+    if (!active) return;
+    const { input, placeholder } = active;
+    if (!input.isConnected || !placeholder.getClientRects().length) { restore(); return; }
+    const anchor = placeholder.getBoundingClientRect();
+    const width = Math.min(active.width, window.innerWidth - 16);
+    const height = Math.min(active.height, window.innerHeight - 16);
+    input.style.setProperty('width', `${width}px`, 'important');
+    input.style.setProperty('height', `${height}px`, 'important');
+    input.style.setProperty('left', `${Math.max(8, Math.min(anchor.left, window.innerWidth - width - 8))}px`, 'important');
+    input.style.setProperty('top', `${Math.max(8, Math.min(anchor.top, window.innerHeight - height - 8))}px`, 'important');
+    const wrap = input.closest('.autocomplete.open');
+    if (wrap) positionAutocomplete(wrap, wrap.querySelector('.autocomplete-list'));
+  };
+  const expand = input => {
+    if (!eligible(input) || document.activeElement !== input) return;
+    if (active && active.input !== input) restore();
+    if (!active) {
+      if (input.scrollWidth <= input.clientWidth + 1 && input.scrollHeight <= input.clientHeight + 1) return;
+      const rect = input.getBoundingClientRect();
+      const style = getComputedStyle(input);
+      const placeholder = document.createElement('span');
+      placeholder.setAttribute('aria-hidden', 'true');
+      // Reserve the original control's box without duplicating IDs or controls.
+      Object.assign(placeholder.style, {
+        display: style.display === 'block' ? 'block' : 'inline-block',
+        width: `${rect.width}px`, height: `${rect.height}px`,
+        margin: style.margin, verticalAlign: style.verticalAlign,
+        flex: style.flex, gridArea: style.gridArea, visibility: 'hidden',
+        pointerEvents: 'none'
+      });
+      const saved = Object.fromEntries(properties.map(key => [key,
+        [input.style.getPropertyValue(key), input.style.getPropertyPriority(key)]]));
+      input.before(placeholder);
+      active = { input, placeholder, saved,
+        width: Math.max(rect.width, Math.min(640, Math.max(360, input.scrollWidth + 20))),
+        height: Math.max(rect.height, input.tagName === 'TEXTAREA' ? 72 : 32) };
+      input.classList.add('floating-text-editor');
+      position();
+    }
+    if (input.tagName === 'TEXTAREA' && input.scrollHeight > input.clientHeight + 1) {
+      active.height = Math.max(active.height, Math.min(320, input.scrollHeight + input.offsetHeight - input.clientHeight));
+      position();
+    }
+  };
+  document.addEventListener('focusin', event => expand(event.target));
+  document.addEventListener('input', event => expand(event.target));
+  document.addEventListener('focusout', event => {
+    if (active && active.input === event.target) restore();
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && active) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      closeAutocomplete(active.input.closest('.autocomplete'), active.input);
+      restore();
+    }
+  }, true);
+  window.addEventListener('resize', position);
+  document.addEventListener('scroll', event => {
+    if (active && event.target !== active.input) position();
+  }, true);
+  new MutationObserver(() => {
+    if (active && !active.input.isConnected) restore();
+  }).observe(document.body, { childList: true, subtree: true });
+}
+
 function wireStaticControls() {
   // Preferencias visuales independientes de config/session: no ensucian el
   // indicador de configuración y se pueden alternar sin perder formularios.
@@ -15175,6 +15316,7 @@ function boot() {
   ensureSessionConsistency();
 
   wireStaticControls();
+  wireFloatingTextEditors();
   wireBidirectionalOutputNavigation();
   wireMediaPanel();
   wireTileInteractions();
