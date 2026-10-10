@@ -5,8 +5,11 @@ regresiones y producir reportes listos para copiar. Funciona como un único
 HTML autocontenido: no necesita compilación, instalación de paquetes, base de
 datos, cuenta de usuario ni servicios externos.
 
-La distribución incluye una muestra sintética precargada y dos formularios
-listos para usar: **Bug** y **Regression**. La interfaz puede cambiar entre
+La distribución incluye una demo de QA AAA inspirada en Assassin’s Creed
+Shadows, Rainbow Six Siege y Project Kestrel (ficticio), con dos formularios:
+**Bug** y **Regression**. Abre el ticket sintético `ACS-18427` de Naoe en Himeji
+Castle. [DEMO.md](DEMO.md) explica los campos condicionales, validaciones y cómo
+cargar una sesión con seis bugs y una regresión completos. La interfaz puede cambiar entre
 español e inglés y ofrece los estilos Día, Noche, Otoño y Neon.
 
 ## Inicio rápido
@@ -35,6 +38,26 @@ La opción `-NoBrowser` evita abrir una ventana automáticamente y `-Port` permi
 usar otro puerto local. Para una ejecución completamente directa, abre
 `bug_tool_multilanguage.html` en cualquier navegador; el HTML contiene una
 configuración de respaldo y puede trabajar sin el servidor.
+
+## Reportar problemas de la herramienta
+
+La bandera roja a la derecha de Settings abre un formulario con nombre o
+número de escritorio opcional, descripción obligatoria y selección de varias
+imágenes o videos. Permite agregar archivos en varias selecciones y quitarlos
+antes de enviar (hasta 20 archivos, 40 MB en total).
+
+Inicia la herramienta con `Start Bug Tool.bat` o `BugTool_Server.ps1` para
+utilizar esta función. El servidor crea `Issues` junto al HTML, los CSV y el
+launcher. Cada reporte tiene una carpeta `mm-dd-yy_HH-mm-ss_01`, con hora local
+de 24 horas y un consecutivo cuando coincide el segundo. Se usan guiones en
+la hora porque Windows no permite `:` en nombres de carpetas.
+
+La carpeta contiene `report.txt`, `report.json` y los adjuntos originales sin
+conversión, con un prefijo numérico para evitar nombres repetidos. Los reportes
+no se incluyen en Git ni al exportar el HTML. Si falla el envío, el formulario
+conserva el texto y los archivos para reintentar; cancelar conserva el borrador
+mientras la página siga abierta. Abrir el HTML directamente permite usar las
+demás funciones, pero guardar un reporte requiere el servidor local.
 
 ## Qué resuelve
 
@@ -112,12 +135,16 @@ globales y tiles informativas. Se pueden configurar:
 - Acciones `show`, `hide`, `disable`, `setDefault`, `valueOf` y `error`.
 - Tiles de contexto, advertencia o error con color, grupo y destino navegable.
 - Comparaciones de texto, pertenencia y números.
-- Condiciones `empty`, `notEmpty`, `contains`, `in`, `not in` e `isAll`.
+- Condiciones `empty`, `notEmpty`, `contains`, `in`, `not in`, `inList` e `isAll`.
 - Operadores `=`, `!=`, `<`, `<=`, `>` y `>=`.
 - Operadores lógicos `AND`, `OR` y `NOT`.
 - `matches` y `not matches`, incluidos patrones `@regla`.
 - Comparaciones entre dos campos y referencias a `key`, colecciones, mirrors y
   filas de Media.
+
+Para comparar un campo contra una lista de DATA por ID, usa `campo inList
+idLista` o `campo contains idLista[]`; ambas formas comprueban si hay algún
+valor coincidente.
 
 Ejemplos:
 
@@ -235,7 +262,9 @@ bug_fields.csv                schema de formularios y campos
 bug_rules.csv                 reglas, condiciones y tiles
 BugTool_Server.ps1            servidor loopback opcional
 Start Bug Tool.bat            launcher de Windows
-DEMO.md                       descripción de la muestra sintética
+DEMO.md                       recorrido y pruebas de la demo QA AAA
+examples/aaa-qa-session.json   seis bugs y una regresión ficticios
+tests/aaa-qa-demo.cjs          comprobación integrada con Playwright
 bug_*README.md                referencia de los CSV
 ```
 

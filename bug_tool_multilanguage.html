@@ -425,6 +425,59 @@
       font-weight: 500;
       white-space: nowrap;
     }
+    .issue-report-button {
+      box-sizing: border-box;
+      align-self: center;
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0;
+      width: 40px;
+      height: 30px;
+      margin-inline-start: 8px;
+      padding: 2px 9px;
+      overflow: hidden;
+      border: 1px solid transparent;
+      background: transparent;
+      color: #ff6262;
+      cursor: pointer;
+      font: 21px/1.2 "Segoe UI Symbol", "Apple Symbols", sans-serif;
+      transition: width 220ms cubic-bezier(.2, .8, .2, 1),
+        background-color 160ms ease, color 160ms ease;
+    }
+    .issue-report-button:hover,
+    .issue-report-button:focus-visible {
+      width: 100px;
+      background: var(--topbar-active);
+      color: #ff9898;
+    }
+    .issue-report-button:focus-visible { outline: 2px solid #fca5a5; outline-offset: 2px; }
+    .issue-report-button-label {
+      max-width: 0;
+      margin-inline-start: 0;
+      overflow: hidden;
+      opacity: 0;
+      white-space: nowrap;
+      font: 650 11px/1.2 system-ui, sans-serif;
+      transition: max-width 200ms ease, margin-inline-start 200ms ease, opacity 120ms ease;
+    }
+    .issue-report-button:hover .issue-report-button-label,
+    .issue-report-button:focus-visible .issue-report-button-label {
+      max-width: 48px;
+      margin-inline-start: 8px;
+      opacity: 1;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .issue-report-button, .issue-report-button-label { transition: none; }
+    }
+    .issue-report-form { display: grid; gap: 12px; }
+    .issue-report-form label { display: grid; gap: 5px; }
+    .issue-report-form textarea { width: 100%; min-height: 130px; resize: vertical; }
+    .issue-report-files { padding: 0; list-style: none; max-height: 160px; overflow: auto; }
+    .issue-report-files li { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; }
+    .issue-report-files span { flex: 1; overflow-wrap: anywhere; }
+    .issue-report-error { color: var(--danger-text); white-space: pre-wrap; }
+    .modal:has(.issue-report-form) { width: min(560px, calc(100vw - 24px)); min-width: 0; }
     .top-tab:hover { color: #fff; }
     .top-tab.active {
       color: #fff;
@@ -1521,6 +1574,123 @@
     }
     .cond-table td { white-space: nowrap; }
     .cond-then { color: var(--accent-text); font-weight: 700; font-size: 10px; text-transform: uppercase; }
+    .cond-table.conditional-rules-table { table-layout: fixed; min-width: 900px; }
+    .cond-table.conditional-rules-table thead tr:first-child th { top: -13px; z-index: 3; }
+    .cond-table.conditional-rules-table thead tr:nth-child(2) th { top: 13px; z-index: 2; }
+    .conditional-rules-table .condition-group-heading { text-align: left; }
+    .conditional-rules-table .condition-active-cell,
+    .conditional-rules-table .condition-order-cell,
+    .conditional-rules-table .condition-delete-cell { text-align: center; vertical-align: middle; }
+    .conditional-rules-table .condition-active-cell input { margin: 0; accent-color: var(--primary); }
+    .condition-row > td {
+      background: var(--surface);
+      border-top-color: color-mix(in srgb, var(--condition-row-color) 68%, var(--border-soft)) !important;
+      border-bottom-color: color-mix(in srgb, var(--condition-row-color) 68%, var(--border-soft)) !important;
+    }
+    .condition-row > td:first-child {
+      background: radial-gradient(ellipse at 8% 50%,
+        color-mix(in srgb, var(--condition-row-bg) 92%, transparent) 0%,
+        color-mix(in srgb, var(--condition-row-bg) 54%, transparent) 48%, transparent 100%),
+        var(--surface);
+    }
+    .condition-row > td:nth-child(2) {
+      background: linear-gradient(90deg,
+        color-mix(in srgb, var(--condition-row-bg) 32%, transparent) 0%, transparent 100%),
+        var(--surface);
+    }
+    .condition-row > td:nth-child(3) {
+      background: linear-gradient(90deg,
+        color-mix(in srgb, var(--condition-row-bg) 10%, transparent) 0%, transparent 65%),
+        var(--surface);
+    }
+    .condition-row > td:first-child { border-left: 2px solid var(--condition-row-color) !important; }
+    .condition-row > td:last-child { border-right: 2px solid var(--condition-row-color) !important; }
+    .conditional-rules-table .condition-row:hover > td {
+      background-color: var(--surface-2);
+      background-image: none;
+    }
+    .conditional-rules-table .condition-row:hover > td:first-child {
+      background-image: radial-gradient(ellipse at 8% 50%,
+        color-mix(in srgb, var(--condition-row-bg) 96%, transparent) 0%,
+        color-mix(in srgb, var(--condition-row-bg) 62%, transparent) 48%, transparent 100%);
+    }
+    .conditional-rules-table .condition-row:hover > td:nth-child(2) {
+      background-image: linear-gradient(90deg,
+        color-mix(in srgb, var(--condition-row-bg) 38%, transparent) 0%, transparent 100%);
+    }
+    .conditional-rules-table .condition-row:hover > td:nth-child(3) {
+      background-image: linear-gradient(90deg,
+        color-mix(in srgb, var(--condition-row-bg) 13%, transparent) 0%, transparent 65%);
+    }
+    .tile-table { table-layout: fixed; min-width: 1091px; }
+    .tile-table .tile-color-cell,
+    .tile-table .tile-order-cell,
+    .tile-table .tile-delete-cell { text-align: center; vertical-align: middle; }
+    .tile-table .tile-config-row > td {
+      background: var(--surface);
+      border-top-color: color-mix(in srgb, var(--tile-row-color) 68%, var(--border-soft)) !important;
+      border-bottom-color: color-mix(in srgb, var(--tile-row-color) 68%, var(--border-soft)) !important;
+    }
+    .tile-table .tile-config-row > td:first-child {
+      background: radial-gradient(ellipse at 8% 50%,
+        color-mix(in srgb, var(--tile-row-bg) 92%, transparent) 0%,
+        color-mix(in srgb, var(--tile-row-bg) 54%, transparent) 48%, transparent 100%),
+        var(--surface);
+      border-left: 2px solid var(--tile-row-color) !important;
+    }
+    .tile-table .tile-config-row > td:nth-child(2) {
+      background: linear-gradient(90deg,
+        color-mix(in srgb, var(--tile-row-bg) 32%, transparent) 0%, transparent 100%),
+        var(--surface);
+    }
+    .tile-table .tile-config-row > td:nth-child(3) {
+      background: linear-gradient(90deg,
+        color-mix(in srgb, var(--tile-row-bg) 10%, transparent) 0%, transparent 65%),
+        var(--surface);
+    }
+    .tile-table .tile-config-row > td:last-child { border-right: 2px solid var(--tile-row-color) !important; }
+    .tile-table .tile-config-row:hover > td {
+      background-color: var(--surface-2);
+      background-image: none;
+    }
+    .tile-table .tile-config-row:hover > td:first-child {
+      background-image: radial-gradient(ellipse at 8% 50%,
+        color-mix(in srgb, var(--tile-row-bg) 96%, transparent) 0%,
+        color-mix(in srgb, var(--tile-row-bg) 62%, transparent) 48%, transparent 100%);
+    }
+    .tile-table .tile-config-row:hover > td:nth-child(2) {
+      background-image: linear-gradient(90deg,
+        color-mix(in srgb, var(--tile-row-bg) 38%, transparent) 0%, transparent 100%);
+    }
+    .tile-table .tile-config-row:hover > td:nth-child(3) {
+      background-image: linear-gradient(90deg,
+        color-mix(in srgb, var(--tile-row-bg) 13%, transparent) 0%, transparent 65%);
+    }
+    .tile-table .tile-color-sel { width: 100%; min-width: 58px; }
+    .condition-row.is-inactive > td:not(.condition-active-cell) {
+      filter: grayscale(1);
+      opacity: .48;
+    }
+    .condition-row.is-inactive > td:first-child {
+      background: var(--surface-2);
+      border-color: var(--border-soft) !important;
+    }
+    .condition-row.is-inactive > td:last-child { border-right-color: var(--border-soft) !important; }
+    .condition-row.is-inactive > td:not(.condition-active-cell) input,
+    .condition-row.is-inactive > td:not(.condition-active-cell) select,
+    .condition-row.is-inactive > td:not(.condition-active-cell) textarea { cursor: not-allowed; }
+    .rules-drag-handle {
+      cursor: grab;
+      touch-action: none;
+      min-width: 26px;
+      padding-inline: 5px;
+      line-height: 1;
+    }
+    .rules-drag-handle:active { cursor: grabbing; }
+    .rules-drag-handle:disabled { cursor: not-allowed; }
+    .condition-row.is-dragging, .tile-table tr.is-dragging { opacity: .38; }
+    .condition-row.drop-before > td, .tile-table tr.drop-before > td { box-shadow: inset 0 2px var(--primary); }
+    .condition-row.drop-after > td, .tile-table tr.drop-after > td { box-shadow: inset 0 -2px var(--primary); }
     .cond-expr-cell { white-space: normal; min-width: 320px; }
     .cond-table textarea.cond-expr {
       width: 100%;
@@ -2502,7 +2672,7 @@
 
       window.__BUG_TOOL_APPEARANCE_OPTIONS__ = APPEARANCE_OPTIONS;
 
-      var PROJECT_ID = "public-demo";
+      var PROJECT_ID = "aaa-qa-demo";
       var prefsKey = "bugtool:" + PROJECT_ID + ":preferences";
       window.__BUG_TOOL_PROJECT_ID__ = PROJECT_ID;
       window.__BUG_TOOL_PREFERENCES_KEY__ = prefsKey;
@@ -2566,6 +2736,8 @@
     <div class="top-tab" data-tab="data" data-i18n="tabs.data" role="tab" tabindex="0">Data</div>
     <div class="top-tab" data-tab="rules" data-i18n="tabs.rules" role="tab" tabindex="0">Rules</div>
     <div class="top-tab" data-tab="settings" data-i18n="tabs.settings" role="tab" tabindex="0">Settings</div>
+    <button type="button" id="issueReportBtn" class="issue-report-button" data-i18n-title="issue.title"
+      data-i18n-aria="issue.title" title="Reportar un problema" aria-label="Reportar un problema"><span aria-hidden="true">&#9873;&#65038;</span><span class="issue-report-button-label" data-i18n="issue.buttonLabel">Error</span></button>
     <div class="top-right">
       <span class="config-chip" id="configChip" data-i18n="config.modified"
         data-i18n-title="config.modifiedTitle"
@@ -2763,94 +2935,523 @@
 <!-- MONOLITH:SECTION vanilla-config START -->
 <script type="application/json" id="vanillaConfig">
 {
-  "version": 2,
-  "projectId": "public-demo",
+  "version": 3,
+  "projectId": "aaa-qa-demo",
   "data": {
     "lists": {
       "products": [
-        "Portal de informes (demo)",
-        "Gestor documental (demo)"
+        "Assassin's Creed Shadows",
+        "Rainbow Six Siege",
+        "Project Kestrel (fictional)"
       ],
       "statuses": [
-        "Abierto",
-        "En análisis",
-        "Resuelto",
-        "Cerrado"
+        "Open",
+        "In triage",
+        "In progress",
+        "Resolved",
+        "Closed",
+        "Reopened"
+      ],
+      "issueTypes": [
+        "Bug",
+        "Crash",
+        "Performance",
+        "Network / Desync",
+        "Localization",
+        "Accessibility"
       ],
       "priorities": [
-        "P0 - Urgente",
-        "P1 - Alta",
+        "P0 - Critical",
+        "P1 - High",
         "P2 - Normal",
-        "P3 - Baja"
+        "P3 - Low",
+        "P4 - Backlog"
       ],
       "severities": [
-        "Bloqueante",
-        "Mayor",
-        "Menor"
+        "Blocker",
+        "Critical",
+        "Major",
+        "Minor",
+        "Cosmetic"
       ],
       "resolutions": [
-        "Pendiente",
-        "Corregido",
-        "Duplicado",
-        "No reproducible"
+        "Unresolved",
+        "Fixed",
+        "Duplicate",
+        "Cannot reproduce",
+        "By design",
+        "Deferred"
       ],
       "platforms": [
-        "Linux",
-        "Windows",
-        "macOS"
+        "PlayStation 5",
+        "PlayStation 5 Pro",
+        "Xbox Series X",
+        "Xbox Series S",
+        "PC - Windows 11"
       ],
-      "browsers": [
-        "Chromium",
-        "Firefox",
-        "WebKit"
+      "pcPlatforms": [
+        "PC - Windows 11"
+      ],
+      "consolePlatforms": [
+        "PlayStation 5",
+        "PlayStation 5 Pro",
+        "Xbox Series X",
+        "Xbox Series S"
       ],
       "environments": [
-        "Local - datos sintéticos",
-        "Pruebas - datos sintéticos"
+        "Development / QA",
+        "Certification lab",
+        "Staging - synthetic accounts",
+        "Offline test bench"
+      ],
+      "branches": [
+        "release/1.0",
+        "main/qa-nightly",
+        "hotfix/traversal",
+        "performance/capture",
+        "network/replication"
+      ],
+      "renderModes": [
+        "Performance - 60 fps",
+        "Quality - 30 fps",
+        "Balanced - 40 fps",
+        "Uncapped - PC"
+      ],
+      "inputDevices": [
+        "DualSense",
+        "DualSense Edge",
+        "Xbox Wireless Controller",
+        "Keyboard + mouse",
+        "Adaptive controller"
+      ],
+      "languages": [
+        "en-US",
+        "es-MX",
+        "es-ES",
+        "fr-FR",
+        "de-DE",
+        "ja-JP",
+        "ar-SA",
+        "pt-BR"
+      ],
+      "timeOfDay": [
+        "Dawn",
+        "Day",
+        "Dusk",
+        "Night"
+      ],
+      "weather": [
+        "Clear",
+        "Rain",
+        "Fog",
+        "Snow",
+        "Storm"
+      ],
+      "questStates": [
+        "Not started",
+        "Active - objective 2/4",
+        "Completed",
+        "Failed",
+        "Replay / memory"
+      ],
+      "combatStates": [
+        "Exploration",
+        "Stealth",
+        "Combat",
+        "Traversal",
+        "Cinematic",
+        "Loading / respawn"
+      ],
+      "gameModes": [
+        "Ranked",
+        "Standard",
+        "Quick Match",
+        "Custom Game",
+        "Training"
+      ],
+      "networkModes": [
+        "Offline",
+        "LAN test",
+        "Online - dedicated server",
+        "Online - peer host"
+      ],
+      "serverRegions": [
+        "US Central - QA",
+        "EU West - QA",
+        "Brazil South - QA",
+        "Japan East - QA"
+      ],
+      "teams": [
+        "Gameplay / Traversal",
+        "World / Streaming",
+        "Online / Replication",
+        "UI / Localization",
+        "Performance / Rendering",
+        "Accessibility / Input"
+      ],
+      "gpuModels": [
+        "NVIDIA RTX 4080 (test rig)",
+        "AMD RX 7900 XTX (test rig)",
+        "Intel Arc A770 (test rig)"
+      ],
+      "crashTypes": [
+        "Unhandled exception",
+        "GPU device removed",
+        "Out of memory",
+        "Watchdog timeout",
+        "Application termination"
+      ],
+      "crashStages": [
+        "Boot / splash",
+        "Loading save",
+        "Fast travel",
+        "Gameplay",
+        "Match end",
+        "Suspend / resume"
+      ],
+      "accessibilityFeatures": [
+        "Large subtitles",
+        "High contrast UI",
+        "Colorblind - Deuteranopia",
+        "Hold instead of toggle",
+        "Remapped controls",
+        "Screen narration"
+      ],
+      "evidenceTypes": [
+        "Video capture",
+        "Position screenshot",
+        "Debug log",
+        "Test save",
+        "Profiler capture",
+        "Network trace",
+        "Crash dump"
+      ],
+      "coveragePlatforms": [
+        "PlayStation 5",
+        "PlayStation 5 Pro",
+        "Xbox Series X",
+        "Xbox Series S",
+        "PC - Windows 11"
       ],
       "regressionStatuses": [
-        "Pendiente",
-        "Verificado Corregido",
-        "Aún Presente",
-        "No Reproducible"
+        "Pending",
+        "Verified Fixed",
+        "Still Present",
+        "Cannot Reproduce",
+        "Blocked"
       ],
       "mediaTypes": [
-        "Captura",
-        "Registro",
-        "InformePrueba"
+        "Repro.mp4",
+        "Position.png",
+        "DebugLog.txt",
+        "CrashDump.dmp",
+        "ConsoleCrash.log",
+        "Profiler.csv",
+        "NetworkTrace.pcap",
+        "TestSave.sav"
+      ],
+      "keywordSuggestions": [
+        "qa-gate",
+        "edge-case",
+        "physics-loop",
+        "checkpoint-recovery",
+        "nightly-only",
+        "crash",
+        "perf-budget",
+        "packet-loss",
+        "rtl-layout",
+        "input-remap",
+        "cert-risk"
+      ],
+      "flightPhases": [
+        "Launch",
+        "Cruise",
+        "Approach",
+        "Docking",
+        "Emergency landing"
+      ],
+      "vehicles": [
+        "Kestrel Mk II",
+        "Peregrine cargo rig",
+        "Swift training glider"
       ]
     },
     "childLists": {
       "components": {
         "parent": "products",
         "values": {
-          "Portal de informes (demo)": [
-            "Exportación CSV",
-            "Filtros",
-            "Tabla de resultados"
+          "Assassin's Creed Shadows": [
+            "Gameplay / Traversal",
+            "Combat / AI",
+            "World / Streaming",
+            "Quests / Progression",
+            "UI / HUD",
+            "Audio"
           ],
-          "Gestor documental (demo)": [
-            "Búsqueda",
-            "Importación",
-            "Metadatos"
+          "Rainbow Six Siege": [
+            "Gameplay / Operators",
+            "Online / Replication",
+            "Matchmaking",
+            "UI / HUD",
+            "Rendering / Performance"
+          ],
+          "Project Kestrel (fictional)": [
+            "Flight / Controls",
+            "Co-op / Sync",
+            "World / Streaming",
+            "UI / Localization",
+            "Accessibility"
+          ]
+        }
+      },
+      "characters": {
+        "parent": "products",
+        "values": {
+          "Assassin's Creed Shadows": [
+            "Naoe",
+            "Yasuke"
+          ],
+          "Rainbow Six Siege": [
+            "Ash",
+            "Sledge",
+            "Hibana",
+            "Doc",
+            "Valkyrie",
+            "Azami"
+          ],
+          "Project Kestrel (fictional)": [
+            "Mira (test pilot)",
+            "Rook (test engineer)",
+            "Sable (test navigator)"
+          ]
+        }
+      },
+      "regions": {
+        "parent": "products",
+        "values": {
+          "Assassin's Creed Shadows": [
+            "Harima",
+            "Kyoto",
+            "Iga",
+            "Omi"
+          ],
+          "Rainbow Six Siege": [
+            "Clubhouse",
+            "Bank",
+            "Oregon",
+            "Consulate",
+            "Border"
+          ],
+          "Project Kestrel (fictional)": [
+            "Glass Coast",
+            "Ember Basin",
+            "Skybreak Ridge"
+          ]
+        }
+      },
+      "locations": {
+        "parent": "regions",
+        "values": {
+          "Harima": [
+            "Himeji Castle - western rooftops",
+            "Himeji Castle - inner courtyard",
+            "Harbor training route"
+          ],
+          "Kyoto": [
+            "Northern market rooftops",
+            "Temple test courtyard"
+          ],
+          "Iga": [
+            "Forest hideout",
+            "River crossing"
+          ],
+          "Omi": [
+            "Lakeside fort",
+            "Mountain checkpoint"
+          ],
+          "Clubhouse": [
+            "CCTV room",
+            "Cash room",
+            "Garage"
+          ],
+          "Bank": [
+            "Vault lobby",
+            "Server room"
+          ],
+          "Oregon": [
+            "Dormitory",
+            "Laundry"
+          ],
+          "Consulate": [
+            "Garage",
+            "Meeting room"
+          ],
+          "Border": [
+            "Armory",
+            "Customs"
+          ],
+          "Glass Coast": [
+            "Beacon 07",
+            "Hangar Delta"
+          ],
+          "Ember Basin": [
+            "Relay tower",
+            "Thermal canyon"
+          ],
+          "Skybreak Ridge": [
+            "Observation deck",
+            "Wind tunnel"
+          ]
+        }
+      },
+      "missions": {
+        "parent": "products",
+        "values": {
+          "Assassin's Creed Shadows": [
+            "QA_TRV_014 - West rooftop route",
+            "QA_QST_028 - Castle infiltration",
+            "QA_WLD_006 - Fast travel loop"
+          ],
+          "Rainbow Six Siege": [
+            "QA_NET_011 - Round transition",
+            "QA_OPR_023 - Gadget interaction"
+          ],
+          "Project Kestrel (fictional)": [
+            "QA_FLT_004 - Crosswind landing",
+            "QA_LOC_019 - Arabic briefing",
+            "QA_ACC_007 - Remapped docking"
           ]
         }
       }
     },
     "listMeta": {
       "products": {
-        "label": "Producto"
+        "label": "Proyecto"
+      },
+      "statuses": {
+        "label": "Estado"
+      },
+      "issueTypes": {
+        "label": "Tipo de incidencia"
+      },
+      "priorities": {
+        "label": "Prioridad"
+      },
+      "severities": {
+        "label": "Severidad"
+      },
+      "resolutions": {
+        "label": "Resolución"
+      },
+      "platforms": {
+        "label": "Plataforma"
+      },
+      "pcPlatforms": {
+        "label": "Plataformas PC"
+      },
+      "consolePlatforms": {
+        "label": "Consolas"
+      },
+      "environments": {
+        "label": "Entorno de prueba"
+      },
+      "branches": {
+        "label": "Rama"
+      },
+      "renderModes": {
+        "label": "Modo gráfico"
+      },
+      "inputDevices": {
+        "label": "Dispositivo de entrada"
+      },
+      "languages": {
+        "label": "Idioma del juego"
+      },
+      "timeOfDay": {
+        "label": "Hora del mundo"
+      },
+      "weather": {
+        "label": "Clima"
+      },
+      "questStates": {
+        "label": "Estado de misión"
+      },
+      "combatStates": {
+        "label": "Estado del jugador"
+      },
+      "gameModes": {
+        "label": "Modo de juego"
+      },
+      "networkModes": {
+        "label": "Conexión"
+      },
+      "serverRegions": {
+        "label": "Región del servidor"
+      },
+      "teams": {
+        "label": "Equipo QA"
+      },
+      "gpuModels": {
+        "label": "GPU"
+      },
+      "crashTypes": {
+        "label": "Tipo de crash"
+      },
+      "crashStages": {
+        "label": "Fase del crash"
+      },
+      "accessibilityFeatures": {
+        "label": "Funciones de accesibilidad"
+      },
+      "evidenceTypes": {
+        "label": "Evidencias disponibles"
+      },
+      "coveragePlatforms": {
+        "label": "Cobertura de plataformas"
+      },
+      "regressionStatuses": {
+        "label": "Resultado de verificación"
+      },
+      "mediaTypes": {
+        "label": "Tipos de evidencia"
+      },
+      "keywordSuggestions": {
+        "label": "Keywords sugeridas"
+      },
+      "flightPhases": {
+        "label": "Fases de vuelo"
+      },
+      "vehicles": {
+        "label": "Vehículos"
       },
       "components": {
         "label": "Componente"
+      },
+      "characters": {
+        "label": "Personaje / operador"
+      },
+      "regions": {
+        "label": "Región / mapa"
+      },
+      "locations": {
+        "label": "Ubicación / punto de interés"
+      },
+      "missions": {
+        "label": "Misión / escenario"
       }
     },
     "rules": {
-      "media_fmt": "{type}_{issueId}_{platform}_{cl}_(1)",
-      "issue_re": "^DEMO-[0-9]+$",
-      "version_re": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "media_fmt": "{issueId}_{platformCode}_{type}",
+      "issue_re": "^(ACS|R6S|KES)-[0-9]{4,6}$",
+      "version_re": "^[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+$",
       "count_re": "^[0-9]+$",
-      "default_environment": "Local - datos sintéticos"
+      "number_re": "^[0-9]+(?:\\.[0-9]+)?$",
+      "coordinates_re": "^X=-?[0-9]+(?:\\.[0-9]+)?; Y=-?[0-9]+(?:\\.[0-9]+)?; Z=-?[0-9]+(?:\\.[0-9]+)?$",
+      "date_re": "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$",
+      "crash_re": "(?\u003c!\\bno\\s)(?\u003c!\\bwithout\\s)(?\u003c!\\bsin\\s)(?\u003c!\\bnon-)(?\u003c!\\bnot a\\s)\\bcrash(?:es|ed|ing)?\\b",
+      "default_environment": "Development / QA",
+      "network_context": "networkMode in (\"Online - dedicated server\", \"Online - peer host\") OR issueType = \"Network / Desync\"",
+      "crash_context": "issueType = \"Crash\" OR shortDescription matches @crash_re OR description matches @crash_re OR preconditions matches @crash_re OR reproSteps matches @crash_re OR actual matches @crash_re OR expected matches @crash_re OR impact matches @crash_re OR workaround matches @crash_re OR additionalInfo matches @crash_re OR keywords matches @crash_re OR attachments matches @crash_re"
     }
   },
   "schema": {
@@ -2868,250 +3469,470 @@
                 "id": "shortDescription",
                 "label": "Resumen",
                 "type": "text",
-                "default": "La exportación CSV incluye filas excluidas por el filtro",
-                "template": "{value}",
+                "default": "Naoe becomes stuck in falling animation after performing a wall eject near Himeji Castle",
+                "template": "[{platformCode}][{component}] {value}",
                 "required": true
               }
             ],
-            "sep": " - "
+            "sep": ""
           },
           {
             "id": "identification",
             "label": "Identificación y clasificación",
             "mode": "lines",
-            "heading": "**Identificación y clasificación:**",
             "fields": [
               {
                 "id": "issueId",
-                "label": "ID de muestra",
+                "label": "ID del ticket",
                 "type": "text",
-                "default": "DEMO-001",
-                "template": "ID de muestra: {value}",
-                "size": "half",
-                "required": true,
+                "size": "third",
+                "default": "ACS-18427",
+                "template": "Issue: {value}",
                 "regex": "@issue_re",
-                "regexMsg": "Usa DEMO- seguido de un número."
-              },
-              {
-                "id": "team",
-                "label": "Equipo",
-                "type": "text",
-                "default": "Equipo de ejemplo",
-                "template": "Equipo: {value}",
-                "size": "half"
+                "regexMsg": "Usa ACS-, R6S- o KES- y de 4 a 6 dígitos.",
+                "required": true
               },
               {
                 "id": "product",
-                "label": "Producto",
+                "label": "Proyecto",
                 "type": "autocomplete",
-                "default": "Portal de informes (demo)",
-                "template": "Producto: {value}",
                 "source": "products",
+                "size": "twoThirds",
+                "default": "Assassin's Creed Shadows",
+                "template": "Project: {value}",
+                "required": true
+              },
+              {
+                "id": "issueType",
+                "label": "Tipo de incidencia",
+                "type": "autocomplete",
+                "source": "issueTypes",
                 "size": "third",
+                "default": "Bug",
+                "template": "Issue type: {value}",
                 "required": true
               },
               {
                 "id": "component",
                 "label": "Componente",
                 "type": "autocomplete",
-                "default": "Exportación CSV",
-                "template": "Componente: {value}",
                 "source": "child:components:product",
-                "size": "third",
+                "size": "twoThirds",
+                "default": "Gameplay / Traversal",
+                "template": "Component: {value}",
                 "required": true
               },
               {
                 "id": "status",
                 "label": "Estado",
                 "type": "autocomplete",
-                "default": "Abierto",
-                "template": "Estado: {value}",
                 "source": "statuses",
                 "size": "third",
+                "default": "Open",
+                "template": "Status: {value}",
                 "required": true
               },
               {
                 "id": "priority",
                 "label": "Prioridad",
                 "type": "autocomplete",
-                "default": "P2 - Normal",
-                "template": "Prioridad: {value}",
                 "source": "priorities",
                 "size": "third",
+                "default": "P2 - Normal",
+                "template": "Priority: {value}",
                 "required": true
               },
               {
                 "id": "severity",
                 "label": "Severidad",
                 "type": "autocomplete",
-                "default": "Mayor",
-                "template": "Severidad: {value}",
                 "source": "severities",
                 "size": "third",
+                "default": "Major",
+                "template": "Severity: {value}",
+                "required": true
+              },
+              {
+                "id": "team",
+                "label": "Equipo QA",
+                "type": "autocomplete",
+                "source": "teams",
+                "size": "half",
+                "default": "Gameplay / Traversal",
+                "template": "QA team: {value}"
+              },
+              {
+                "id": "created",
+                "label": "Fecha de creación",
+                "type": "text",
+                "size": "half",
+                "default": "2026-10-10",
+                "template": "Created: {value}",
+                "regex": "@date_re",
+                "regexMsg": "Usa el formato AAAA-MM-DD.",
                 "required": true
               },
               {
                 "id": "resolution",
                 "label": "Resolución",
                 "type": "autocomplete",
-                "default": "Pendiente",
-                "template": "Resolución: {value}",
                 "source": "resolutions",
-                "size": "third",
-                "required": true
-              },
-              {
-                "id": "created",
-                "label": "Fecha de creación",
-                "type": "text",
-                "default": "2026-01-15",
-                "template": "Fecha de creación: {value}",
                 "size": "half",
-                "required": true
+                "default": "Unresolved",
+                "template": "Resolution: {value}",
+                "required": true,
+                "hidden": true
               },
               {
                 "id": "resolved",
                 "label": "Fecha de resolución",
                 "type": "text",
-                "template": "Fecha de resolución: {value}",
                 "size": "half",
+                "placeholder": "2026-10-12",
+                "template": "Resolved: {value}",
+                "regex": "@date_re",
+                "required": true,
                 "hidden": true
               }
-            ]
+            ],
+            "heading": "**Ticket metadata**"
           },
           {
             "id": "environment",
-            "label": "Entorno",
+            "label": "Build y entorno",
             "mode": "lines",
-            "heading": "**Entorno:**",
             "fields": [
               {
                 "id": "version",
-                "label": "Versión afectada",
+                "label": "Build afectada (ficticia)",
                 "type": "text",
-                "default": "2.4.0",
-                "template": "Versión afectada: {value}",
                 "size": "third",
-                "required": true,
+                "default": "1.0.0.1842",
+                "template": "Build: {value} (fictional)",
                 "regex": "@version_re",
-                "regexMsg": "Usa una versión de tres números: 2.4.0."
+                "regexMsg": "Usa cuatro números, por ejemplo 1.0.0.1842.",
+                "required": true
               },
               {
                 "id": "cl",
-                "label": "Número de compilación",
+                "label": "Changelist",
                 "type": "text",
-                "default": "2040",
-                "template": "Número de compilación: {value}",
-                "size": "half",
-                "required": true,
+                "size": "third",
+                "default": "1842",
+                "template": "Changelist: {value}",
                 "regex": "@count_re",
-                "regexMsg": "Usa un entero no negativo."
+                "required": true
+              },
+              {
+                "id": "branch",
+                "label": "Rama",
+                "type": "autocomplete",
+                "source": "branches",
+                "size": "third",
+                "default": "release/1.0",
+                "template": "Branch: {value}"
               },
               {
                 "id": "platform",
-                "label": "Sistema operativo",
+                "label": "Plataforma",
                 "type": "autocomplete",
-                "default": "Linux",
-                "template": "Sistema operativo: {value}",
                 "source": "platforms",
                 "size": "third",
+                "default": "PlayStation 5",
+                "template": "Platform: {value}",
                 "required": true
               },
               {
-                "id": "browser",
-                "label": "Navegador",
-                "type": "autocomplete",
-                "default": "Chromium",
-                "template": "Navegador: {value}",
-                "source": "browsers",
-                "size": "third",
-                "required": true
+                "id": "platformCode",
+                "label": "Código de plataforma",
+                "type": "mirror",
+                "template": "{value}",
+                "includeOutput": false
               },
               {
                 "id": "environment",
                 "label": "Entorno de prueba",
                 "type": "autocomplete",
-                "default": "@default_environment",
-                "template": "Entorno de prueba: {value}",
                 "source": "environments",
                 "size": "third",
+                "default": "@default_environment",
+                "template": "Environment: {value}",
                 "required": true
               },
               {
-                "id": "dataset",
-                "label": "Conjunto de prueba",
-                "type": "text",
-                "default": "Tres registros ficticios: DOC-001 y DOC-003 Activo; DOC-002 Archivado.",
-                "template": "Conjunto de prueba: {value}",
+                "id": "renderMode",
+                "label": "Modo gráfico",
+                "type": "autocomplete",
+                "source": "renderModes",
+                "size": "third",
+                "default": "Performance - 60 fps",
+                "template": "Graphics mode: {value}",
                 "required": true
+              },
+              {
+                "id": "inputDevice",
+                "label": "Dispositivo de entrada",
+                "type": "autocomplete",
+                "source": "inputDevices",
+                "size": "half",
+                "default": "DualSense",
+                "template": "Input: {value}",
+                "required": true
+              },
+              {
+                "id": "gameLanguage",
+                "label": "Idioma del juego",
+                "type": "autocomplete",
+                "source": "languages",
+                "size": "half",
+                "default": "en-US",
+                "template": "Game language: {value}",
+                "required": true
+              },
+              {
+                "id": "gpu",
+                "label": "GPU",
+                "type": "autocomplete",
+                "source": "gpuModels",
+                "size": "half",
+                "template": "GPU: {value}",
+                "required": true,
+                "hidden": true
+              },
+              {
+                "id": "driver",
+                "label": "Versión del driver",
+                "type": "text",
+                "size": "half",
+                "placeholder": "561.09 (fictional)",
+                "help": "Aparece sólo en PC; documenta el driver de la máquina de prueba.",
+                "template": "Driver: {value}",
+                "required": true,
+                "hidden": true
               }
-            ]
+            ],
+            "heading": "**Build / Environment**"
+          },
+          {
+            "id": "context",
+            "label": "Contexto del juego",
+            "mode": "lines",
+            "fields": [
+              {
+                "id": "character",
+                "label": "Personaje / operador",
+                "type": "autocomplete",
+                "source": "child:characters:product",
+                "size": "third",
+                "default": "Naoe",
+                "template": "Character / operator: {value}",
+                "required": true
+              },
+              {
+                "id": "region",
+                "label": "Región / mapa",
+                "type": "autocomplete",
+                "source": "child:regions:product",
+                "size": "third",
+                "default": "Harima",
+                "template": "Region / map: {value}",
+                "required": true
+              },
+              {
+                "id": "location",
+                "label": "Ubicación / punto de interés",
+                "type": "autocomplete",
+                "source": "child:locations:region",
+                "size": "third",
+                "default": "Himeji Castle - western rooftops",
+                "template": "Location: {value}",
+                "required": true
+              },
+              {
+                "id": "mission",
+                "label": "Misión / escenario",
+                "type": "autocomplete",
+                "source": "child:missions:product",
+                "size": "full",
+                "default": "QA_TRV_014 - West rooftop route",
+                "template": "Test scenario: {value}",
+                "required": true
+              },
+              {
+                "id": "coordinates",
+                "label": "Coordenadas XYZ",
+                "type": "text",
+                "size": "full",
+                "default": "X=124.50; Y=38.25; Z=-72.10",
+                "template": "Position: {value}",
+                "regex": "@coordinates_re",
+                "regexMsg": "Usa X=124.50; Y=38.25; Z=-72.10.",
+                "required": true,
+                "hidden": true
+              },
+              {
+                "id": "questState",
+                "label": "Estado de misión",
+                "type": "autocomplete",
+                "source": "questStates",
+                "size": "third",
+                "default": "Active - objective 2/4",
+                "template": "Quest state: {value}",
+                "required": true,
+                "hidden": true
+              },
+              {
+                "id": "worldTime",
+                "label": "Hora del mundo",
+                "type": "autocomplete",
+                "source": "timeOfDay",
+                "size": "third",
+                "default": "Dusk",
+                "template": "World time: {value}",
+                "required": true,
+                "hidden": true
+              },
+              {
+                "id": "weather",
+                "label": "Clima",
+                "type": "autocomplete",
+                "source": "weather",
+                "size": "third",
+                "default": "Rain",
+                "template": "Weather: {value}",
+                "required": true,
+                "hidden": true
+              },
+              {
+                "id": "gameState",
+                "label": "Estado del jugador",
+                "type": "autocomplete",
+                "source": "combatStates",
+                "size": "half",
+                "default": "Traversal",
+                "template": "Player state: {value}",
+                "required": true
+              },
+              {
+                "id": "savegame",
+                "label": "Save de prueba",
+                "type": "text",
+                "size": "half",
+                "default": "QA_Himeji_Naoe_WestRoof_04.sav",
+                "template": "Test save: {value}",
+                "regex": "^[A-Za-z0-9_-]+\\.sav$",
+                "regexMsg": "Indica un nombre de save .sav sin rutas.",
+                "required": true,
+                "hidden": true
+              },
+              {
+                "id": "gameMode",
+                "label": "Modo de juego",
+                "type": "autocomplete",
+                "source": "gameModes",
+                "size": "half",
+                "template": "Game mode: {value}",
+                "required": true,
+                "hidden": true
+              },
+              {
+                "id": "round",
+                "label": "Ronda",
+                "type": "text",
+                "size": "half",
+                "placeholder": "3",
+                "template": "Round: {value}",
+                "regex": "@count_re",
+                "required": true,
+                "hidden": true
+              },
+              {
+                "id": "flightPhase",
+                "label": "Fase de vuelo",
+                "type": "autocomplete",
+                "source": "flightPhases",
+                "size": "half",
+                "template": "Flight phase: {value}",
+                "required": true,
+                "hidden": true
+              },
+              {
+                "id": "vehicle",
+                "label": "Vehículo de prueba",
+                "type": "autocomplete",
+                "source": "vehicles",
+                "size": "half",
+                "template": "Test vehicle: {value}",
+                "required": true,
+                "hidden": true
+              }
+            ],
+            "heading": "**Game context**"
           },
           {
             "id": "description",
-            "label": "Descripción",
+            "label": "Descripción y precondiciones",
             "mode": "lines",
-            "heading": "**Descripción:**",
             "fields": [
               {
                 "id": "description",
                 "label": "Descripción",
                 "type": "textarea",
-                "default": "En el portal ficticio, la tabla respeta el filtro Estado = Activo, pero la exportación CSV contiene los tres registros del conjunto completo. Defecto funcional ilustrativo con datos exclusivamente sintéticos.",
-                "template": "Descripción: {value}",
-                "rows": 3,
+                "default": "When performing a wall eject as Naoe near the western rooftops of Himeji Castle, the character may become suspended in mid-air while the falling animation continues to loop. Player movement is disabled, but the pause menu remains accessible.",
+                "template": "{value}",
+                "rows": 4,
                 "required": true
               },
               {
                 "id": "preconditions",
                 "label": "Precondiciones",
                 "type": "textarea",
-                "default": "Abrir la aplicación de demostración con tres registros ficticios. No conectar servicios ni cuentas reales.",
-                "template": "Precondiciones: {value}",
+                "default": "Load the synthetic QA save at Himeji Castle. Naoe is selected, the adjacent roof is streamed in, and no combat encounter is active.",
+                "template": "Preconditions: {value}",
                 "rows": 3,
                 "required": true
               }
-            ]
+            ],
+            "heading": "**Description**"
           },
           {
             "id": "repro",
             "label": "Pasos para reproducir",
             "mode": "lines",
-            "heading": "**Pasos para reproducir:**",
             "fields": [
               {
                 "id": "reproSteps",
                 "label": "Pasos (uno por línea)",
                 "type": "textarea",
-                "default": "Abrir la sección Informes.\nSeleccionar el filtro Estado = Activo.\nComprobar que la tabla muestra DOC-001 y DOC-003.\nPulsar Exportar CSV.\nAbrir el archivo y comparar sus identificadores con la tabla.",
+                "default": "Launch the title using build 1.0.0.1842.\nLoad QA_Himeji_Naoe_WestRoof_04.sav.\nSelect Naoe as the playable character.\nClimb the western exterior wall of Himeji Castle.\nPerform a wall eject toward the adjacent rooftop while holding the movement stick forward.\nObserve the character animation and position.",
                 "template": "# {value}",
-                "rows": 5,
+                "rows": 6,
                 "required": true,
                 "perLine": true
               }
-            ]
+            ],
+            "heading": "**Steps to Reproduce**"
           },
           {
             "id": "results",
-            "label": "Resultados",
+            "label": "Resultados y reproducibilidad",
             "mode": "lines",
-            "heading": "**Resultados:**",
             "fields": [
-              {
-                "id": "expected",
-                "label": "Resultado esperado",
-                "type": "textarea",
-                "default": "El archivo contiene únicamente DOC-001 y DOC-003, las dos filas que cumplen el filtro.",
-                "template": "Resultado esperado: {value}",
-                "rows": 3,
-                "required": true
-              },
               {
                 "id": "actual",
                 "label": "Resultado actual",
                 "type": "textarea",
-                "default": "El archivo contiene DOC-001, DOC-002 y DOC-003. Incluye una fila archivada que no aparece en la tabla.",
-                "template": "Resultado actual: {value}",
+                "default": "Naoe remains suspended in mid-air with a looping falling animation. Movement inputs have no effect.",
+                "template": "Actual result: {value}",
+                "rows": 3,
+                "required": true
+              },
+              {
+                "id": "expected",
+                "label": "Resultado esperado",
+                "type": "textarea",
+                "default": "Naoe should complete the wall eject, land on the adjacent rooftop, and regain normal movement control.",
+                "template": "Expected result: {value}",
                 "rows": 3,
                 "required": true
               },
@@ -3119,99 +3940,480 @@
                 "id": "attempts",
                 "label": "Intentos",
                 "type": "text",
-                "default": "3",
-                "template": "Intentos: {value}",
-                "size": "half",
-                "required": true,
+                "size": "third",
+                "default": "5",
+                "template": "Attempts: {value}",
                 "regex": "@count_re",
-                "regexMsg": "Usa un entero no negativo."
+                "required": true
               },
               {
                 "id": "failures",
                 "label": "Reproducciones",
                 "type": "text",
-                "default": "3",
-                "template": "Reproducciones: {value}",
-                "size": "half",
-                "required": true,
+                "size": "third",
+                "default": "4",
+                "template": "Reproductions: {value}",
                 "regex": "@count_re",
-                "regexMsg": "Usa un entero no negativo."
+                "required": true
+              },
+              {
+                "id": "reproRatio",
+                "label": "Ratio de reproducción",
+                "type": "mirror",
+                "size": "third",
+                "template": "Repro: {failures}/{attempts}"
               }
-            ]
+            ],
+            "heading": "**Results / Reproducibility**"
           },
           {
             "id": "assessment",
-            "label": "Impacto y seguimiento",
+            "label": "Impacto y notas",
             "mode": "lines",
-            "heading": "**Impacto y seguimiento:**",
             "fields": [
               {
                 "id": "impact",
                 "label": "Impacto",
                 "type": "textarea",
-                "default": "El archivo no representa la selección visible y puede producir conteos incorrectos en un informe.",
-                "template": "Impacto: {value}",
-                "rows": 3,
+                "default": "Traversal is blocked until the checkpoint is reloaded. Pause and menus remain usable.",
+                "template": "Impact: {value}",
+                "rows": 2,
                 "required": true
               },
               {
                 "id": "workaround",
                 "label": "Alternativa temporal",
                 "type": "textarea",
-                "default": "Filtrar manualmente el CSV por Estado = Activo antes de utilizarlo.",
-                "template": "Alternativa temporal: {value}",
-                "rows": 3
+                "default": "Reload the last checkpoint to restore normal gameplay.",
+                "template": "Workaround: {value}",
+                "rows": 2
               },
               {
-                "id": "evidence",
-                "label": "Evidencia de muestra",
+                "id": "additionalInfo",
+                "label": "Notas adicionales",
                 "type": "textarea",
-                "default": "Tabla: DOC-001, DOC-003. CSV: DOC-001, DOC-002, DOC-003. Comparación ficticia; no se adjuntan archivos externos.",
-                "template": "Evidencia de muestra: {value}",
-                "rows": 3
+                "default": "Reproduced in 4 out of 5 attempts.\nNot reproduced when performing the same action with Yasuke.\nNo crash or application termination observed.",
+                "template": "* {value}",
+                "rows": 3,
+                "perLine": true
+              },
+              {
+                "id": "keywords",
+                "label": "Keywords",
+                "type": "keywords",
+                "source": "keywordSuggestions",
+                "default": "[\"qa-gate\", \"edge-case\", \"physics-loop\"]",
+                "help": "Mínimo 3 keywords únicas; no deben repetirse en el cuerpo del ticket. Prueba crash para activar los diagnósticos.",
+                "template": "Keywords: {value}",
+                "kwCount": ">=3",
+                "kwSep": ", ",
+                "required": true,
+                "kwOverlap": true,
+                "kwSpace": true
+              },
+              {
+                "id": "coverage",
+                "label": "Plataformas verificadas",
+                "type": "checklist",
+                "source": "coveragePlatforms",
+                "default": "[\"PlayStation 5\"]",
+                "template": "{value}",
+                "checkTitle": "Tested platforms:",
+                "allLabel": "Todas las plataformas",
+                "allOutput": "All configured platforms",
+                "required": true,
+                "allOption": true
+              },
+              {
+                "id": "accessibilityEnabled",
+                "label": "Documentar accesibilidad",
+                "type": "checkbox",
+                "help": "Activa la captura de ajustes de accesibilidad y su resultado esperado."
+              },
+              {
+                "id": "accessibility",
+                "label": "Ajustes de accesibilidad",
+                "type": "checklist",
+                "source": "accessibilityFeatures",
+                "template": "{value}",
+                "checkLayout": "newline",
+                "checkTitle": "Accessibility settings:",
+                "required": true,
+                "hidden": true
+              },
+              {
+                "id": "accessibilityExpected",
+                "label": "Comportamiento accesible esperado",
+                "type": "textarea",
+                "template": "Accessibility expectation: {value}",
+                "rows": 2,
+                "required": true,
+                "hidden": true
+              }
+            ],
+            "heading": "**Additional Information**"
+          },
+          {
+            "id": "network",
+            "label": "Diagnóstico de red",
+            "mode": "lines",
+            "fields": [
+              {
+                "id": "networkMode",
+                "label": "Conexión",
+                "type": "autocomplete",
+                "source": "networkModes",
+                "default": "Offline",
+                "template": "Connection: {value}",
+                "required": true
+              },
+              {
+                "id": "serverRegion",
+                "label": "Región del servidor",
+                "type": "autocomplete",
+                "source": "serverRegions",
+                "size": "third",
+                "template": "Server region: {value}",
+                "required": true,
+                "hidden": true
+              },
+              {
+                "id": "latency",
+                "label": "Latencia (ms)",
+                "type": "text",
+                "size": "third",
+                "placeholder": "42",
+                "template": "Latency: {value} ms",
+                "regex": "@number_re",
+                "required": true,
+                "hidden": true
+              },
+              {
+                "id": "packetLoss",
+                "label": "Pérdida de paquetes (%)",
+                "type": "text",
+                "size": "third",
+                "placeholder": "2.5",
+                "template": "Packet loss: {value}%",
+                "regex": "@number_re",
+                "required": true,
+                "hidden": true
+              },
+              {
+                "id": "networkTrace",
+                "label": "Traza de red",
+                "type": "text",
+                "placeholder": "R6S_22018_NetworkTrace.pcap",
+                "help": "Nombre de evidencia simulada; no sube archivos.",
+                "template": "Network trace: {value}",
+                "regex": "^[A-Za-z0-9_.-]+\\.(pcap|pcapng)$",
+                "required": true,
+                "hidden": true
+              }
+            ],
+            "heading": "**Network diagnostics**"
+          },
+          {
+            "id": "crash",
+            "label": "Diagnóstico de crash",
+            "mode": "lines",
+            "fields": [
+              {
+                "id": "crashType",
+                "label": "Tipo de crash",
+                "type": "autocomplete",
+                "source": "crashTypes",
+                "size": "half",
+                "template": "Crash type: {value}",
+                "required": true,
+                "hidden": true
+              },
+              {
+                "id": "crashStage",
+                "label": "Fase del crash",
+                "type": "autocomplete",
+                "source": "crashStages",
+                "size": "half",
+                "template": "Crash stage: {value}",
+                "required": true,
+                "hidden": true
+              },
+              {
+                "id": "crashSignature",
+                "label": "Firma del crash",
+                "type": "text",
+                "placeholder": "EXCEPTION_ACCESS_VIOLATION / QA-0xC0000005",
+                "template": "Crash signature: {value}",
+                "required": true,
+                "hidden": true
+              },
+              {
+                "id": "crashLog",
+                "label": "Log específico del crash",
+                "type": "text",
+                "placeholder": "ACS_18428_PS5_ConsoleCrash.log",
+                "help": "Se exige al seleccionar Crash o detectar una mención positiva en el ticket. Es un nombre de evidencia ficticia.",
+                "template": "Crash log: {value}",
+                "regex": "^[A-Za-z0-9_.-]+\\.(log|txt)$",
+                "regexMsg": "Usa un nombre de archivo .log o .txt sin rutas.",
+                "required": true,
+                "hidden": true
+              },
+              {
+                "id": "crashDump",
+                "label": "Dump del crash (PC)",
+                "type": "text",
+                "placeholder": "ACS_18428_PC_CrashDump.dmp",
+                "template": "Crash dump: {value}",
+                "regex": "^[A-Za-z0-9_.-]+\\.dmp$",
+                "regexMsg": "En PC se requiere un dump .dmp.",
+                "required": true,
+                "hidden": true
+              },
+              {
+                "id": "consoleReport",
+                "label": "Reporte de crash de consola",
+                "type": "text",
+                "placeholder": "QA-PS5-CR-18428",
+                "template": "Console crash report: {value}",
+                "regex": "^QA-(PS5|PS5Pro|XSX|XSS)-CR-[0-9]{4,6}$",
+                "regexMsg": "Usa QA-PS5-CR-18428 (o PS5Pro, XSX, XSS).",
+                "required": true,
+                "hidden": true
+              }
+            ],
+            "heading": "**Crash diagnostics**"
+          },
+          {
+            "id": "performance",
+            "label": "Captura de rendimiento",
+            "mode": "lines",
+            "fields": [
+              {
+                "id": "targetFps",
+                "label": "FPS objetivo",
+                "type": "text",
+                "size": "third",
+                "placeholder": "60",
+                "template": "Target FPS: {value}",
+                "regex": "@number_re",
+                "required": true,
+                "hidden": true
+              },
+              {
+                "id": "observedFps",
+                "label": "FPS observados",
+                "type": "text",
+                "size": "third",
+                "placeholder": "24.5",
+                "template": "Observed FPS: {value}",
+                "regex": "@number_re",
+                "required": true,
+                "hidden": true
+              },
+              {
+                "id": "frameTime",
+                "label": "Frame time p95 (ms)",
+                "type": "text",
+                "size": "third",
+                "placeholder": "40.8",
+                "template": "Frame time p95: {value} ms",
+                "regex": "@number_re",
+                "required": true,
+                "hidden": true
+              },
+              {
+                "id": "profilerCapture",
+                "label": "Captura del profiler",
+                "type": "text",
+                "placeholder": "ACS_18429_PS5_Profiler.csv",
+                "template": "Profiler capture: {value}",
+                "regex": "^[A-Za-z0-9_.-]+\\.(csv|json|utrace)$",
+                "required": true,
+                "hidden": true
+              }
+            ],
+            "heading": "**Performance diagnostics**"
+          },
+          {
+            "id": "localization",
+            "label": "Contexto de localización",
+            "mode": "lines",
+            "fields": [
+              {
+                "id": "stringId",
+                "label": "ID de string",
+                "type": "text",
+                "placeholder": "UI_BRIEFING_OBJECTIVE_019",
+                "template": "String ID: {value}",
+                "regex": "^[A-Z][A-Z0-9_]+$",
+                "required": true,
+                "hidden": true
+              },
+              {
+                "id": "sourceText",
+                "label": "Texto fuente",
+                "type": "textarea",
+                "template": "Source text: {value}",
+                "rows": 2,
+                "required": true,
+                "hidden": true
+              },
+              {
+                "id": "localizedText",
+                "label": "Texto localizado",
+                "type": "textarea",
+                "template": "Localized text: {value}",
+                "rows": 2,
+                "required": true,
+                "hidden": true
+              }
+            ],
+            "heading": "**Localization diagnostics**"
+          },
+          {
+            "id": "evidence",
+            "label": "Evidencia y procedencia",
+            "mode": "lines",
+            "fields": [
+              {
+                "id": "evidenceTypes",
+                "label": "Evidencias disponibles",
+                "type": "checklist",
+                "source": "evidenceTypes",
+                "default": "[\"Video capture\", \"Position screenshot\", \"Debug log\", \"Test save\"]",
+                "template": "{value}",
+                "checkTitle": "Evidence:",
+                "required": true
+              },
+              {
+                "id": "attachments",
+                "label": "Nombres de adjuntos",
+                "type": "textarea",
+                "default": "ACS_18427_PS5_Repro.mp4\nACS_18427_PS5_Position.png\nACS_18427_PS5_DebugLog.txt",
+                "help": "Referencias ficticias para el output. El panel Media genera nombres; estos campos no adjuntan archivos.",
+                "template": "* {value}",
+                "rows": 3,
+                "required": true,
+                "perLine": true
               },
               {
                 "id": "demoNotice",
                 "label": "Procedencia",
                 "type": "textarea",
-                "default": "MUESTRA FICTICIA. Texto y datos originales creados para esta demostración. No corresponde a una incidencia ni organización real.",
-                "template": "Procedencia: {value}",
+                "default": "FICTIONAL QA DEMO. Original synthetic report inspired by public game settings. Not an internal Ubisoft ticket or leaked template. Builds, coordinates, saves, logs and attachment names are invented.",
+                "template": "Provenance: {value}",
                 "rows": 3
               }
-            ]
+            ],
+            "heading": "**Attachments (simulated)**"
           }
         ],
         "rules": [
           {
-            "id": "resolved_date_show",
-            "whenExpr": "status in (\"Resuelto\", \"Cerrado\")",
+            "id": "platform_PS5",
+            "whenExpr": "platform = \"PlayStation 5\"",
+            "editorCondition": false,
             "then": {
-              "action": "show",
-              "field": "resolved",
-              "value": ""
+              "action": "valueOf",
+              "field": "platformCode",
+              "value": "PS5"
             }
           },
           {
-            "id": "resolved_date_required",
-            "whenExpr": "status in (\"Resuelto\", \"Cerrado\") AND resolved empty",
+            "id": "platform_PS5Pro",
+            "whenExpr": "platform = \"PlayStation 5 Pro\"",
+            "editorCondition": false,
             "then": {
-              "action": "error",
-              "field": "resolved",
-              "value": "Indica la fecha de resolución."
+              "action": "valueOf",
+              "field": "platformCode",
+              "value": "PS5Pro"
             }
           },
           {
-            "id": "resolution_required",
-            "whenExpr": "status in (\"Resuelto\", \"Cerrado\") AND resolution = \"Pendiente\"",
+            "id": "platform_XSX",
+            "whenExpr": "platform = \"Xbox Series X\"",
+            "editorCondition": false,
+            "then": {
+              "action": "valueOf",
+              "field": "platformCode",
+              "value": "XSX"
+            }
+          },
+          {
+            "id": "platform_XSS",
+            "whenExpr": "platform = \"Xbox Series S\"",
+            "editorCondition": false,
+            "then": {
+              "action": "valueOf",
+              "field": "platformCode",
+              "value": "XSS"
+            }
+          },
+          {
+            "id": "platform_PC",
+            "whenExpr": "platform = \"PC - Windows 11\"",
+            "editorCondition": false,
+            "then": {
+              "action": "valueOf",
+              "field": "platformCode",
+              "value": "PC"
+            }
+          },
+          {
+            "id": "platform_known",
+            "whenExpr": "platform notEmpty AND NOT (platform inList platforms)",
+            "editorCondition": false,
             "then": {
               "action": "error",
-              "field": "resolution",
-              "value": "Selecciona el resultado de la resolución."
+              "field": "platform",
+              "value": "Selecciona una plataforma de la lista."
+            }
+          },
+          {
+            "id": "id_ACS",
+            "whenExpr": "product = \"Assassin's Creed Shadows\" AND issueId not matches \"^ACS-[0-9]{4,6}$\"",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "issueId",
+              "value": "Este proyecto utiliza IDs ACS- seguidos de 4 a 6 dígitos."
+            }
+          },
+          {
+            "id": "id_R6S",
+            "whenExpr": "product = \"Rainbow Six Siege\" AND issueId not matches \"^R6S-[0-9]{4,6}$\"",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "issueId",
+              "value": "Este proyecto utiliza IDs R6S- seguidos de 4 a 6 dígitos."
+            }
+          },
+          {
+            "id": "id_KES",
+            "whenExpr": "product = \"Project Kestrel (fictional)\" AND issueId not matches \"^KES-[0-9]{4,6}$\"",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "issueId",
+              "value": "Este proyecto utiliza IDs KES- seguidos de 4 a 6 dígitos."
+            }
+          },
+          {
+            "id": "product_known",
+            "whenExpr": "product notEmpty AND NOT (product inList products)",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "product",
+              "value": "Selecciona un proyecto de la lista."
             }
           },
           {
             "id": "attempts_positive",
-            "whenExpr": "attempts < 1",
+            "whenExpr": "attempts \u003c 1",
+            "editorCondition": false,
             "then": {
               "action": "error",
               "field": "attempts",
@@ -3221,31 +4423,1004 @@
           {
             "id": "failures_bound",
             "whenExpr": "failures > attempts",
+            "editorCondition": false,
             "then": {
               "action": "error",
               "field": "failures",
               "value": "Las reproducciones no pueden superar los intentos."
             }
+          },
+          {
+            "id": "issueType_known",
+            "whenExpr": "issueType notEmpty AND NOT (issueType inList issueTypes)",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "issueType",
+              "value": "Selecciona una opción de la lista."
+            }
+          },
+          {
+            "id": "status_known",
+            "whenExpr": "status notEmpty AND NOT (status inList statuses)",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "status",
+              "value": "Selecciona una opción de la lista."
+            }
+          },
+          {
+            "id": "priority_known",
+            "whenExpr": "priority notEmpty AND NOT (priority inList priorities)",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "priority",
+              "value": "Selecciona una opción de la lista."
+            }
+          },
+          {
+            "id": "severity_known",
+            "whenExpr": "severity notEmpty AND NOT (severity inList severities)",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "severity",
+              "value": "Selecciona una opción de la lista."
+            }
+          },
+          {
+            "id": "resolution_known",
+            "whenExpr": "resolution notEmpty AND NOT (resolution inList resolutions)",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "resolution",
+              "value": "Selecciona una opción de la lista."
+            }
+          },
+          {
+            "id": "environment_known",
+            "whenExpr": "environment notEmpty AND NOT (environment inList environments)",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "environment",
+              "value": "Selecciona una opción de la lista."
+            }
+          },
+          {
+            "id": "renderMode_known",
+            "whenExpr": "renderMode notEmpty AND NOT (renderMode inList renderModes)",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "renderMode",
+              "value": "Selecciona una opción de la lista."
+            }
+          },
+          {
+            "id": "inputDevice_known",
+            "whenExpr": "inputDevice notEmpty AND NOT (inputDevice inList inputDevices)",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "inputDevice",
+              "value": "Selecciona una opción de la lista."
+            }
+          },
+          {
+            "id": "gameLanguage_known",
+            "whenExpr": "gameLanguage notEmpty AND NOT (gameLanguage inList languages)",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "gameLanguage",
+              "value": "Selecciona una opción de la lista."
+            }
+          },
+          {
+            "id": "gameState_known",
+            "whenExpr": "gameState notEmpty AND NOT (gameState inList combatStates)",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "gameState",
+              "value": "Selecciona una opción de la lista."
+            }
+          },
+          {
+            "id": "networkMode_known",
+            "whenExpr": "networkMode notEmpty AND NOT (networkMode inList networkModes)",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "networkMode",
+              "value": "Selecciona una opción de la lista."
+            }
+          },
+          {
+            "id": "components_parent_0",
+            "whenExpr": "product = \"Assassin's Creed Shadows\" AND component notEmpty AND component not in (\"Gameplay / Traversal\", \"Combat / AI\", \"World / Streaming\", \"Quests / Progression\", \"UI / HUD\", \"Audio\")",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "component",
+              "value": "El valor no pertenece al proyecto o región seleccionados."
+            }
+          },
+          {
+            "id": "components_parent_1",
+            "whenExpr": "product = \"Rainbow Six Siege\" AND component notEmpty AND component not in (\"Gameplay / Operators\", \"Online / Replication\", \"Matchmaking\", \"UI / HUD\", \"Rendering / Performance\")",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "component",
+              "value": "El valor no pertenece al proyecto o región seleccionados."
+            }
+          },
+          {
+            "id": "components_parent_2",
+            "whenExpr": "product = \"Project Kestrel (fictional)\" AND component notEmpty AND component not in (\"Flight / Controls\", \"Co-op / Sync\", \"World / Streaming\", \"UI / Localization\", \"Accessibility\")",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "component",
+              "value": "El valor no pertenece al proyecto o región seleccionados."
+            }
+          },
+          {
+            "id": "characters_parent_0",
+            "whenExpr": "product = \"Assassin's Creed Shadows\" AND character notEmpty AND character not in (\"Naoe\", \"Yasuke\")",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "character",
+              "value": "El valor no pertenece al proyecto o región seleccionados."
+            }
+          },
+          {
+            "id": "characters_parent_1",
+            "whenExpr": "product = \"Rainbow Six Siege\" AND character notEmpty AND character not in (\"Ash\", \"Sledge\", \"Hibana\", \"Doc\", \"Valkyrie\", \"Azami\")",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "character",
+              "value": "El valor no pertenece al proyecto o región seleccionados."
+            }
+          },
+          {
+            "id": "characters_parent_2",
+            "whenExpr": "product = \"Project Kestrel (fictional)\" AND character notEmpty AND character not in (\"Mira (test pilot)\", \"Rook (test engineer)\", \"Sable (test navigator)\")",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "character",
+              "value": "El valor no pertenece al proyecto o región seleccionados."
+            }
+          },
+          {
+            "id": "regions_parent_0",
+            "whenExpr": "product = \"Assassin's Creed Shadows\" AND region notEmpty AND region not in (\"Harima\", \"Kyoto\", \"Iga\", \"Omi\")",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "region",
+              "value": "El valor no pertenece al proyecto o región seleccionados."
+            }
+          },
+          {
+            "id": "regions_parent_1",
+            "whenExpr": "product = \"Rainbow Six Siege\" AND region notEmpty AND region not in (\"Clubhouse\", \"Bank\", \"Oregon\", \"Consulate\", \"Border\")",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "region",
+              "value": "El valor no pertenece al proyecto o región seleccionados."
+            }
+          },
+          {
+            "id": "regions_parent_2",
+            "whenExpr": "product = \"Project Kestrel (fictional)\" AND region notEmpty AND region not in (\"Glass Coast\", \"Ember Basin\", \"Skybreak Ridge\")",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "region",
+              "value": "El valor no pertenece al proyecto o región seleccionados."
+            }
+          },
+          {
+            "id": "missions_parent_0",
+            "whenExpr": "product = \"Assassin's Creed Shadows\" AND mission notEmpty AND mission not in (\"QA_TRV_014 - West rooftop route\", \"QA_QST_028 - Castle infiltration\", \"QA_WLD_006 - Fast travel loop\")",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "mission",
+              "value": "El valor no pertenece al proyecto o región seleccionados."
+            }
+          },
+          {
+            "id": "missions_parent_1",
+            "whenExpr": "product = \"Rainbow Six Siege\" AND mission notEmpty AND mission not in (\"QA_NET_011 - Round transition\", \"QA_OPR_023 - Gadget interaction\")",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "mission",
+              "value": "El valor no pertenece al proyecto o región seleccionados."
+            }
+          },
+          {
+            "id": "missions_parent_2",
+            "whenExpr": "product = \"Project Kestrel (fictional)\" AND mission notEmpty AND mission not in (\"QA_FLT_004 - Crosswind landing\", \"QA_LOC_019 - Arabic briefing\", \"QA_ACC_007 - Remapped docking\")",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "mission",
+              "value": "El valor no pertenece al proyecto o región seleccionados."
+            }
+          },
+          {
+            "id": "locations_parent_0",
+            "whenExpr": "region = \"Harima\" AND location notEmpty AND location not in (\"Himeji Castle - western rooftops\", \"Himeji Castle - inner courtyard\", \"Harbor training route\")",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "location",
+              "value": "El valor no pertenece al proyecto o región seleccionados."
+            }
+          },
+          {
+            "id": "locations_parent_1",
+            "whenExpr": "region = \"Kyoto\" AND location notEmpty AND location not in (\"Northern market rooftops\", \"Temple test courtyard\")",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "location",
+              "value": "El valor no pertenece al proyecto o región seleccionados."
+            }
+          },
+          {
+            "id": "locations_parent_2",
+            "whenExpr": "region = \"Iga\" AND location notEmpty AND location not in (\"Forest hideout\", \"River crossing\")",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "location",
+              "value": "El valor no pertenece al proyecto o región seleccionados."
+            }
+          },
+          {
+            "id": "locations_parent_3",
+            "whenExpr": "region = \"Omi\" AND location notEmpty AND location not in (\"Lakeside fort\", \"Mountain checkpoint\")",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "location",
+              "value": "El valor no pertenece al proyecto o región seleccionados."
+            }
+          },
+          {
+            "id": "locations_parent_4",
+            "whenExpr": "region = \"Clubhouse\" AND location notEmpty AND location not in (\"CCTV room\", \"Cash room\", \"Garage\")",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "location",
+              "value": "El valor no pertenece al proyecto o región seleccionados."
+            }
+          },
+          {
+            "id": "locations_parent_5",
+            "whenExpr": "region = \"Bank\" AND location notEmpty AND location not in (\"Vault lobby\", \"Server room\")",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "location",
+              "value": "El valor no pertenece al proyecto o región seleccionados."
+            }
+          },
+          {
+            "id": "locations_parent_6",
+            "whenExpr": "region = \"Oregon\" AND location notEmpty AND location not in (\"Dormitory\", \"Laundry\")",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "location",
+              "value": "El valor no pertenece al proyecto o región seleccionados."
+            }
+          },
+          {
+            "id": "locations_parent_7",
+            "whenExpr": "region = \"Consulate\" AND location notEmpty AND location not in (\"Garage\", \"Meeting room\")",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "location",
+              "value": "El valor no pertenece al proyecto o región seleccionados."
+            }
+          },
+          {
+            "id": "locations_parent_8",
+            "whenExpr": "region = \"Border\" AND location notEmpty AND location not in (\"Armory\", \"Customs\")",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "location",
+              "value": "El valor no pertenece al proyecto o región seleccionados."
+            }
+          },
+          {
+            "id": "locations_parent_9",
+            "whenExpr": "region = \"Glass Coast\" AND location notEmpty AND location not in (\"Beacon 07\", \"Hangar Delta\")",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "location",
+              "value": "El valor no pertenece al proyecto o región seleccionados."
+            }
+          },
+          {
+            "id": "locations_parent_10",
+            "whenExpr": "region = \"Ember Basin\" AND location notEmpty AND location not in (\"Relay tower\", \"Thermal canyon\")",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "location",
+              "value": "El valor no pertenece al proyecto o región seleccionados."
+            }
+          },
+          {
+            "id": "locations_parent_11",
+            "whenExpr": "region = \"Skybreak Ridge\" AND location notEmpty AND location not in (\"Observation deck\", \"Wind tunnel\")",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "location",
+              "value": "El valor no pertenece al proyecto o región seleccionados."
+            }
+          },
+          {
+            "id": "resolution_show",
+            "whenExpr": "status in (\"Resolved\", \"Closed\")",
+            "editorCondition": false,
+            "then": {
+              "action": "show",
+              "field": "resolution",
+              "value": ""
+            }
+          },
+          {
+            "id": "resolved_show",
+            "whenExpr": "status in (\"Resolved\", \"Closed\")",
+            "editorCondition": false,
+            "then": {
+              "action": "show",
+              "field": "resolved",
+              "value": ""
+            }
+          },
+          {
+            "id": "resolution_required",
+            "whenExpr": "status in (\"Resolved\", \"Closed\") AND resolution = \"Unresolved\"",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "resolution",
+              "value": "Selecciona una resolución antes de cerrar el ticket."
+            }
+          },
+          {
+            "id": "gpu_show",
+            "whenExpr": "platform inList pcPlatforms",
+            "editorCondition": false,
+            "then": {
+              "action": "show",
+              "field": "gpu",
+              "value": ""
+            }
+          },
+          {
+            "id": "driver_show",
+            "whenExpr": "platform inList pcPlatforms",
+            "editorCondition": false,
+            "then": {
+              "action": "show",
+              "field": "driver",
+              "value": ""
+            }
+          },
+          {
+            "id": "coordinates_show",
+            "whenExpr": "product in (\"Assassin's Creed Shadows\", \"Project Kestrel (fictional)\")",
+            "editorCondition": false,
+            "then": {
+              "action": "show",
+              "field": "coordinates",
+              "value": ""
+            }
+          },
+          {
+            "id": "savegame_show",
+            "whenExpr": "product in (\"Assassin's Creed Shadows\", \"Project Kestrel (fictional)\")",
+            "editorCondition": false,
+            "then": {
+              "action": "show",
+              "field": "savegame",
+              "value": ""
+            }
+          },
+          {
+            "id": "questState_show",
+            "whenExpr": "product = \"Assassin's Creed Shadows\"",
+            "editorCondition": false,
+            "then": {
+              "action": "show",
+              "field": "questState",
+              "value": ""
+            }
+          },
+          {
+            "id": "worldTime_show",
+            "whenExpr": "product = \"Assassin's Creed Shadows\"",
+            "editorCondition": false,
+            "then": {
+              "action": "show",
+              "field": "worldTime",
+              "value": ""
+            }
+          },
+          {
+            "id": "weather_show",
+            "whenExpr": "product = \"Assassin's Creed Shadows\"",
+            "editorCondition": false,
+            "then": {
+              "action": "show",
+              "field": "weather",
+              "value": ""
+            }
+          },
+          {
+            "id": "gameMode_show",
+            "whenExpr": "product = \"Rainbow Six Siege\"",
+            "editorCondition": false,
+            "then": {
+              "action": "show",
+              "field": "gameMode",
+              "value": ""
+            }
+          },
+          {
+            "id": "round_show",
+            "whenExpr": "product = \"Rainbow Six Siege\"",
+            "editorCondition": false,
+            "then": {
+              "action": "show",
+              "field": "round",
+              "value": ""
+            }
+          },
+          {
+            "id": "flightPhase_show",
+            "whenExpr": "product = \"Project Kestrel (fictional)\"",
+            "editorCondition": false,
+            "then": {
+              "action": "show",
+              "field": "flightPhase",
+              "value": ""
+            }
+          },
+          {
+            "id": "vehicle_show",
+            "whenExpr": "product = \"Project Kestrel (fictional)\"",
+            "editorCondition": false,
+            "then": {
+              "action": "show",
+              "field": "vehicle",
+              "value": ""
+            }
+          },
+          {
+            "id": "round_min",
+            "whenExpr": "round \u003c 1",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "round",
+              "value": "La ronda debe ser al menos 1."
+            }
+          },
+          {
+            "id": "round_max",
+            "whenExpr": "round > 15",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "round",
+              "value": "Esta demo admite rondas del 1 al 15."
+            }
+          },
+          {
+            "id": "accessibility_show",
+            "whenExpr": "accessibilityEnabled notEmpty OR issueType = \"Accessibility\"",
+            "editorCondition": false,
+            "then": {
+              "action": "show",
+              "field": "accessibility",
+              "value": ""
+            }
+          },
+          {
+            "id": "accessibilityExpected_show",
+            "whenExpr": "accessibilityEnabled notEmpty OR issueType = \"Accessibility\"",
+            "editorCondition": false,
+            "then": {
+              "action": "show",
+              "field": "accessibilityExpected",
+              "value": ""
+            }
+          },
+          {
+            "id": "serverRegion_show",
+            "whenExpr": "@network_context",
+            "editorCondition": false,
+            "then": {
+              "action": "show",
+              "field": "serverRegion",
+              "value": ""
+            }
+          },
+          {
+            "id": "latency_show",
+            "whenExpr": "@network_context",
+            "editorCondition": false,
+            "then": {
+              "action": "show",
+              "field": "latency",
+              "value": ""
+            }
+          },
+          {
+            "id": "packetLoss_show",
+            "whenExpr": "@network_context",
+            "editorCondition": false,
+            "then": {
+              "action": "show",
+              "field": "packetLoss",
+              "value": ""
+            }
+          },
+          {
+            "id": "networkTrace_show",
+            "whenExpr": "@network_context AND (issueType = \"Network / Desync\" OR packetLoss > 0)",
+            "editorCondition": false,
+            "then": {
+              "action": "show",
+              "field": "networkTrace",
+              "value": ""
+            }
+          },
+          {
+            "id": "packetLoss_max",
+            "whenExpr": "packetLoss > 100",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "packetLoss",
+              "value": "La pérdida de paquetes debe estar entre 0 y 100."
+            }
+          },
+          {
+            "id": "network_mode_required",
+            "whenExpr": "issueType = \"Network / Desync\" AND networkMode in (\"Offline\", \"LAN test\")",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "networkMode",
+              "value": "Selecciona una conexión online para el diagnóstico de desync."
+            }
+          },
+          {
+            "id": "crashType_show",
+            "whenExpr": "@crash_context",
+            "editorCondition": false,
+            "then": {
+              "action": "show",
+              "field": "crashType",
+              "value": ""
+            }
+          },
+          {
+            "id": "crashStage_show",
+            "whenExpr": "@crash_context",
+            "editorCondition": false,
+            "then": {
+              "action": "show",
+              "field": "crashStage",
+              "value": ""
+            }
+          },
+          {
+            "id": "crashSignature_show",
+            "whenExpr": "@crash_context",
+            "editorCondition": false,
+            "then": {
+              "action": "show",
+              "field": "crashSignature",
+              "value": ""
+            }
+          },
+          {
+            "id": "crashLog_show",
+            "whenExpr": "@crash_context",
+            "editorCondition": false,
+            "then": {
+              "action": "show",
+              "field": "crashLog",
+              "value": ""
+            }
+          },
+          {
+            "id": "crashDump_show",
+            "whenExpr": "@crash_context AND platform inList pcPlatforms",
+            "editorCondition": false,
+            "then": {
+              "action": "show",
+              "field": "crashDump",
+              "value": ""
+            }
+          },
+          {
+            "id": "consoleReport_show",
+            "whenExpr": "@crash_context AND platform inList consolePlatforms",
+            "editorCondition": false,
+            "then": {
+              "action": "show",
+              "field": "consoleReport",
+              "value": ""
+            }
+          },
+          {
+            "id": "console_code_0",
+            "whenExpr": "@crash_context AND platform = \"PlayStation 5\" AND consoleReport notEmpty AND consoleReport not matches \"^QA-PS5-CR-[0-9]{4,6}$\"",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "consoleReport",
+              "value": "El reporte de crash debe corresponder a la consola seleccionada."
+            }
+          },
+          {
+            "id": "console_code_1",
+            "whenExpr": "@crash_context AND platform = \"PlayStation 5 Pro\" AND consoleReport notEmpty AND consoleReport not matches \"^QA-PS5Pro-CR-[0-9]{4,6}$\"",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "consoleReport",
+              "value": "El reporte de crash debe corresponder a la consola seleccionada."
+            }
+          },
+          {
+            "id": "console_code_2",
+            "whenExpr": "@crash_context AND platform = \"Xbox Series X\" AND consoleReport notEmpty AND consoleReport not matches \"^QA-XSX-CR-[0-9]{4,6}$\"",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "consoleReport",
+              "value": "El reporte de crash debe corresponder a la consola seleccionada."
+            }
+          },
+          {
+            "id": "console_code_3",
+            "whenExpr": "@crash_context AND platform = \"Xbox Series S\" AND consoleReport notEmpty AND consoleReport not matches \"^QA-XSS-CR-[0-9]{4,6}$\"",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "consoleReport",
+              "value": "El reporte de crash debe corresponder a la consola seleccionada."
+            }
+          },
+          {
+            "id": "crash_evidence",
+            "whenExpr": "@crash_context AND NOT (evidenceTypes contains \"Debug log\")",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "evidenceTypes",
+              "value": "Incluye Debug log entre las evidencias del crash."
+            }
+          },
+          {
+            "id": "dump_evidence",
+            "whenExpr": "@crash_context AND platform inList pcPlatforms AND NOT (evidenceTypes contains \"Crash dump\")",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "evidenceTypes",
+              "value": "Incluye Crash dump entre las evidencias de PC."
+            }
+          },
+          {
+            "id": "targetFps_show",
+            "whenExpr": "issueType = \"Performance\"",
+            "editorCondition": false,
+            "then": {
+              "action": "show",
+              "field": "targetFps",
+              "value": ""
+            }
+          },
+          {
+            "id": "observedFps_show",
+            "whenExpr": "issueType = \"Performance\"",
+            "editorCondition": false,
+            "then": {
+              "action": "show",
+              "field": "observedFps",
+              "value": ""
+            }
+          },
+          {
+            "id": "frameTime_show",
+            "whenExpr": "issueType = \"Performance\"",
+            "editorCondition": false,
+            "then": {
+              "action": "show",
+              "field": "frameTime",
+              "value": ""
+            }
+          },
+          {
+            "id": "profilerCapture_show",
+            "whenExpr": "issueType = \"Performance\"",
+            "editorCondition": false,
+            "then": {
+              "action": "show",
+              "field": "profilerCapture",
+              "value": ""
+            }
+          },
+          {
+            "id": "targetFps_min",
+            "whenExpr": "targetFps \u003c= 0",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "targetFps",
+              "value": "El objetivo de FPS debe ser mayor que cero."
+            }
+          },
+          {
+            "id": "frameTime_min",
+            "whenExpr": "frameTime \u003c= 0",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "frameTime",
+              "value": "El frame time debe ser mayor que cero."
+            }
+          },
+          {
+            "id": "perf_evidence",
+            "whenExpr": "issueType = \"Performance\" AND NOT (evidenceTypes contains \"Profiler capture\")",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "evidenceTypes",
+              "value": "Incluye Profiler capture entre las evidencias."
+            }
+          },
+          {
+            "id": "stringId_show",
+            "whenExpr": "issueType = \"Localization\"",
+            "editorCondition": false,
+            "then": {
+              "action": "show",
+              "field": "stringId",
+              "value": ""
+            }
+          },
+          {
+            "id": "sourceText_show",
+            "whenExpr": "issueType = \"Localization\"",
+            "editorCondition": false,
+            "then": {
+              "action": "show",
+              "field": "sourceText",
+              "value": ""
+            }
+          },
+          {
+            "id": "localizedText_show",
+            "whenExpr": "issueType = \"Localization\"",
+            "editorCondition": false,
+            "then": {
+              "action": "show",
+              "field": "localizedText",
+              "value": ""
+            }
+          },
+          {
+            "id": "loc_language",
+            "whenExpr": "issueType = \"Localization\" AND gameLanguage = \"en-US\"",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "gameLanguage",
+              "value": "Selecciona el idioma de destino de la traducción."
+            }
+          },
+          {
+            "id": "coverage_platform_0",
+            "whenExpr": "platform = \"PlayStation 5\" AND NOT (coverage contains \"PlayStation 5\")",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "coverage",
+              "value": "Incluye la plataforma afectada en las plataformas verificadas."
+            }
+          },
+          {
+            "id": "coverage_platform_1",
+            "whenExpr": "platform = \"PlayStation 5 Pro\" AND NOT (coverage contains \"PlayStation 5 Pro\")",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "coverage",
+              "value": "Incluye la plataforma afectada en las plataformas verificadas."
+            }
+          },
+          {
+            "id": "coverage_platform_2",
+            "whenExpr": "platform = \"Xbox Series X\" AND NOT (coverage contains \"Xbox Series X\")",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "coverage",
+              "value": "Incluye la plataforma afectada en las plataformas verificadas."
+            }
+          },
+          {
+            "id": "coverage_platform_3",
+            "whenExpr": "platform = \"Xbox Series S\" AND NOT (coverage contains \"Xbox Series S\")",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "coverage",
+              "value": "Incluye la plataforma afectada en las plataformas verificadas."
+            }
+          },
+          {
+            "id": "coverage_platform_4",
+            "whenExpr": "platform = \"PC - Windows 11\" AND NOT (coverage contains \"PC - Windows 11\")",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "coverage",
+              "value": "Incluye la plataforma afectada en las plataformas verificadas."
+            }
+          },
+          {
+            "id": "video_evidence",
+            "whenExpr": "severity in (\"Blocker\", \"Critical\", \"Major\") AND NOT (evidenceTypes contains \"Video capture\")",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "evidenceTypes",
+              "value": "Para esta severidad se requiere Video capture."
+            }
+          },
+          {
+            "id": "urgent_impact",
+            "whenExpr": "priority in (\"P0 - Critical\", \"P1 - High\") AND workaround empty",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "workaround",
+              "value": "Documenta un workaround o explica que no existe."
+            }
           }
         ],
         "tiles": [
           {
-            "id": "demo_notice",
-            "text": "Muestra ficticia · datos sintéticos",
+            "id": "fictional",
+            "text": "Demo AAA · todos los datos son ficticios",
             "whenExpr": "issueId notEmpty",
+            "severity": "warn",
+            "field": "demoNotice",
             "color": "blue",
             "group": "Contexto",
-            "severity": "warn",
-            "field": "issueId"
+            "message": ""
           },
           {
-            "id": "urgent_impact",
-            "text": "Documenta el impacto de la prioridad urgente",
-            "whenExpr": "priority = \"P0 - Urgente\" AND impact empty",
+            "id": "repro",
+            "text": "Repro: {failures}/{attempts}",
+            "whenExpr": "attempts > 0",
+            "severity": "warn",
+            "field": "failures",
+            "color": "blue",
+            "group": "Contexto",
+            "message": ""
+          },
+          {
+            "id": "crash",
+            "text": "Crash detectado · requiere log específico",
+            "whenExpr": "@crash_context",
+            "severity": "warn",
+            "field": "crashLog",
+            "color": "amber",
+            "group": "Diagnóstico",
+            "message": ""
+          },
+          {
+            "id": "pc_dump",
+            "text": "Crash PC · dump .dmp requerido",
+            "whenExpr": "@crash_context AND platform inList pcPlatforms",
+            "severity": "warn",
+            "field": "crashDump",
+            "color": "amber",
+            "group": "Diagnóstico",
+            "message": ""
+          },
+          {
+            "id": "console_log",
+            "text": "Crash consola · reporte de plataforma requerido",
+            "whenExpr": "@crash_context AND platform inList consolePlatforms",
+            "severity": "warn",
+            "field": "consoleReport",
+            "color": "amber",
+            "group": "Diagnóstico",
+            "message": ""
+          },
+          {
+            "id": "perf",
+            "text": "Rendimiento · documenta FPS y profiler",
+            "whenExpr": "issueType = \"Performance\"",
+            "severity": "warn",
+            "field": "profilerCapture",
+            "color": "blue",
+            "group": "Diagnóstico",
+            "message": ""
+          },
+          {
+            "id": "perf_above",
+            "text": "FPS dentro del objetivo · revisa frame time y picos",
+            "whenExpr": "issueType = \"Performance\" AND observedFps >= targetFps",
+            "severity": "warn",
+            "field": "observedFps",
             "color": "amber",
             "group": "Revisión",
+            "message": ""
+          },
+          {
+            "id": "packet_loss",
+            "text": "Pérdida de paquetes · adjunta traza",
+            "whenExpr": "@network_context AND packetLoss > 0",
             "severity": "warn",
-            "field": "impact"
+            "field": "networkTrace",
+            "color": "amber",
+            "group": "Diagnóstico",
+            "message": ""
+          },
+          {
+            "id": "urgent",
+            "text": "Prioridad alta · confirmar impacto y workaround",
+            "whenExpr": "priority in (\"P0 - Critical\", \"P1 - High\")",
+            "severity": "warn",
+            "field": "impact",
+            "color": "amber",
+            "group": "Revisión",
+            "message": ""
+          },
+          {
+            "id": "multiple_platforms",
+            "text": "Cobertura ampliada: {coverage.length} plataformas",
+            "whenExpr": "coverage.length > 1",
+            "severity": "warn",
+            "field": "coverage",
+            "color": "blue",
+            "group": "Contexto",
+            "message": ""
           }
         ]
       },
@@ -3262,87 +5437,127 @@
                 "id": "shortDescription",
                 "label": "Resumen",
                 "type": "text",
-                "default": "Verificación de la exportación CSV filtrada",
-                "template": "{value}",
+                "default": "Verify Naoe wall eject recovery at Himeji Castle",
+                "template": "[{platformCode}][Regression] {value}",
                 "required": true
               }
             ],
-            "sep": " - "
+            "sep": ""
           },
           {
             "id": "verification",
             "label": "Verificación",
             "mode": "lines",
-            "heading": "**Verificación:**",
             "fields": [
               {
                 "id": "issueId",
-                "label": "ID de muestra",
+                "label": "ID del ticket",
                 "type": "text",
-                "default": "DEMO-001",
-                "template": "ID de muestra: {value}",
                 "size": "half",
-                "required": true,
+                "default": "ACS-18427",
+                "template": "Original issue: {value}",
                 "regex": "@issue_re",
-                "regexMsg": "Usa DEMO- seguido de un número."
+                "required": true
+              },
+              {
+                "id": "product",
+                "label": "Proyecto",
+                "type": "autocomplete",
+                "source": "products",
+                "size": "half",
+                "default": "Assassin's Creed Shadows",
+                "template": "Project: {value}",
+                "required": true
               },
               {
                 "id": "regressionStatus",
                 "label": "Resultado de verificación",
                 "type": "autocomplete",
-                "default": "Pendiente",
-                "template": "Resultado de verificación: {value}",
                 "source": "regressionStatuses",
-                "size": "third",
+                "default": "Pending",
+                "template": "Verification: {value}",
+                "required": true
+              },
+              {
+                "id": "originalBuild",
+                "label": "Build original",
+                "type": "text",
+                "size": "half",
+                "default": "1.0.0.1842",
+                "template": "Original build: {value} (fictional)",
+                "regex": "@version_re",
                 "required": true
               },
               {
                 "id": "version",
-                "label": "Versión verificada",
+                "label": "Build verificada (ficticia)",
                 "type": "text",
-                "default": "2.4.1",
-                "template": "Versión verificada: {value}",
-                "size": "third",
-                "required": true,
+                "size": "half",
+                "default": "1.0.0.1856",
+                "template": "Verified build: {value} (fictional)",
                 "regex": "@version_re",
-                "regexMsg": "Usa una versión de tres números: 2.4.0."
+                "required": true
               },
               {
                 "id": "cl",
-                "label": "Número de compilación",
+                "label": "Changelist",
                 "type": "text",
-                "default": "2041",
-                "template": "Número de compilación: {value}",
-                "size": "half",
-                "required": true,
+                "size": "third",
+                "default": "1856",
+                "template": "Changelist: {value}",
                 "regex": "@count_re",
-                "regexMsg": "Usa un entero no negativo."
+                "required": true
               },
               {
                 "id": "platform",
-                "label": "Sistema operativo",
+                "label": "Plataforma",
                 "type": "autocomplete",
-                "default": "Linux",
-                "template": "Sistema operativo: {value}",
                 "source": "platforms",
                 "size": "third",
+                "default": "PlayStation 5",
+                "template": "Platform: {value}",
                 "required": true
+              },
+              {
+                "id": "platformCode",
+                "label": "Código de plataforma",
+                "type": "mirror",
+                "template": "{value}",
+                "includeOutput": false
+              },
+              {
+                "id": "environment",
+                "label": "Entorno de prueba",
+                "type": "autocomplete",
+                "source": "environments",
+                "size": "third",
+                "default": "@default_environment",
+                "template": "Environment: {value}",
+                "required": true
+              },
+              {
+                "id": "savegame",
+                "label": "Save de prueba",
+                "type": "text",
+                "default": "QA_Himeji_Naoe_WestRoof_04.sav",
+                "template": "Test save: {value}"
               },
               {
                 "id": "verificationSteps",
                 "label": "Procedimiento",
                 "type": "textarea",
-                "default": "Repetir los pasos de DEMO-001 con el mismo conjunto sintético y comparar los identificadores exportados.",
-                "template": "Procedimiento: {value}",
-                "rows": 3,
-                "required": true
+                "default": "Repeat the original wall eject route with Naoe five times.\nRepeat with Yasuke as a control.\nVerify movement, landing animation and checkpoint recovery.",
+                "template": "# {value}",
+                "rows": 4,
+                "required": true,
+                "perLine": true
               },
               {
                 "id": "verificationResult",
                 "label": "Observación",
                 "type": "textarea",
-                "default": "Verificación pendiente. No se afirma que exista una corrección real.",
-                "template": "Observación: {value}",
+                "default": "Verification pending on the synthetic candidate build; no real fix is claimed.",
+                "template": "Observation: {value}",
                 "rows": 3,
                 "required": true
               },
@@ -3350,48 +5565,238 @@
                 "id": "attempts",
                 "label": "Intentos",
                 "type": "text",
+                "size": "third",
                 "default": "0",
-                "template": "Intentos: {value}",
-                "size": "half",
-                "required": true,
+                "template": "Attempts: {value}",
                 "regex": "@count_re",
-                "regexMsg": "Usa un entero no negativo."
+                "required": true
               },
               {
                 "id": "failures",
                 "label": "Reproducciones",
                 "type": "text",
+                "size": "third",
                 "default": "0",
-                "template": "Reproducciones: {value}",
-                "size": "half",
-                "required": true,
+                "template": "Reproductions: {value}",
                 "regex": "@count_re",
-                "regexMsg": "Usa un entero no negativo."
+                "required": true
+              },
+              {
+                "id": "reproRatio",
+                "label": "Ratio de reproducción",
+                "type": "mirror",
+                "size": "third",
+                "template": "Repro: {failures}/{attempts}"
+              },
+              {
+                "id": "coverage",
+                "label": "Plataformas verificadas",
+                "type": "checklist",
+                "source": "coveragePlatforms",
+                "default": "[\"PlayStation 5\"]",
+                "template": "{value}",
+                "checkTitle": "Tested platforms:",
+                "allLabel": "Todas las plataformas",
+                "allOutput": "All configured platforms",
+                "required": true,
+                "allOption": true
+              },
+              {
+                "id": "blockerReason",
+                "label": "Motivo del bloqueo",
+                "type": "textarea",
+                "template": "Blocked by: {value}",
+                "rows": 2,
+                "required": true,
+                "hidden": true
+              },
+              {
+                "id": "fixEvidence",
+                "label": "Evidencia de corrección",
+                "type": "text",
+                "placeholder": "ACS_18427_PS5_FixedRepro.mp4",
+                "template": "Fix evidence: {value}",
+                "regex": "^[A-Za-z0-9_.-]+\\.(mp4|mov|webm)$",
+                "required": true,
+                "hidden": true
+              },
+              {
+                "id": "remainingIssue",
+                "label": "Ticket de seguimiento",
+                "type": "text",
+                "placeholder": "ACS-18430",
+                "template": "Follow-up: {value}",
+                "regex": "@issue_re",
+                "required": true,
+                "hidden": true
               },
               {
                 "id": "demoNotice",
                 "label": "Procedencia",
                 "type": "textarea",
-                "default": "MUESTRA FICTICIA. Seguimiento ilustrativo de DEMO-001, sin personas, cuentas ni servicios reales.",
-                "template": "Procedencia: {value}",
-                "rows": 3
+                "default": "FICTIONAL QA DEMO. Synthetic regression of ACS-18427; no real builds, fixes or attachments.",
+                "template": "Provenance: {value}",
+                "rows": 2
               }
-            ]
+            ],
+            "heading": "**Regression verification**"
           }
         ],
         "rules": [
           {
-            "id": "verified_attempts",
-            "whenExpr": "regressionStatus = \"Verificado Corregido\" AND attempts < 1",
+            "id": "platform_PS5",
+            "whenExpr": "platform = \"PlayStation 5\"",
+            "editorCondition": false,
             "then": {
-              "action": "error",
-              "field": "attempts",
-              "value": "Realiza al menos un intento antes de verificar."
+              "action": "valueOf",
+              "field": "platformCode",
+              "value": "PS5"
             }
           },
           {
-            "id": "verified_failures",
-            "whenExpr": "regressionStatus = \"Verificado Corregido\" AND failures > 0",
+            "id": "platform_PS5Pro",
+            "whenExpr": "platform = \"PlayStation 5 Pro\"",
+            "editorCondition": false,
+            "then": {
+              "action": "valueOf",
+              "field": "platformCode",
+              "value": "PS5Pro"
+            }
+          },
+          {
+            "id": "platform_XSX",
+            "whenExpr": "platform = \"Xbox Series X\"",
+            "editorCondition": false,
+            "then": {
+              "action": "valueOf",
+              "field": "platformCode",
+              "value": "XSX"
+            }
+          },
+          {
+            "id": "platform_XSS",
+            "whenExpr": "platform = \"Xbox Series S\"",
+            "editorCondition": false,
+            "then": {
+              "action": "valueOf",
+              "field": "platformCode",
+              "value": "XSS"
+            }
+          },
+          {
+            "id": "platform_PC",
+            "whenExpr": "platform = \"PC - Windows 11\"",
+            "editorCondition": false,
+            "then": {
+              "action": "valueOf",
+              "field": "platformCode",
+              "value": "PC"
+            }
+          },
+          {
+            "id": "platform_known",
+            "whenExpr": "platform notEmpty AND NOT (platform inList platforms)",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "platform",
+              "value": "Selecciona una plataforma de la lista."
+            }
+          },
+          {
+            "id": "id_ACS",
+            "whenExpr": "product = \"Assassin's Creed Shadows\" AND issueId not matches \"^ACS-[0-9]{4,6}$\"",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "issueId",
+              "value": "Este proyecto utiliza IDs ACS- seguidos de 4 a 6 dígitos."
+            }
+          },
+          {
+            "id": "id_R6S",
+            "whenExpr": "product = \"Rainbow Six Siege\" AND issueId not matches \"^R6S-[0-9]{4,6}$\"",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "issueId",
+              "value": "Este proyecto utiliza IDs R6S- seguidos de 4 a 6 dígitos."
+            }
+          },
+          {
+            "id": "id_KES",
+            "whenExpr": "product = \"Project Kestrel (fictional)\" AND issueId not matches \"^KES-[0-9]{4,6}$\"",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "issueId",
+              "value": "Este proyecto utiliza IDs KES- seguidos de 4 a 6 dígitos."
+            }
+          },
+          {
+            "id": "product_known",
+            "whenExpr": "product notEmpty AND NOT (product inList products)",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "product",
+              "value": "Selecciona un proyecto de la lista."
+            }
+          },
+          {
+            "id": "attempts_positive",
+            "whenExpr": "regressionStatus = \"Verified Fixed\" AND attempts \u003c 1",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "attempts",
+              "value": "Registra al menos un intento."
+            }
+          },
+          {
+            "id": "failures_bound",
+            "whenExpr": "failures > attempts",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "failures",
+              "value": "Las reproducciones no pueden superar los intentos."
+            }
+          },
+          {
+            "id": "blocked_show",
+            "whenExpr": "regressionStatus = \"Blocked\"",
+            "editorCondition": false,
+            "then": {
+              "action": "show",
+              "field": "blockerReason",
+              "value": ""
+            }
+          },
+          {
+            "id": "fixed_show",
+            "whenExpr": "regressionStatus = \"Verified Fixed\"",
+            "editorCondition": false,
+            "then": {
+              "action": "show",
+              "field": "fixEvidence",
+              "value": ""
+            }
+          },
+          {
+            "id": "remaining_show",
+            "whenExpr": "regressionStatus = \"Still Present\"",
+            "editorCondition": false,
+            "then": {
+              "action": "show",
+              "field": "remainingIssue",
+              "value": ""
+            }
+          },
+          {
+            "id": "fixed_failures",
+            "whenExpr": "regressionStatus = \"Verified Fixed\" AND failures > 0",
+            "editorCondition": false,
             "then": {
               "action": "error",
               "field": "failures",
@@ -3399,16 +5804,108 @@
             }
           },
           {
-            "id": "failures_bound",
-            "whenExpr": "failures > attempts",
+            "id": "remaining_failures",
+            "whenExpr": "regressionStatus = \"Still Present\" AND failures \u003c 1",
+            "editorCondition": false,
             "then": {
               "action": "error",
               "field": "failures",
-              "value": "Las reproducciones no pueden superar los intentos."
+              "value": "Registra al menos una reproducción si el fallo persiste."
+            }
+          },
+          {
+            "id": "same_build",
+            "whenExpr": "regressionStatus = \"Verified Fixed\" AND version = originalBuild",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "version",
+              "value": "Verifica en una build distinta de la afectada."
+            }
+          },
+          {
+            "id": "coverage_platform_0",
+            "whenExpr": "platform = \"PlayStation 5\" AND NOT (coverage contains \"PlayStation 5\")",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "coverage",
+              "value": "Incluye la plataforma verificada en la cobertura."
+            }
+          },
+          {
+            "id": "coverage_platform_1",
+            "whenExpr": "platform = \"PlayStation 5 Pro\" AND NOT (coverage contains \"PlayStation 5 Pro\")",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "coverage",
+              "value": "Incluye la plataforma verificada en la cobertura."
+            }
+          },
+          {
+            "id": "coverage_platform_2",
+            "whenExpr": "platform = \"Xbox Series X\" AND NOT (coverage contains \"Xbox Series X\")",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "coverage",
+              "value": "Incluye la plataforma verificada en la cobertura."
+            }
+          },
+          {
+            "id": "coverage_platform_3",
+            "whenExpr": "platform = \"Xbox Series S\" AND NOT (coverage contains \"Xbox Series S\")",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "coverage",
+              "value": "Incluye la plataforma verificada en la cobertura."
+            }
+          },
+          {
+            "id": "coverage_platform_4",
+            "whenExpr": "platform = \"PC - Windows 11\" AND NOT (coverage contains \"PC - Windows 11\")",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "coverage",
+              "value": "Incluye la plataforma verificada en la cobertura."
+            }
+          },
+          {
+            "id": "status_known",
+            "whenExpr": "regressionStatus notEmpty AND NOT (regressionStatus inList regressionStatuses)",
+            "editorCondition": false,
+            "then": {
+              "action": "error",
+              "field": "regressionStatus",
+              "value": "Selecciona un resultado de verificación de la lista."
             }
           }
         ],
-        "tiles": []
+        "tiles": [
+          {
+            "id": "pending",
+            "text": "Regresión pendiente · no se afirma una corrección",
+            "whenExpr": "regressionStatus = \"Pending\"",
+            "severity": "warn",
+            "field": "regressionStatus",
+            "color": "blue",
+            "group": "Revisión",
+            "message": ""
+          },
+          {
+            "id": "fixed",
+            "text": "Corrección verificada · adjunta video",
+            "whenExpr": "regressionStatus = \"Verified Fixed\" AND failures = 0 AND attempts > 0",
+            "severity": "warn",
+            "field": "fixEvidence",
+            "color": "blue",
+            "group": "Revisión",
+            "message": ""
+          }
+        ]
       }
     ]
   }
@@ -3590,6 +6087,19 @@ const TILE_COLORS = [
 ];
 const TILE_COLOR_MAP = Object.fromEntries(TILE_COLORS.map(c => [c.id, c]));
 function tileColor(id) { return TILE_COLOR_MAP[id] || TILE_COLOR_MAP.slate; }
+// Las condiciones siguen el color visual del tipo de field (independiente
+// del color personalizado de error que usan los tiles).
+const FIELD_TYPE_COLOR = {
+  text: "blue",
+  textarea: "cyan",
+  autocomplete: "violet",
+  keywords: "pink",
+  checkbox: "amber",
+  checklist: "green",
+  mirror: "slate",
+  clock: "cyan",
+  date: "violet"
+};
 // <option> de la paleta para los <select> de color (validación y tiles).
 function tileColorOptions(selected) {
   return TILE_COLORS.map(cc =>
@@ -3966,12 +6476,16 @@ const UI_MESSAGES = {
     "rules.globalsTitle": "Reglas globales (viven en DATA → Reglas)",
     "rules.globalsHelp": "Se comparten entre campos y se editan aquí o en Data. <code>kw_count</code> admite una cantidad exacta (<code>5</code>) o mínima (<code>&gt;=5</code>); <code>default_environment</code> y <code>media_fmt</code> son valores por defecto referenciables con <code>@</code>.",
     "rules.conditionsTitle": "Condiciones entre campos",
-    "rules.conditionsHelp": "Reglas <em>SI (expresión) ENTONCES (acción)</em>. La expresión admite <code>AND</code>, <code>OR</code>, <code>NOT</code>, <code>empty</code>, <code>notEmpty</code>, <code>=</code>, <code>!=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>contains</code>, <code>isAll</code>, <code>in</code> y <code>matches</code>/<code>not matches</code>. También reconoce <code>key</code>, <code>checklist[0]</code>, <code>checklist.length</code>, mirrors calculados, <code>@regla</code> y propiedades de media.",
+    "rules.conditionsHelp": "Reglas <em>SI (expresión) ENTONCES (acción)</em>. La expresión admite <code>AND</code>, <code>OR</code>, <code>NOT</code>, <code>empty</code>, <code>notEmpty</code>, <code>=</code>, <code>!=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>contains</code>, <code>isAll</code>, <code>in</code>, <code>inList</code> y <code>matches</code>/<code>not matches</code>. Para listas de DATA: <code>campo inList idLista</code> o <code>campo contains idLista[]</code>. También reconoce <code>key</code>, <code>checklist[0]</code>, <code>checklist.length</code>, mirrors calculados, <code>@regla</code> y propiedades de media.",
     "rules.tilesTitle": "Tiles personalizados",
-    "rules.tilesHelp": "Tiles de la segunda banda, en el orden de esta tabla. Texto y mensaje admiten <code>{reference}</code> (campos, key, checklist y media); la condición usa la misma DSL. <em>Error</em> bloquea “listo para copiar” y <em>Aviso/Info</em> solo informa. “Salta a” define el campo enfocado al hacer clic.",
+    "rules.tilesHelp": "Tiles de la segunda banda, en el orden de esta tabla. Texto y mensaje admiten <code>{reference}</code> (campos, key, checklist y media); la condición usa la misma DSL y, si está vacía, el tile no aparece. <em>Error</em> bloquea “listo para copiar” y <em>Aviso/Info</em> solo informa. “Salta a” define el campo enfocado al hacer clic.",
     "rules.futureHelp": "Usa <code>media:media1:type</code> para el tipo y <code>media:media1:name</code> para el nombre. En plantillas, <code>{media:media1}</code> sigue siendo alias compatible del nombre.",
     "rules.if": "Si",
     "rules.then": "entonces",
+    "rules.active": "Activo",
+    "rules.dragOrder": "Mantén presionado y arrastra para reordenar",
+    "rules.expression": "Condición",
+    "rules.actionShort": "Acción",
     "rules.errorValuePlaceholder": "mensaje de error",
     "rules.defaultValuePlaceholder": "valor o @regla",
     "rules.valueOfPlaceholder": "texto, {reference} o @regla",
@@ -3985,7 +6499,7 @@ const UI_MESSAGES = {
     "rules.autoField": "(auto: 1er campo de la condición)",
     "rules.tileTextPlaceholder": "texto",
     "rules.tileMessagePlaceholder": "instrucción o detalle (admite {campo})",
-    "rules.tileConditionPlaceholder": "vacío = siempre. ej. bugType in (\"Crash\", \"Freeze\")",
+    "rules.tileConditionPlaceholder": "vacío = no aparece. ej. bugType in (\"Crash\", \"Freeze\")",
     "rules.moveUp": "Subir (aparece antes)",
     "rules.moveDown": "Bajar (aparece después)",
     "rules.deleteTile": "Borrar tile",
@@ -4194,6 +6708,7 @@ const UI_MESSAGES = {
     "expr.empty": "Expresión vacía",
     "expr.trailing": "Sobra texto tras la expresión",
     "expr.missingField": "El campo «{field}» no existe en este formulario",
+    "expr.missingList": "La lista de DATA «{list}» no existe",
     "expr.invalid": "Expresión inválida",
     "suggest.mediaType": "tipo de media {index}",
     "suggest.mediaName": "nombre de media {index}",
@@ -4207,8 +6722,10 @@ const UI_MESSAGES = {
     "suggest.notEquals": "distinto de",
     "suggest.matches": "cumple regex o @regla",
     "suggest.in": "coincide con alguno",
+    "suggest.inList": "coincide con algún valor de una lista de DATA",
     "suggest.notIn": "no coincide con ninguno",
     "suggest.contains": "incluye esta opción",
+    "suggest.dataList": "lista de DATA: {label}",
     "suggest.isAll": "está activa la opción especial",
     "suggest.numeric": "comparación numérica",
     "suggest.openList": "abre la lista",
@@ -4566,12 +7083,16 @@ const UI_MESSAGES = {
     "rules.globalsTitle": "Global rules (stored in DATA → Rules)",
     "rules.globalsHelp": "Rules are shared by fields and editable here or in Data. <code>kw_count</code> accepts an exact count (<code>5</code>) or a minimum (<code>&gt;=5</code>); <code>default_environment</code> and <code>media_fmt</code> are default values referenced with <code>@</code>.",
     "rules.conditionsTitle": "Cross-field conditions",
-    "rules.conditionsHelp": "Rules shaped as <em>IF (expression) THEN (action)</em>. Expressions support <code>AND</code>, <code>OR</code>, <code>NOT</code>, <code>empty</code>, <code>notEmpty</code>, <code>=</code>, <code>!=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>contains</code>, <code>isAll</code>, <code>in</code>, and <code>matches</code>/<code>not matches</code>. They also recognize <code>key</code>, <code>checklist[0]</code>, <code>checklist.length</code>, computed mirrors, <code>@rule</code>, and media properties.",
+    "rules.conditionsHelp": "Rules shaped as <em>IF (expression) THEN (action)</em>. Expressions support <code>AND</code>, <code>OR</code>, <code>NOT</code>, <code>empty</code>, <code>notEmpty</code>, <code>=</code>, <code>!=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>contains</code>, <code>isAll</code>, <code>in</code>, <code>inList</code>, and <code>matches</code>/<code>not matches</code>. For DATA lists use <code>field inList listId</code> or <code>field contains listId[]</code>. They also recognize <code>key</code>, <code>checklist[0]</code>, <code>checklist.length</code>, computed mirrors, <code>@rule</code>, and media properties.",
     "rules.tilesTitle": "Custom tiles",
-    "rules.tilesHelp": "Tiles in the second band, ordered by this table. Text and message accept <code>{reference}</code> (fields, key, checklist, and media); conditions use the same DSL. <em>Error</em> blocks the ready state, while <em>Warning/Info</em> only informs. “Jump to” selects the field focused on click.",
+    "rules.tilesHelp": "Tiles in the second band, ordered by this table. Text and message accept <code>{reference}</code> (fields, key, checklist, and media); conditions use the same DSL, and an empty condition hides the tile. <em>Error</em> blocks the ready state, while <em>Warning/Info</em> only informs. “Jump to” selects the field focused on click.",
     "rules.futureHelp": "Use <code>media:media1:type</code> for the type and <code>media:media1:name</code> for the name. In templates, <code>{media:media1}</code> remains a compatible alias for the name.",
     "rules.if": "If",
     "rules.then": "then",
+    "rules.active": "Active",
+    "rules.dragOrder": "Press and hold to drag and reorder",
+    "rules.expression": "Condition",
+    "rules.actionShort": "Action",
     "rules.errorValuePlaceholder": "error message",
     "rules.defaultValuePlaceholder": "value or @rule",
     "rules.valueOfPlaceholder": "text, {reference}, or @rule",
@@ -4585,7 +7106,7 @@ const UI_MESSAGES = {
     "rules.autoField": "(auto: first field in condition)",
     "rules.tileTextPlaceholder": "text",
     "rules.tileMessagePlaceholder": "instruction or detail (accepts {campo})",
-    "rules.tileConditionPlaceholder": "empty = always; e.g. bugType in (\"Crash\", \"Freeze\")",
+    "rules.tileConditionPlaceholder": "empty = hidden; e.g. bugType in (\"Crash\", \"Freeze\")",
     "rules.moveUp": "Move up (appears earlier)",
     "rules.moveDown": "Move down (appears later)",
     "rules.deleteTile": "Delete tile",
@@ -4794,6 +7315,7 @@ const UI_MESSAGES = {
     "expr.empty": "Empty expression",
     "expr.trailing": "Unexpected text after the expression",
     "expr.missingField": "Field “{field}” does not exist in this form",
+    "expr.missingList": "DATA list “{list}” does not exist",
     "expr.invalid": "Invalid expression",
     "suggest.mediaType": "media type {index}",
     "suggest.mediaName": "media name {index}",
@@ -4807,8 +7329,10 @@ const UI_MESSAGES = {
     "suggest.notEquals": "does not equal",
     "suggest.matches": "matches regex or @rule",
     "suggest.in": "matches any",
+    "suggest.inList": "matches any value in a DATA list",
     "suggest.notIn": "matches none",
     "suggest.contains": "contains this option",
+    "suggest.dataList": "DATA list: {label}",
     "suggest.isAll": "special option is active",
     "suggest.numeric": "numeric comparison",
     "suggest.openList": "opens the list",
@@ -4908,6 +7432,41 @@ Object.assign(UI_MESSAGES.es, {
   "live.dataHeader": "El encabezado Live de bug_data.csv no es válido.",
   "live.fieldsHeader": "El encabezado Live de bug_fields.csv no es válido.",
   "live.rulesHeader": "El encabezado Live de bug_rules.csv no es válido."
+});
+
+Object.assign(UI_MESSAGES.es, {
+  "issue.title": "Reportar un problema",
+  "issue.buttonLabel": "Error",
+  "issue.name": "Nombre o número de escritorio (opcional)",
+  "issue.description": "Descripción del problema",
+  "issue.media": "Agregar imágenes o videos…",
+  "issue.help": "Reporta errores de la app o correciones para el template. 40MB Máximo en la media.",
+  "issue.submit": "Enviar reporte",
+  "issue.sending": "Enviando…",
+  "issue.required": "Describe el problema antes de enviarlo.",
+  "issue.invalidMedia": "Selecciona únicamente imágenes o videos.",
+  "issue.limit": "Puedes adjuntar hasta 20 archivos y 40 MB en total.",
+  "issue.server": "Abre la herramienta con Start Bug Tool.bat para guardar reportes en Issues.",
+  "issue.error": "No se pudo guardar el reporte. Tus datos se conservan; intenta nuevamente.",
+  "issue.saved": "Reporte guardado en Issues/{folder}.",
+  "issue.remove": "Quitar {name}"
+});
+Object.assign(UI_MESSAGES.en, {
+  "issue.title": "Report an issue",
+  "issue.buttonLabel": "Issue",
+  "issue.name": "Name or desk number (optional)",
+  "issue.description": "Description of the issue",
+  "issue.media": "Add images or videos…",
+  "issue.help": "Report app bugs or template fixes. 40 MB maximum for media.",
+  "issue.submit": "Send report",
+  "issue.sending": "Sending…",
+  "issue.required": "Describe the issue before submitting.",
+  "issue.invalidMedia": "Select only images or videos.",
+  "issue.limit": "You can attach up to 20 files and 40 MB total.",
+  "issue.server": "Open the tool with Start Bug Tool.bat to save reports in Issues.",
+  "issue.error": "Could not save the report. Your details are preserved; please try again.",
+  "issue.saved": "Report saved in Issues/{folder}.",
+  "issue.remove": "Remove {name}"
 });
 
 Object.assign(UI_MESSAGES.en, {
@@ -5219,7 +7778,143 @@ const CONFIGURED_TEXT_EN = {
   "Procedimiento": "Procedure",
   "Observación": "Observation",
   "Contexto": "Context",
-  "Revisión": "Review"
+  "Revisión": "Review",
+  "Proyecto": "Project",
+  "Tipo de incidencia": "Issue type",
+  "Plataforma": "Platform",
+  "Plataformas PC": "PC platforms",
+  "Consolas": "Consoles",
+  "Rama": "Branch",
+  "Modo gráfico": "Graphics mode",
+  "Dispositivo de entrada": "Input device",
+  "Idioma del juego": "Game language",
+  "Hora del mundo": "World time",
+  "Clima": "Weather",
+  "Estado de misión": "Quest state",
+  "Estado del jugador": "Player state",
+  "Modo de juego": "Game mode",
+  "Conexión": "Connection",
+  "Región del servidor": "Server region",
+  "Equipo QA": "QA team",
+  "GPU": "GPU",
+  "Tipo de crash": "Crash type",
+  "Fase del crash": "Crash stage",
+  "Funciones de accesibilidad": "Accessibility features",
+  "Evidencias disponibles": "Available evidence",
+  "Cobertura de plataformas": "Platform coverage",
+  "Tipos de evidencia": "Evidence types",
+  "Keywords sugeridas": "Suggested keywords",
+  "Personaje / operador": "Character / operator",
+  "Región / mapa": "Region / map",
+  "Ubicación / punto de interés": "Location / point of interest",
+  "Misión / escenario": "Mission / scenario",
+  "Título generado": "Generated title",
+  "Usa ACS-, R6S- o KES- y de 4 a 6 dígitos.": "Use ACS-, R6S- or KES- and 4 to 6 digits.",
+  "ID del ticket": "Ticket ID",
+  "Usa el formato AAAA-MM-DD.": "Use YYYY-MM-DD format.",
+  "Build y entorno": "Build and environment",
+  "Usa cuatro números, por ejemplo 1.0.0.1842.": "Use four numbers, for example 1.0.0.1842.",
+  "Build afectada (ficticia)": "Affected build (fictional)",
+  "Changelist": "Changelist",
+  "Código de plataforma": "Platform code",
+  "Selecciona una plataforma de la lista.": "Choose a platform from the list.",
+  "Aparece sólo en PC; documenta el driver de la máquina de prueba.": "Shown only on PC; record the test machine driver.",
+  "Versión del driver": "Driver version",
+  "Contexto del juego": "Game context",
+  "Usa X=124.50; Y=38.25; Z=-72.10.": "Use X=124.50; Y=38.25; Z=-72.10.",
+  "Coordenadas XYZ": "XYZ coordinates",
+  "Indica un nombre de save .sav sin rutas.": "Enter a .sav filename without a path.",
+  "Save de prueba": "Test save",
+  "Ronda": "Round",
+  "Fase de vuelo": "Flight phase",
+  "Fases de vuelo": "Flight phases",
+  "Vehículo de prueba": "Test vehicle",
+  "Vehículos": "Vehicles",
+  "Descripción y precondiciones": "Description and preconditions",
+  "Resultados y reproducibilidad": "Results and reproducibility",
+  "Ratio de reproducción": "Reproduction ratio",
+  "Impacto y notas": "Impact and notes",
+  "Notas adicionales": "Additional notes",
+  "Mínimo 3 keywords únicas; no deben repetirse en el cuerpo del ticket. Prueba crash para activar los diagnósticos.": "At least 3 unique keywords; they must not repeat in the ticket body. Try crash to activate diagnostics.",
+  "Keywords": "Keywords",
+  "Todas las plataformas": "All platforms",
+  "Plataformas verificadas": "Verified platforms",
+  "Activa la captura de ajustes de accesibilidad y su resultado esperado.": "Enable accessibility settings and expected behavior capture.",
+  "Documentar accesibilidad": "Document accessibility",
+  "Ajustes de accesibilidad": "Accessibility settings",
+  "Comportamiento accesible esperado": "Expected accessible behavior",
+  "Diagnóstico de red": "Network diagnostics",
+  "Latencia (ms)": "Latency (ms)",
+  "Pérdida de paquetes (%)": "Packet loss (%)",
+  "Nombre de evidencia simulada; no sube archivos.": "Simulated evidence filename; does not upload files.",
+  "Traza de red": "Network trace",
+  "Diagnóstico de crash": "Crash diagnostics",
+  "Firma del crash": "Crash signature",
+  "Usa un nombre de archivo .log o .txt sin rutas.": "Use a .log or .txt filename without a path.",
+  "Se exige al seleccionar Crash o detectar una mención positiva en el ticket. Es un nombre de evidencia ficticia.": "Required for Crash issues or a positive mention in the ticket. This is a fictional evidence filename.",
+  "Log específico del crash": "Specific crash log",
+  "En PC se requiere un dump .dmp.": "PC crashes require a .dmp dump.",
+  "Dump del crash (PC)": "Crash dump (PC)",
+  "Usa QA-PS5-CR-18428 (o PS5Pro, XSX, XSS).": "Use QA-PS5-CR-18428 (or PS5Pro, XSX, XSS).",
+  "Reporte de crash de consola": "Console crash report",
+  "Captura de rendimiento": "Performance capture",
+  "FPS objetivo": "Target FPS",
+  "FPS observados": "Observed FPS",
+  "Frame time p95 (ms)": "Frame time p95 (ms)",
+  "Captura del profiler": "Profiler capture",
+  "Contexto de localización": "Localization context",
+  "ID de string": "String ID",
+  "Texto fuente": "Source text",
+  "Texto localizado": "Localized text",
+  "Evidencia y procedencia": "Evidence and provenance",
+  "Referencias ficticias para el output. El panel Media genera nombres; estos campos no adjuntan archivos.": "Fictional references for the output. The Media panel generates filenames; these fields do not attach files.",
+  "Nombres de adjuntos": "Attachment filenames",
+  "Este proyecto utiliza IDs ACS- seguidos de 4 a 6 dígitos.": "This project uses ACS- IDs followed by 4 to 6 digits.",
+  "Este proyecto utiliza IDs R6S- seguidos de 4 a 6 dígitos.": "This project uses R6S- IDs followed by 4 to 6 digits.",
+  "Este proyecto utiliza IDs KES- seguidos de 4 a 6 dígitos.": "This project uses KES- IDs followed by 4 to 6 digits.",
+  "Selecciona un proyecto de la lista.": "Choose a project from the list.",
+  "Registra al menos un intento.": "Record at least one attempt.",
+  "Las reproducciones no pueden superar los intentos.": "Reproductions cannot exceed attempts.",
+  "Selecciona una opción de la lista.": "Choose an option from the list.",
+  "El valor no pertenece al proyecto o región seleccionados.": "This value does not belong to the selected project or region.",
+  "Selecciona una resolución antes de cerrar el ticket.": "Choose a resolution before closing the ticket.",
+  "La ronda debe ser al menos 1.": "Round must be at least 1.",
+  "Esta demo admite rondas del 1 al 15.": "This demo supports rounds 1 through 15.",
+  "La pérdida de paquetes debe estar entre 0 y 100.": "Packet loss must be between 0 and 100.",
+  "Selecciona una conexión online para el diagnóstico de desync.": "Select an online connection for desync diagnostics.",
+  "Incluye Debug log entre las evidencias del crash.": "Include Debug log among crash evidence.",
+  "Incluye Crash dump entre las evidencias de PC.": "Include Crash dump among PC evidence.",
+  "El objetivo de FPS debe ser mayor que cero.": "Target FPS must be greater than zero.",
+  "El frame time debe ser mayor que cero.": "Frame time must be greater than zero.",
+  "Incluye Profiler capture entre las evidencias.": "Include Profiler capture among evidence.",
+  "Selecciona el idioma de destino de la traducción.": "Select the target translation language.",
+  "Incluye la plataforma afectada en las plataformas verificadas.": "Include the affected platform among verified platforms.",
+  "Para esta severidad se requiere Video capture.": "This severity requires Video capture.",
+  "Documenta un workaround o explica que no existe.": "Document a workaround or explain that none exists.",
+  "Demo AAA · todos los datos son ficticios": "AAA demo · all data is fictional",
+  "Repro: {failures}/{attempts}": "Repro: {failures}/{attempts}",
+  "Crash detectado · requiere log específico": "Crash detected · specific log required",
+  "Crash PC · dump .dmp requerido": "PC crash · .dmp dump required",
+  "Crash consola · reporte de plataforma requerido": "Console crash · platform report required",
+  "Rendimiento · documenta FPS y profiler": "Performance · record FPS and profiler",
+  "FPS dentro del objetivo · revisa frame time y picos": "FPS meets target · review frame time and spikes",
+  "Pérdida de paquetes · adjunta traza": "Packet loss · provide a trace",
+  "Prioridad alta · confirmar impacto y workaround": "High priority · confirm impact and workaround",
+  "Cobertura ampliada: {coverage.length} plataformas": "Extended coverage: {coverage.length} platforms",
+  "Build original": "Original build",
+  "Build verificada (ficticia)": "Verified build (fictional)",
+  "Motivo del bloqueo": "Blocker reason",
+  "Evidencia de corrección": "Fix evidence",
+  "Ticket de seguimiento": "Follow-up issue",
+  "No marques corregido si el fallo persiste.": "Do not mark fixed while the issue persists.",
+  "Registra al menos una reproducción si el fallo persiste.": "Record at least one reproduction if the issue persists.",
+  "Verifica en una build distinta de la afectada.": "Verify on a different build from the affected one.",
+  "Incluye la plataforma verificada en la cobertura.": "Include the verified platform in coverage.",
+  "Selecciona un resultado de verificación de la lista.": "Choose a verification result from the list.",
+  "Regresión pendiente · no se afirma una corrección": "Regression pending · no fix is claimed",
+  "Corrección verificada · adjunta video": "Fix verified · provide a video",
+  "Diagnóstico": "Diagnostics",
+  "El reporte de crash debe corresponder a la consola seleccionada.": "The crash report must match the selected console."
 };
 
 function configuredText(value) {
@@ -5825,14 +8520,26 @@ function normalizeMediaRows(inst, form) {
   return rows;
 }
 
+// Collection defaults use JSON so CSV and embedded configurations share the
+// same representation. Always return a fresh array for each instance.
+function initialFieldValue(field) {
+  if (field.type === "keywords" || field.type === "checklist") {
+    try {
+      const values = JSON.parse(resolveRef(field.default || "[]"));
+      return Array.isArray(values)
+        ? [...new Set(values.filter(value => typeof value === "string" && value.trim()).map(value => value.trim()))]
+        : [];
+    } catch (error) { return []; }
+  }
+  return isSystemField(field) ? formatSystemFieldValue(field) : resolveRef(field.default || "");
+}
+
 function makeInstance(formId) {
   const form = getForm(formId);
   const values = {};
   allFields(form).forEach(({ field }) => {
     if (field.type === "mirror") return;
-    if (field.type === "keywords" || field.type === "checklist") values[field.id] = [];
-    else if (isSystemField(field)) values[field.id] = formatSystemFieldValue(field);
-    else values[field.id] = resolveRef(field.default || "");
+    values[field.id] = initialFieldValue(field);
   });
   return {
     id: newId(),
@@ -5863,9 +8570,7 @@ function ensureInstanceFields(inst) {
     if (field.type === "mirror") return;
     const isArrayField = field.type === "keywords" || field.type === "checklist";
     if (inst.values[field.id] === undefined) {
-      inst.values[field.id] = isArrayField ? []
-        : isSystemField(field) ? formatSystemFieldValue(field)
-        : resolveRef(field.default || "");
+      inst.values[field.id] = initialFieldValue(field);
     }
     if (isArrayField && !Array.isArray(inst.values[field.id])) {
       inst.values[field.id] = [];
@@ -6475,6 +9180,9 @@ function sectionHtml(sec, inst, fx, form) {
   // para poder configurarlos.
   const visibleFields = sec.fields.filter(f =>
     state.editMode || (f.type !== "mirror" && !(fx[f.id] && fx[f.id].hidden)));
+  // Conditional diagnostic sections disappear together with their fields.
+  // Keep them available in the schema editor, even when currently inactive.
+  if (!visibleFields.length && !state.editMode) return "";
   // Agrupa medios en filas de 2 y tercios/2-3 en filas de 3 columnas.
   const rows = [];
   let group = null;
@@ -7425,6 +10133,9 @@ function confirmDeleteOption(field, inst, value, after) {
 // kwOverlap) presentes en el cuerpo del bug. Se pintan en rojo para verlas
 // TODAS de un vistazo, no solo la primera.
 function keywordBadSet(inst, field) {
+  const form = getForm(inst.formId);
+  const effects = form && evalFieldRules(form, inst);
+  if (form && validationReferenceInactive(form, field.id, effects)) return new Set();
   const arr = Array.isArray(inst.values[field.id]) ? inst.values[field.id] : [];
   const bad = new Set();
   const seen = new Set();
@@ -7434,12 +10145,8 @@ function keywordBadSet(inst, field) {
     seen.add(lk);
   });
   if (field.kwOverlap) {
-    const form = getForm(inst.formId);
     if (form) {
-      const bodyText = allFields(form)
-        .filter(({ field: f }) => f.type === "text" || f.type === "textarea")
-        .map(({ field: f }) => String(inst.values[f.id] || ""))
-        .join(" ").toLowerCase();
+      const bodyText = validationBodyText(form, inst, effects);
       arr.forEach(k => { if (bodyText.includes(String(k).toLowerCase())) bad.add(k); });
     }
   }
@@ -8567,6 +11274,10 @@ function getFormRules(form) {
   return form.rules || [];
 }
 
+function isConditionRuleActive(rule) {
+  return !(rule && rule.active === false);
+}
+
 /* ================================================================
    MOTOR DE EXPRESIONES BOOLEANAS (AND / OR / NOT)
    ================================================================
@@ -8583,7 +11294,8 @@ function getFormRules(form) {
                           | ("!="|"<>") operando       // distinto
                           | ("<"|"<="|">"|">=") operando // numérico
                           | ("matches"|"not matches"|"~") operando // regex/@regla y negación
-                          | ("in"|"not in") lista )    // pertenece/no pertenece
+                          | ("in"|"not in") lista     // pertenece/no pertenece
+                          | "inList" idLista )        // pertenece a lista de DATA
      operando := "texto"  |  "@"nombre  |  palabra
      referencia := campo | key | campo[n] | campo.length |
                    media:mediaN:type | media:mediaN:name
@@ -8594,6 +11306,8 @@ function getFormRules(form) {
      id de campo (compara valor contra valor: equalsField/notEqualsField).
    - Los miembros de `in`/`not in` son literales entre comillas; `empty` sin
      comillas representa la ausencia de valor.
+   - `inList` referencia una lista de DATA por su ID. La misma comparación se
+     puede escribir con `contains idLista[]`.
    - "@nombre" suelto = evalúa esa @regla como sub-expresión booleana
      (permite reutilizar/concatenar reglas: «@esLod OR @esVlod»).
    Retrocompatible: una `when` vieja { field, op, value } sigue evaluándose. */
@@ -8613,6 +11327,12 @@ function conditionReferenceExists(form, id) {
     fieldReferenceInfo(form, id).found;
 }
 
+function conditionListExists(id) {
+  const key = String(id || "");
+  return !!((config.data.lists && Object.prototype.hasOwnProperty.call(config.data.lists, key)) ||
+    (config.data.childLists && Object.prototype.hasOwnProperty.call(config.data.childLists, key)));
+}
+
 function conditionReference(form, inst, id, stack) {
   const resolved = resolveValueReference(form, inst, id, stack);
   if (!resolved.found) return { found: false, field: null, raw: "", storedRaw: "" };
@@ -8624,6 +11344,24 @@ function conditionReference(form, inst, id, stack) {
   }
   return { found: true, field: resolved.field || null, raw, storedRaw,
     fieldId: resolved.fieldId || "", accessor: resolved.accessor || "value" };
+}
+
+// Solo la validación usa este filtro; show/hide necesita los valores guardados
+// para poder volver a activar un campo. null significa comparación inactiva y
+// se conserva bajo NOT, para que un campo oculto no produzca un error negado.
+function validationReferenceInactive(form, id, effects) {
+  if (!effects) return false;
+  const ref = fieldReferenceInfo(form, id);
+  const effect = ref.found && ref.field && effects[ref.field.id];
+  return !!(effect && (effect.hidden || effect.disabled));
+}
+
+function validationBodyText(form, inst, effects) {
+  return allFields(form)
+    .filter(({ field }) => (field.type === "text" || field.type === "textarea") &&
+      !validationReferenceInactive(form, field.id, effects))
+    .map(({ field }) => String(inst.values[field.id] || ""))
+    .join(" ").toLowerCase();
 }
 
 function tokenizeExpr(src) {
@@ -8699,6 +11437,13 @@ function parseExpr(src) {
     if (isKw("empty")) { p++; return { type: "cmp", field, op: "empty" }; }
     if (isKw("notempty")) { p++; return { type: "cmp", field, op: "notEmpty" }; }
     if (isKw("isall")) { p++; return { type: "cmp", field, op: "isAll" }; }
+    if (isKw("inlist")) {
+      p++;
+      const list = peek();
+      if (!list || list.t !== "word") throw new Error(t("expr.missingValue"));
+      p++;
+      return { type: "cmp", field, op: "inList", listId: list.v };
+    }
     // Operadores de pertenencia. `not in` se reconoce aquí para que NOT/!
     // conserve su papel de negación prefija en el resto de la gramática.
     if (isKw("in") ||
@@ -8745,6 +11490,11 @@ function parseExpr(src) {
     else if (tk.t === "ref") operand = { kind: "ref", v: tk.v };
     else if (tk.t === "word") operand = { kind: "word", v: tk.v };
     else throw new Error(t("expr.invalidValue"));
+    if (op === "contains" && operand.kind === "word" && operand.v.endsWith("[]")) {
+      const listId = operand.v.slice(0, -2);
+      if (!listId) throw new Error(t("expr.invalidValue"));
+      return { type: "cmp", field, op: "inList", listId };
+    }
     const comparison = { type: "cmp", field, op: op === "notMatches" ? "matches" : op, operand };
     return op === "notMatches" ? { type: "not", item: comparison } : comparison;
   }
@@ -8796,6 +11546,7 @@ function astHasMissingField(ast, inst) {
     if (!node) return false;
     if (node.type === "cmp") {
       if (!conditionReferenceExists(form, node.field)) return true;
+      if (node.op === "inList") return !conditionListExists(node.listId);
       if (node.op === "in" || node.op === "notIn") return false;
       const w = cmpToWhen(node);
       return ["equalsField", "notEqualsField"].includes(w.op) &&
@@ -8809,13 +11560,36 @@ function astHasMissingField(ast, inst) {
 }
 
 // Evalúa un AST contra la instancia. `seen` evita ciclos entre @reglas.
-function evalAst(ast, inst, seen, stack) {
+function evalAst(ast, inst, seen, stack, effects) {
   if (!ast) return false;
   switch (ast.type) {
-    case "or":  return ast.items.some(x => evalAst(x, inst, seen, stack));
-    case "and": return ast.items.every(x => evalAst(x, inst, seen, stack));
-    case "not": return !evalAst(ast.item, inst, seen, stack);
+    case "or":
+    case "and": {
+      if (!effects) return ast.type === "or"
+        ? ast.items.some(x => evalAst(x, inst, seen, stack))
+        : ast.items.every(x => evalAst(x, inst, seen, stack));
+      const values = ast.items.map(x => evalAst(x, inst, seen, stack, effects));
+      if (ast.type === "or" && values.includes(true)) return true;
+      if (ast.type === "and" && values.includes(false)) return false;
+      if (values.includes(null)) return null;
+      return ast.type === "and";
+    }
+    case "not": {
+      const value = evalAst(ast.item, inst, seen, stack, effects);
+      return value === null ? null : !value;
+    }
     case "cmp":
+      if (validationReferenceInactive(getForm(inst.formId), ast.field, effects)) return null;
+      if (ast.op === "inList") {
+        const form = getForm(inst.formId);
+        const ref = conditionReference(form, inst, ast.field, stack);
+        if (!ref.found || !conditionListExists(ast.listId)) return false;
+        const values = Array.isArray(ref.raw)
+          ? ref.raw.map(v => String(v).trim().toLowerCase()).filter(Boolean)
+          : [String(ref.raw == null ? "" : ref.raw).trim().toLowerCase()].filter(Boolean);
+        const members = new Set(listValues(ast.listId).map(v => String(v).trim().toLowerCase()).filter(Boolean));
+        return values.some(value => members.has(value));
+      }
       if (ast.op === "in" || ast.op === "notIn") {
         const form = getForm(inst.formId);
         const ref = conditionReference(form, inst, ast.field, stack);
@@ -8830,7 +11604,7 @@ function evalAst(ast, inst, seen, stack) {
             : values.includes(String(member.v).trim().toLowerCase()));
         return ast.op === "in" ? found : !found;
       }
-      return evalCondition(cmpToWhen(ast), inst, stack);
+      return evalCondition(cmpToWhen(ast), inst, stack, effects);
     case "ref": {
       const name = ast.name;
       if (seen && seen.has(name)) return false; // ciclo
@@ -8840,7 +11614,7 @@ function evalAst(ast, inst, seen, stack) {
         const sub = parseExpr(String(raw));
         if (astHasMissingField(sub, inst)) return false;
         const s2 = new Set(seen || []); s2.add(name);
-        return evalAst(sub, inst, s2, stack);
+        return evalAst(sub, inst, s2, stack, effects);
       } catch (e) { return false; } // @regla que no es expresión booleana
     }
     default: return false;
@@ -8849,17 +11623,18 @@ function evalAst(ast, inst, seen, stack) {
 
 // Evalúa la condición de una regla, aceptando la forma nueva (whenExpr:
 // string) o la vieja (when: {field,op,value}). Vacío = no dispara.
-function ruleWhenTrue(rule, inst, stack) {
+function ruleWhenTrue(rule, inst, stack, effects) {
+  if (!isConditionRuleActive(rule)) return false;
   if (typeof rule.whenExpr === "string") {
     const src = rule.whenExpr.trim();
     if (!src) return false;
     try {
       const ast = parseExpr(src);
-      return !astHasMissingField(ast, inst) && evalAst(ast, inst, undefined, stack);
+      return !astHasMissingField(ast, inst) && evalAst(ast, inst, undefined, stack, effects) === true;
     }
     catch (e) { return false; } // expresión inválida: la regla no aplica
   }
-  if (rule.when) return evalCondition(rule.when, inst, stack);
+  if (rule.when) return evalCondition(rule.when, inst, stack, effects) === true;
   return false;
 }
 
@@ -8871,6 +11646,8 @@ function exprError(src, form) {
     if (form) {
       const missing = exprFieldRefs(src).find(id => !conditionReferenceExists(form, id));
       if (missing) return t("expr.missingField", { field: missing });
+      const missingList = exprListRefs(src).find(id => !conditionListExists(id));
+      if (missingList) return t("expr.missingList", { list: missingList });
     }
     return "";
   }
@@ -8887,6 +11664,18 @@ function exprFieldRefs(src) {
     if (n.type === "cmp") ids.push(n.field);
     else if (n.type === "not") walk(n.item);
     else if (n.type === "or" || n.type === "and") n.items.forEach(walk);
+  };
+  try { walk(parseExpr(String(src || ""))); } catch (e) {}
+  return ids;
+}
+
+function exprListRefs(src) {
+  const ids = [];
+  const walk = node => {
+    if (!node) return;
+    if (node.type === "cmp" && node.op === "inList") ids.push(node.listId);
+    else if (node.type === "not") walk(node.item);
+    else if (node.type === "or" || node.type === "and") node.items.forEach(walk);
   };
   try { walk(parseExpr(String(src || ""))); } catch (e) {}
   return ids;
@@ -8995,6 +11784,9 @@ function condExprSuggestionState(src, cursor, form) {
     const ref = fieldReferenceInfo(form, prev.v);
     return { ...fragment, kind: "notInOpen", field: ref.found ? ref.field : null };
   }
+  if (word(last) === "inlist" && prev && prev.t === "word" && conditionReferenceExists(form, prev.v)) {
+    return { ...fragment, kind: "dataList" };
+  }
   if (!last || last.t === "(" || ["!", "&&", "||"].includes(op(last)) ||
       ["and", "or", "not"].includes(word(last))) {
     return { ...fragment, kind: "lhs", field: null };
@@ -9042,6 +11834,14 @@ function condExprSuggestions(src, cursor, form) {
   const fields = allFields(form).map(x => x.field);
   const rules = Object.keys(config.data.rules || {});
   const item = (insert, label, detail) => ({ insert, label: label || insert.trim(), detail: detail || "" });
+  const dataListItems = suffix => {
+    const ids = new Set([
+      ...Object.keys(config.data.lists || {}),
+      ...Object.keys(config.data.childLists || {})
+    ]);
+    return [...ids].sort((a, b) => a.localeCompare(b)).map(id =>
+      item(`${id}${suffix} `, `${id}${suffix}`, t("suggest.dataList", { label: configuredText(listLabel(id)) })));
+  };
   const fieldItems = () => [item("key ", "key", t("suggest.ticketKey"))]
     .concat(fields.flatMap(field => {
       const values = [item(field.id + " ", field.id, configuredText(field.label))];
@@ -9081,16 +11881,20 @@ function condExprSuggestions(src, cursor, form) {
         item("matches ", "matches", t("suggest.matches")),
         item("not matches ", "not matches", t("suggest.notMatches")),
         item("in (", "in (...)", t("suggest.in")),
+        item("inList ", "inList", t("suggest.inList")),
         item("not in (", "not in (...)", t("suggest.notIn"))
       ];
+      items.push(item("contains ", "contains", t("suggest.contains")));
       if (state.field && state.field.type === "checklist") {
         items.splice(2, 0,
-          item("contains ", "contains", t("suggest.contains")),
           item("isAll ", "isAll", t("suggest.isAll")));
       }
       break;
     case "operand":
-      items = state.atRule ? [] : valueItems(state.field).concat(fieldItems());
+      items = state.atRule ? [] : valueItems(state.field).concat(fieldItems(), dataListItems("[]"));
+      break;
+    case "dataList":
+      items = dataListItems("");
       break;
     case "matchesOperand":
       items = ruleItems();
@@ -9217,8 +12021,13 @@ function wireCondExprAutocomplete(input, form) {
   });
 }
 
-function evalCondition(when, inst, stack) {
+function evalCondition(when, inst, stack, effects) {
   const form = getForm(inst.formId);
+  if (validationReferenceInactive(form, when.field, effects)) return null;
+  const comparesField = ["equalsField", "notEqualsField"].includes(when.op) ||
+    (["lt", "lte", "gt", "gte"].includes(when.op) && when.valueKind === "word" &&
+      conditionReferenceExists(form, when.value));
+  if (comparesField && validationReferenceInactive(form, when.value, effects)) return null;
   const ref = conditionReference(form, inst, when.field, stack);
   if (!ref.found) return false;
   const raw = ref.raw;
@@ -9319,6 +12128,7 @@ function mirrorValueDependencyCycle(form, ruleValues) {
     if (field.type === "mirror" && mirrors.has(field.source)) edges.get(field.id).add(field.source);
   });
   getFormRules(form).forEach(rule => {
+    if (!isConditionRuleActive(rule)) return;
     const target = rule.then && rule.then.action === "valueOf" ? rule.then.field : "";
     if (!mirrors.has(target)) return;
     templateFieldRefs(rule.then.value || "").forEach(id => {
@@ -9418,12 +12228,8 @@ function revalidate(inst, paint) {
   if (!form) return;
   const fx = evalFieldRules(form, inst);
 
-  // Cuerpo del bug: todos los campos de texto, para el chequeo de keywords
-  const bodyText = allFields(form)
-    .filter(({ field }) => field.type === "text" || field.type === "textarea")
-    .map(({ field }) => String(inst.values[field.id] || ""))
-    .join(" ")
-    .toLowerCase();
+  // Solo los campos activos participan en el chequeo de keywords.
+  const bodyText = validationBodyText(form, inst, fx);
 
   allFields(form).forEach(({ field }) => {
     if (field.type === "mirror" || field.type === "checkbox") return;
@@ -9483,7 +12289,7 @@ function revalidate(inst, paint) {
     if ((!r.when && r.whenExpr == null) || !r.then || r.then.action !== "error") return;
     const st = fx[r.then.field];
     if (!st || st.hidden || st.disabled) return;
-    if (ruleWhenTrue(r, inst)) {
+    if (ruleWhenTrue(r, inst, undefined, fx)) {
       inst.errors[r.then.field] = r.then.value ? configuredText(r.then.value) : t("validation.invalidValue");
     }
   });
@@ -9538,7 +12344,7 @@ function reflectErrors(inst) {
 /* ---------- Tiles personalizados (definidos por el usuario) ----------
    Cada form puede tener form.tiles = [ { text, message, whenExpr, color,
    group, severity, field } ]. Son independientes de los campos: aparecen
-   cuando su condición es verdadera (o siempre, si la condición está vacía).
+   cuando su condición no está vacía y es verdadera.
    Reutilizan el motor de expresiones (parseExpr/evalAst) y exprFieldRefs. */
 function getFormTiles(form) { return (form && form.tiles) || []; }
 
@@ -9581,20 +12387,21 @@ function interpolateTileText(text, inst) {
   });
 }
 
-// Tiles personalizados activos ahora. Condición vacía = siempre activo
-// (tile informativo fijo). Devuelve { tile, idx, text }.
+// Tiles personalizados activos ahora. Una condición vacía no muestra el tile.
+// Devuelve { tile, idx, text }.
 function evalTiles(form, inst) {
   const out = [];
+  const effects = evalFieldRules(form, inst);
   getFormTiles(form).forEach((tile, idx) => {
+    const validationEffects = tile.severity === "error" ? effects : undefined;
+    if (validationReferenceInactive(form, tile.field, validationEffects)) return;
     const src = String(tile.whenExpr || "").trim();
-    let active;
-    if (!src) active = true;
-    else {
-      try {
-        const ast = parseExpr(src);
-        active = !astHasMissingField(ast, inst) && evalAst(ast, inst);
-      } catch (e) { active = false; }
-    }
+    if (!src) return;
+    let active = false;
+    try {
+      const ast = parseExpr(src);
+      active = !astHasMissingField(ast, inst) && evalAst(ast, inst, undefined, undefined, validationEffects) === true;
+    } catch (e) { active = false; }
     if (active) out.push({
       tile,
       idx,
@@ -12218,6 +15025,24 @@ function applyRulesSearch(c, key) {
   });
 }
 
+function conditionRowColor(form, rule) {
+  let field = rule && rule.then && rule.then.field ? getField(form, rule.then.field) : null;
+  if (!field) {
+    const firstReference = exprFieldRefs(rule && (rule.whenExpr || whenToExpr(rule.when)) || "")[0];
+    const fieldId = firstReference ? schemaFieldReferenceId(form, firstReference) : "";
+    field = fieldId ? getField(form, fieldId) : null;
+  }
+  const colorId = field ? (FIELD_TYPE_COLOR[field.field.type] || "slate") : "slate";
+  return tileColor(colorId);
+}
+
+function applyConditionRowColor(row, form, rule) {
+  if (!row) return;
+  const color = conditionRowColor(form, rule);
+  row.style.setProperty("--condition-row-color", color.border);
+  row.style.setProperty("--condition-row-bg", color.bg);
+}
+
 function renderRulesTab() {
   const c = $("rulesContainer");
   let fieldRows = "";
@@ -12255,6 +15080,7 @@ function renderRulesTab() {
       .map(x => `<option value="${escapeHtml(x.field.id)}"${sel === x.field.id ? " selected" : ""}>${escapeHtml(configuredText(x.field.label))}</option>`)
       .join("");
     const rows = getFormRules(form).map((r, i) => {
+      const active = isConditionRuleActive(r);
       const actOpts = COND_ACTIONS.map(([v, l]) =>
         `<option value="${v}"${r.then.action === v ? " selected" : ""}>${escapeHtml(t(l))}</option>`).join("");
       const needsThenVal = ["setDefault", "valueOf", "error"].includes(r.then.action);
@@ -12263,27 +15089,35 @@ function renderRulesTab() {
       const k = form.id + "|" + i;
       const expr = r.whenExpr || "";
       const err = exprError(expr, form);
-      return `<tr>
-        <td class="cond-then">${escapeHtml(t("rules.if"))}</td>
+      const rowColor = conditionRowColor(form, r);
+      return `<tr class="condition-row${active ? "" : " is-inactive"}" data-rule-sort-form="${escapeHtml(form.id)}"
+          data-rule-sort-kind="condition" data-rule-sort-index="${i}"
+          style="--condition-row-color:${rowColor.border};--condition-row-bg:${rowColor.bg}">
+        <td class="condition-active-cell"><input type="checkbox" data-cr-active="${k}" aria-label="${escapeHtml(t("rules.active"))}"${active ? " checked" : ""} /></td>
+        <td class="condition-order-cell"><button type="button" class="tool-btn mv rules-drag-handle" data-rule-sort-handle title="${escapeHtml(t("rules.dragOrder"))}" aria-label="${escapeHtml(t("rules.dragOrder"))}" draggable="true"${active ? "" : " disabled"}>⠿</button></td>
         <td class="cond-expr-cell"><div class="autocomplete cond-expr-ac">
           <textarea class="cond-expr${err ? " cond-bad" : ""}" rows="1"
              data-cr="${k}|whenExpr"
-             placeholder="${escapeHtml(t("rules.conditionExample"))}">${escapeHtml(expr)}</textarea>
+             placeholder="${escapeHtml(t("rules.conditionExample"))}"${active ? "" : " disabled"}>${escapeHtml(expr)}</textarea>
           <div class="autocomplete-list"></div>
         </div>
           <div class="cond-err" data-cr-err="${k}">${err ? escapeHtml(err) : ""}</div></td>
-        <td class="cond-then">${escapeHtml(t("rules.then"))}</td>
-        <td><select data-cr="${k}|then.action">${actOpts}</select></td>
-        <td><select data-cr="${k}|then.field">${fieldOpts(r.then.field, r.then.action)}</select></td>
+        <td><select data-cr="${k}|then.action"${active ? "" : " disabled"}>${actOpts}</select></td>
+        <td><select data-cr="${k}|then.field"${active ? "" : " disabled"}>${fieldOpts(r.then.field, r.then.action)}</select></td>
         <td><input type="text" data-cr="${k}|then.value" value="${escapeHtml(r.then.value || "")}"
-             placeholder="${escapeHtml(needsThenVal ? thenPh : t("rules.notApplicable"))}"${needsThenVal ? "" : " disabled"} /></td>
-        <td><button class="row-del" data-cr-del="${k}" title="${escapeHtml(t("rules.deleteCondition"))}">✕</button></td>
+             placeholder="${escapeHtml(needsThenVal ? thenPh : t("rules.notApplicable"))}"${needsThenVal && active ? "" : " disabled"} /></td>
+        <td class="condition-delete-cell"><button class="row-del" data-cr-del="${k}" title="${escapeHtml(t("rules.deleteCondition"))}"${active ? "" : " disabled"}>✕</button></td>
       </tr>`;
     }).join("");
     const formLabel = configuredText(form.label);
     return `<h4 style="margin:10px 0 4px;font-size:12px;">${escapeHtml(formLabel)}</h4>
-      <table class="data-table cond-table">
-        <tbody>${rows || `<tr><td style="color:#9ca3af;font-style:italic;">${escapeHtml(t("rules.noConditions"))}</td></tr>`}</tbody>
+      <table class="data-table cond-table conditional-rules-table">
+        <colgroup><col style="width:58px"><col style="width:58px"><col style="width:41%"><col style="width:16%"><col style="width:18%"><col style="width:12%"><col style="width:34px"></colgroup>
+        <thead>
+          <tr><th rowspan="2">${escapeHtml(t("rules.active"))}</th><th rowspan="2">${escapeHtml(t("rules.order"))}</th><th class="condition-group-heading">${escapeHtml(t("rules.if"))}</th><th class="condition-group-heading" colspan="3">${escapeHtml(t("rules.then"))}</th><th rowspan="2"></th></tr>
+          <tr><th>${escapeHtml(t("rules.expression"))}</th><th>${escapeHtml(t("rules.actionShort"))}</th><th>${escapeHtml(t("rules.field"))}</th><th>${escapeHtml(t("rules.value"))}</th></tr>
+        </thead>
+        <tbody>${rows || `<tr><td colspan="7" style="color:#9ca3af;font-style:italic;">${escapeHtml(t("rules.noConditions"))}</td></tr>`}</tbody>
       </table>
       <button data-cr-add="${escapeHtml(form.id)}" style="margin-top:6px;">${escapeHtml(t("rules.addCondition", { form: formLabel }))}</button>`;
   }).join("");
@@ -12301,10 +15135,10 @@ function renderRulesTab() {
       const col = tileColor(tile.color);
       const sevOpts = TILE_SEVERITIES.map(([v, l]) =>
         `<option value="${v}"${tile.severity === v ? " selected" : ""}>${escapeHtml(t(l))}</option>`).join("");
-      return `<tr>
-        <td><input type="text" class="tile-text-input" data-tr="${k}|text" value="${escapeHtml(tile.text)}"
-          title="${escapeHtml(tile.text)}" placeholder="${escapeHtml(t("rules.tileTextPlaceholder"))}" style="width:110px" /></td>
-        <td><input type="text" data-tr="${k}|message" value="${escapeHtml(tile.message || "")}" placeholder="${escapeHtml(t("rules.tileMessagePlaceholder"))}" style="min-width:190px" /></td>
+      return `<tr class="tile-config-row" data-rule-sort-form="${escapeHtml(form.id)}" data-rule-sort-kind="tile" data-rule-sort-index="${i}"
+          style="--tile-row-color:${col.border};--tile-row-bg:${col.bg}">
+        <td class="tile-color-cell"><select data-tr="${k}|color" class="tile-color-sel" aria-label="${escapeHtml(t("rules.color"))}" title="${escapeHtml(t("rules.color"))}" style="background:${col.bg};color:${col.fg}">${tileColorOptions(tile.color)}</select></td>
+        <td class="tile-order-cell"><button type="button" class="tool-btn mv rules-drag-handle" data-rule-sort-handle title="${escapeHtml(t("rules.dragOrder"))}" aria-label="${escapeHtml(t("rules.dragOrder"))}" draggable="true">⠿</button></td>
         <td class="cond-expr-cell"><div class="autocomplete cond-expr-ac">
           <textarea class="cond-expr${err ? " cond-bad" : ""}" rows="1"
              data-tr="${k}|whenExpr"
@@ -12312,20 +15146,22 @@ function renderRulesTab() {
           <div class="autocomplete-list"></div>
         </div>
           <div class="cond-err" data-tr-err="${k}">${err ? escapeHtml(err) : ""}</div></td>
-        <td><select data-tr="${k}|color" class="tile-color-sel" style="background:${col.bg};color:${col.fg}">${tileColorOptions(tile.color)}</select></td>
+        <td><input type="text" class="tile-text-input" data-tr="${k}|text" value="${escapeHtml(tile.text)}"
+          title="${escapeHtml(tile.text)}" placeholder="${escapeHtml(t("rules.tileTextPlaceholder"))}" /></td>
+        <td><input type="text" data-tr="${k}|message" value="${escapeHtml(tile.message || "")}" placeholder="${escapeHtml(t("rules.tileMessagePlaceholder"))}" /></td>
         <td><select data-tr="${k}|severity">${sevOpts}</select></td>
         <td><select data-tr="${k}|field" style="max-width:150px">${fieldOptsT(tile.field)}</select></td>
-        <td style="white-space:nowrap">
-          <button class="tool-btn mv" data-tr-move="${k}|-1" title="${escapeHtml(t("rules.moveUp"))}"${i === 0 ? " disabled" : ""}>▲</button>
-          <button class="tool-btn mv" data-tr-move="${k}|1" title="${escapeHtml(t("rules.moveDown"))}"${i === tiles.length - 1 ? " disabled" : ""}>▼</button>
-        </td>
-        <td><button class="row-del" data-tr-del="${k}" title="${escapeHtml(t("rules.deleteTile"))}">✕</button></td>
+        <td class="tile-delete-cell"><button class="row-del" data-tr-del="${k}" title="${escapeHtml(t("rules.deleteTile"))}">✕</button></td>
       </tr>`;
     }).join("");
     const formLabel = configuredText(form.label);
     return `<h4 style="margin:10px 0 4px;font-size:12px;">${escapeHtml(formLabel)}</h4>
       <table class="data-table cond-table tile-table">
-        <thead><tr><th>${escapeHtml(t("rules.tileText"))}</th><th>${escapeHtml(t("rules.tileMessage"))}</th><th>${escapeHtml(t("rules.tileWhen"))}</th><th>${escapeHtml(t("rules.color"))}</th><th>${escapeHtml(t("rules.tileType"))}</th><th>${escapeHtml(t("rules.tileTarget"))}</th><th>${escapeHtml(t("rules.order"))}</th><th></th></tr></thead>
+        <colgroup><col style="width:74px"><col style="width:58px"><col style="width:340px"><col style="width:135px"><col style="width:220px"><col style="width:90px"><col style="width:140px"><col style="width:34px"></colgroup>
+        <thead>
+          <tr><th rowspan="2">${escapeHtml(t("rules.color"))}</th><th rowspan="2">${escapeHtml(t("rules.order"))}</th><th class="condition-group-heading">${escapeHtml(t("rules.if"))}</th><th class="condition-group-heading" colspan="4">${escapeHtml(t("rules.then"))}</th><th rowspan="2"></th></tr>
+          <tr><th>${escapeHtml(t("rules.tileWhen"))}</th><th>${escapeHtml(t("rules.tileText"))}</th><th>${escapeHtml(t("rules.tileMessage"))}</th><th>${escapeHtml(t("rules.tileType"))}</th><th>${escapeHtml(t("rules.tileTarget"))}</th></tr>
+        </thead>
         <tbody>${rows || `<tr><td colspan="8" style="color:#9ca3af;font-style:italic;">${escapeHtml(t("rules.noTiles"))}</td></tr>`}</tbody>
       </table>
       <button data-tr-add="${escapeHtml(form.id)}" style="margin-top:6px;">${escapeHtml(t("rules.addTile", { form: formLabel }))}</button>`;
@@ -12466,6 +15302,8 @@ function renderRulesTab() {
             }
           }
           renderRulesTab(); // habilita/deshabilita el valor y filtra destinos
+        } else if (prop === "field") {
+          renderRulesTab(); // actualiza el color ligado al campo destino
         }
       } else {
         previous = rule[path];
@@ -12494,8 +15332,22 @@ function renderRulesTab() {
       inp.classList.toggle("cond-bad", !!err);
       const box = c.querySelector(`[data-cr-err="${k}"]`);
       if (box) box.textContent = err;
+      const row = inp.closest(".condition-row");
+      const form = getForm(formId);
+      const rule = form && getFormRules(form)[+k.split("|")[1]];
+      if (rule) applyConditionRowColor(row, form, { ...rule, whenExpr: inp.value });
     });
   });
+  c.querySelectorAll("[data-cr-active]").forEach(el => el.addEventListener("change", () => {
+    const [formId, idx] = el.dataset.crActive.split("|");
+    const form = getForm(formId);
+    const rule = form && getFormRules(form)[+idx];
+    if (!rule) return;
+    if (el.checked) delete rule.active;
+    else rule.active = false;
+    renderRulesTab();
+    scheduleSave();
+  }));
   c.querySelectorAll("[data-cr-add]").forEach(btn => {
     btn.addEventListener("click", () => {
       const form = getForm(btn.dataset.crAdd);
@@ -12583,21 +15435,62 @@ function renderRulesTab() {
       });
     });
   });
-  // Reordenar tiles (▲▼): cambia el orden de la lista = orden en la 2ª banda.
-  c.querySelectorAll("[data-tr-move]").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const [formId, idx, dir] = btn.dataset.trMove.split("|");
-      const form = getForm(formId);
-      const tiles = form && getFormTiles(form);
-      if (!tiles) return;
-      const i = +idx, to = i + (+dir);
-      if (to < 0 || to >= tiles.length) return;
-      const [moved] = tiles.splice(i, 1);
-      tiles.splice(to, 0, moved);
-      renderRulesTab();
-      scheduleSave();
+  // Arrastre de condiciones y tiles: actualiza el mismo arreglo que usan
+  // la evaluación y la segunda banda de tiles.
+  let draggedRuleRow = null;
+  const clearRuleDropTargets = () => c.querySelectorAll(".drop-before, .drop-after")
+    .forEach(row => row.classList.remove("drop-before", "drop-after"));
+  c.querySelectorAll("[data-rule-sort-handle]").forEach(handle => {
+    handle.addEventListener("dragstart", event => {
+      if (handle.disabled) { event.preventDefault(); return; }
+      const row = handle.closest("[data-rule-sort-form]");
+      if (!row) { event.preventDefault(); return; }
+      draggedRuleRow = {
+        formId: row.dataset.ruleSortForm,
+        kind: row.dataset.ruleSortKind,
+        index: +row.dataset.ruleSortIndex
+      };
+      row.classList.add("is-dragging");
+      if (event.dataTransfer) {
+        event.dataTransfer.effectAllowed = "move";
+        event.dataTransfer.setData("text/plain", `${draggedRuleRow.kind}:${draggedRuleRow.formId}:${draggedRuleRow.index}`);
+      }
+    });
+    handle.addEventListener("dragend", () => {
+      c.querySelectorAll(".is-dragging").forEach(row => row.classList.remove("is-dragging"));
+      clearRuleDropTargets();
+      draggedRuleRow = null;
     });
   });
+  c.ondragover = event => {
+    const row = event.target.closest && event.target.closest("[data-rule-sort-form]");
+    if (!draggedRuleRow || !row || row.dataset.ruleSortForm !== draggedRuleRow.formId ||
+        row.dataset.ruleSortKind !== draggedRuleRow.kind || +row.dataset.ruleSortIndex === draggedRuleRow.index) return;
+    event.preventDefault();
+    clearRuleDropTargets();
+    const after = event.clientY > row.getBoundingClientRect().top + row.getBoundingClientRect().height / 2;
+    row.classList.add(after ? "drop-after" : "drop-before");
+    if (event.dataTransfer) event.dataTransfer.dropEffect = "move";
+  };
+  c.ondrop = event => {
+    const row = event.target.closest && event.target.closest("[data-rule-sort-form]");
+    if (!draggedRuleRow || !row || row.dataset.ruleSortForm !== draggedRuleRow.formId ||
+        row.dataset.ruleSortKind !== draggedRuleRow.kind) return;
+    event.preventDefault();
+    const form = getForm(draggedRuleRow.formId);
+    const items = !form ? null : draggedRuleRow.kind === "condition" ? getFormRules(form) : getFormTiles(form);
+    const from = draggedRuleRow.index;
+    const target = +row.dataset.ruleSortIndex;
+    if (!items || from === target || !items[from]) { clearRuleDropTargets(); return; }
+    const after = event.clientY > row.getBoundingClientRect().top + row.getBoundingClientRect().height / 2;
+    let insertionIndex = target + (after ? 1 : 0);
+    const [moved] = items.splice(from, 1);
+    if (insertionIndex > from) insertionIndex--;
+    items.splice(insertionIndex, 0, moved);
+    draggedRuleRow = null;
+    renderRulesTab();
+    scheduleSave();
+  };
 }
 
 /* MONOLITH:SECTION 14-rules-tab END */
@@ -13454,7 +16347,7 @@ function getFieldFromForm(form, fieldId) {
   return null;
 }
 
-function validateLiveExpression(source, form, globalRules, context, trail, orphans, owner) {
+function validateLiveExpression(source, form, globalRules, context, trail, orphans, owner, listIds) {
   if (!String(source || "").trim()) return;
   try { parseExpr(String(source)); }
   catch (error) { throw new Error(`${context}: ${error.message || t("expr.invalid")}`); }
@@ -13464,6 +16357,12 @@ function validateLiveExpression(source, form, globalRules, context, trail, orpha
         kind: `${owner.kind}-expression-field`, relation: "when_expression", missing: fieldId
       }));
     }
+  });
+  exprListRefs(source).forEach(listId => {
+    if (!listIds || listIds.has(listId)) return;
+    addLiveOrphan(orphans, Object.assign({}, owner, {
+      kind: `${owner.kind}-expression-list`, relation: "when_expression", missing: listId
+    }));
   });
   expressionRuleRefs(source).forEach(name => {
     if (!Object.prototype.hasOwnProperty.call(globalRules, name)) {
@@ -13475,7 +16374,7 @@ function validateLiveExpression(source, form, globalRules, context, trail, orpha
     const chain = trail || [];
     if (chain.includes(name)) throw new Error(`${context}: ciclo de rules @${chain.concat(name).join(" → @")}`);
     validateLiveExpression(globalRules[name], form, globalRules, `${context} → @${name}`,
-      chain.concat(name), orphans, owner);
+      chain.concat(name), orphans, owner, listIds);
   });
 }
 
@@ -13484,6 +16383,7 @@ function validateLiveConfig(candidate, initialOrphans) {
   const orphans = deepClone(initialOrphans || []);
   const lists = candidate.data.lists || {};
   const children = candidate.data.childLists || {};
+  const listIds = new Set([...Object.keys(lists), ...Object.keys(children)]);
   const globalRules = candidate.data.rules || {};
   Object.entries(children).forEach(([id, child]) => {
     if (!lists[child.parent] && !children[child.parent]) {
@@ -13554,7 +16454,7 @@ function validateLiveConfig(candidate, initialOrphans) {
         category: "rules", kind: "condition", owner: `${form.id}.${rule.id}`,
         removeParts: ["rules", "condition", form.id, rule.id, "$exists"]
       };
-      validateLiveExpression(rule.whenExpr || "", form, globalRules, `${form.id}.${rule.id}`, [], orphans, owner);
+      validateLiveExpression(rule.whenExpr || "", form, globalRules, `${form.id}.${rule.id}`, [], orphans, owner, listIds);
       if (!fieldIds.has(rule.then.field)) addLiveOrphan(orphans, Object.assign({}, owner, {
         kind: "condition-target-field", relation: "target", missing: rule.then.field
       }));
@@ -13578,7 +16478,7 @@ function validateLiveConfig(candidate, initialOrphans) {
         category: "rules", kind: "tile", owner: `${form.id}.${tile.id}`,
         removeParts: ["rules", "tile", form.id, tile.id, "$exists"]
       };
-      validateLiveExpression(tile.whenExpr || "", form, globalRules, `${form.id}.${tile.id}`, [], orphans, owner);
+      validateLiveExpression(tile.whenExpr || "", form, globalRules, `${form.id}.${tile.id}`, [], orphans, owner, listIds);
       if (tile.field && !fieldIds.has(tile.field)) addLiveOrphan(orphans, Object.assign({}, owner, {
         kind: "tile-target-field", relation: "target", missing: tile.field
       }));
@@ -13848,6 +16748,8 @@ function collectConfigEntries(target) {
         `${form.id}.${rule.id}.value`, context);
       ensureSemanticRecord(map, "rules", ["rules", "condition", form.id, rule.id, "editorCondition"], rule.editorCondition === true,
         `${form.id}.${rule.id}.editorCondition`, context);
+      ensureSemanticRecord(map, "rules", ["rules", "condition", form.id, rule.id, "active"], isConditionRuleActive(rule),
+        `${form.id}.${rule.id}.active`, context);
     });
     ensureSemanticRecord(map, "rules", ["rules", "tiles", form.id, "order"],
       (form.tiles || []).map(tile => tile.id), `${form.id}.tiles / order`);
@@ -14647,6 +17549,97 @@ function loadSessionFromFile(file) {
   reader.readAsText(file);
 }
 
+// ---- Reports about the tool (separate from bug form instances) ----
+let issueSubmitting = false;
+const issueDraft = { name: "", description: "", files: [] };
+const ISSUE_MEDIA_EXTENSION = /\.(?:png|jpe?g|gif|webp|bmp|tiff?|heic|heif|avif|svg|ico|mp4|mov|webm|avi|mkv|m4v|mpeg|mpg|wmv|3gp|ogv)$/i;
+function validateIssueMedia(files) {
+  if (files.length > 20 || files.reduce((sum, file) => sum + file.size, 0) > 40 * 1024 * 1024) return "issue.limit";
+  if (files.some(file => !ISSUE_MEDIA_EXTENSION.test(file.name) || (file.type && !/^(image|video)\//.test(file.type)))) return "issue.invalidMedia";
+  return "";
+}
+function readIssueMedia(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onerror = () => reject(new Error("issue.error"));
+    reader.onload = () => resolve({ name: file.name, type: file.type, data: String(reader.result).split(",")[1] });
+    reader.readAsDataURL(file);
+  });
+}
+function showIssueReportModal() {
+  const actions = openModalShell(t("issue.title"), `<div class="issue-report-form">
+    <label for="issueName">${escapeHtml(t("issue.name"))}<input id="issueName" type="text" maxlength="200" value="${escapeHtml(issueDraft.name)}" /></label>
+    <label for="issueDescription">${escapeHtml(t("issue.description"))}<textarea id="issueDescription" maxlength="20000" required>${escapeHtml(issueDraft.description)}</textarea></label>
+    <div><button type="button" id="issueAddMedia">${escapeHtml(t("issue.media"))}</button>
+      <input id="issueMediaInput" type="file" accept="image/*,video/*" multiple hidden />
+      <ul id="issueFiles" class="issue-report-files"></ul></div>
+    <div class="field-help">${escapeHtml(t("issue.help"))}</div>
+    <div id="issueError" class="issue-report-error" role="alert"></div>
+  </div>`, false);
+  const showError = key => { $("issueError").textContent = key ? t(key) : ""; };
+  const renderFiles = () => {
+    $("issueFiles").replaceChildren();
+    issueDraft.files.forEach((file, index) => {
+      const row = document.createElement("li");
+      const label = document.createElement("span");
+      label.textContent = `${file.name} (${(file.size / 1024 / 1024).toFixed(1)} MB)`;
+      const remove = document.createElement("button");
+      remove.type = "button";
+      remove.textContent = "×";
+      remove.setAttribute("aria-label", t("issue.remove", { name: file.name }));
+      remove.addEventListener("click", () => { issueDraft.files.splice(index, 1); renderFiles(); });
+      row.append(label, remove);
+      $("issueFiles").appendChild(row);
+    });
+  };
+  $("issueName").addEventListener("input", event => { issueDraft.name = event.target.value; });
+  $("issueDescription").addEventListener("input", event => { issueDraft.description = event.target.value; });
+  $("issueAddMedia").addEventListener("click", () => $("issueMediaInput").click());
+  $("issueMediaInput").addEventListener("change", event => {
+    const files = [...issueDraft.files, ...event.target.files];
+    const error = validateIssueMedia(files);
+    showError(error);
+    if (!error) { issueDraft.files = files; renderFiles(); }
+    event.target.value = "";
+  });
+  addModalButtons(actions, { okText: t("issue.submit"), okClass: "primary", onOk: async () => {
+    if (issueSubmitting) return;
+    if (!issueDraft.description.trim()) { showError("issue.required"); $("issueDescription").focus(); return; }
+    if (location.protocol !== "http:" || !["127.0.0.1", "localhost"].includes(location.hostname)) { showError("issue.server"); return; }
+    const mediaError = validateIssueMedia(issueDraft.files);
+    if (mediaError) { showError(mediaError); return; }
+    issueSubmitting = true;
+    showError("");
+    const controls = [...$("modalBox").querySelectorAll("button, input, textarea")];
+    controls.forEach(control => { control.disabled = true; });
+    const submit = actions.lastElementChild;
+    submit.textContent = t("issue.sending");
+    try {
+      const media = [];
+      for (const file of issueDraft.files) media.push(await readIssueMedia(file));
+      const response = await fetch("/api/issues", {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: issueDraft.name.trim(), description: issueDraft.description.trim(), media })
+      });
+      if (!response.ok) throw new Error(response.status === 413 ? "issue.limit" : [404, 405].includes(response.status) ? "issue.server" : "issue.error");
+      const result = await response.json();
+      if (!result.folder) throw new Error("issue.error");
+      issueDraft.name = ""; issueDraft.description = ""; issueDraft.files = [];
+      issueSubmitting = false;
+      closeModal();
+      flashBanner(t("issue.saved", { folder: result.folder }));
+    } catch (error) {
+      showError(["issue.limit", "issue.server"].includes(error.message) ? error.message : "issue.error");
+    } finally {
+      issueSubmitting = false;
+      controls.forEach(control => { control.disabled = false; });
+      submit.textContent = t("issue.submit");
+    }
+  } });
+  renderFiles();
+  setTimeout(() => $("issueDescription").focus(), 0);
+}
+
 // ---- Modales ----
 // Cascarón común: título, cuerpo y ancho. Devuelve el contenedor de
 // acciones ya vacío para que cada modal agregue lo suyo.
@@ -14756,6 +17749,7 @@ function showEditorModal({ title, bodyHtml, wide, onOpen, onConfirm }) {
 }
 
 function closeModal() {
+  if (issueSubmitting) return;
   const wasOpen = $("modal").classList.contains("open");
   $("modal").classList.remove("open");
   $("modalBox").classList.remove("wide");
@@ -15023,6 +18017,8 @@ function wireStaticControls() {
   $("themeSelect").addEventListener("change", event => {
     setTheme(event.target.value, true);
   });
+
+  $("issueReportBtn").addEventListener("click", showIssueReportModal);
 
   // Pestañas fijas Data / Rules
   const activateFixedTab = el => {

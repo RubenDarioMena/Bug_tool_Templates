@@ -1,39 +1,244 @@
 list_id,parent_list_id,parent_value,value,list_label
-products,,,Portal de informes (demo),Producto
-products,,,Gestor documental (demo),Producto
-statuses,,,Abierto,
-statuses,,,En análisis,
-statuses,,,Resuelto,
-statuses,,,Cerrado,
-priorities,,,P0 - Urgente,
-priorities,,,P1 - Alta,
-priorities,,,P2 - Normal,
-priorities,,,P3 - Baja,
-severities,,,Bloqueante,
-severities,,,Mayor,
-severities,,,Menor,
-resolutions,,,Pendiente,
-resolutions,,,Corregido,
-resolutions,,,Duplicado,
-resolutions,,,No reproducible,
-platforms,,,Linux,
-platforms,,,Windows,
-platforms,,,macOS,
-browsers,,,Chromium,
-browsers,,,Firefox,
-browsers,,,WebKit,
-environments,,,Local - datos sintéticos,
-environments,,,Pruebas - datos sintéticos,
-regressionStatuses,,,Pendiente,
-regressionStatuses,,,Verificado Corregido,
-regressionStatuses,,,Aún Presente,
-regressionStatuses,,,No Reproducible,
-mediaTypes,,,Captura,
-mediaTypes,,,Registro,
-mediaTypes,,,InformePrueba,
-components,products,Portal de informes (demo),Exportación CSV,Componente
-components,products,Portal de informes (demo),Filtros,Componente
-components,products,Portal de informes (demo),Tabla de resultados,Componente
-components,products,Gestor documental (demo),Búsqueda,Componente
-components,products,Gestor documental (demo),Importación,Componente
-components,products,Gestor documental (demo),Metadatos,Componente
+products,,,Assassin's Creed Shadows,Proyecto
+products,,,Rainbow Six Siege,Proyecto
+products,,,Project Kestrel (fictional),Proyecto
+statuses,,,Open,Estado
+statuses,,,In triage,Estado
+statuses,,,In progress,Estado
+statuses,,,Resolved,Estado
+statuses,,,Closed,Estado
+statuses,,,Reopened,Estado
+issueTypes,,,Bug,Tipo de incidencia
+issueTypes,,,Crash,Tipo de incidencia
+issueTypes,,,Performance,Tipo de incidencia
+issueTypes,,,Network / Desync,Tipo de incidencia
+issueTypes,,,Localization,Tipo de incidencia
+issueTypes,,,Accessibility,Tipo de incidencia
+priorities,,,P0 - Critical,Prioridad
+priorities,,,P1 - High,Prioridad
+priorities,,,P2 - Normal,Prioridad
+priorities,,,P3 - Low,Prioridad
+priorities,,,P4 - Backlog,Prioridad
+severities,,,Blocker,Severidad
+severities,,,Critical,Severidad
+severities,,,Major,Severidad
+severities,,,Minor,Severidad
+severities,,,Cosmetic,Severidad
+resolutions,,,Unresolved,Resolución
+resolutions,,,Fixed,Resolución
+resolutions,,,Duplicate,Resolución
+resolutions,,,Cannot reproduce,Resolución
+resolutions,,,By design,Resolución
+resolutions,,,Deferred,Resolución
+platforms,,,PlayStation 5,Plataforma
+platforms,,,PlayStation 5 Pro,Plataforma
+platforms,,,Xbox Series X,Plataforma
+platforms,,,Xbox Series S,Plataforma
+platforms,,,PC - Windows 11,Plataforma
+pcPlatforms,,,PC - Windows 11,Plataformas PC
+consolePlatforms,,,PlayStation 5,Consolas
+consolePlatforms,,,PlayStation 5 Pro,Consolas
+consolePlatforms,,,Xbox Series X,Consolas
+consolePlatforms,,,Xbox Series S,Consolas
+environments,,,Development / QA,Entorno de prueba
+environments,,,Certification lab,Entorno de prueba
+environments,,,Staging - synthetic accounts,Entorno de prueba
+environments,,,Offline test bench,Entorno de prueba
+branches,,,release/1.0,Rama
+branches,,,main/qa-nightly,Rama
+branches,,,hotfix/traversal,Rama
+branches,,,performance/capture,Rama
+branches,,,network/replication,Rama
+renderModes,,,Performance - 60 fps,Modo gráfico
+renderModes,,,Quality - 30 fps,Modo gráfico
+renderModes,,,Balanced - 40 fps,Modo gráfico
+renderModes,,,Uncapped - PC,Modo gráfico
+inputDevices,,,DualSense,Dispositivo de entrada
+inputDevices,,,DualSense Edge,Dispositivo de entrada
+inputDevices,,,Xbox Wireless Controller,Dispositivo de entrada
+inputDevices,,,Keyboard + mouse,Dispositivo de entrada
+inputDevices,,,Adaptive controller,Dispositivo de entrada
+languages,,,en-US,Idioma del juego
+languages,,,es-MX,Idioma del juego
+languages,,,es-ES,Idioma del juego
+languages,,,fr-FR,Idioma del juego
+languages,,,de-DE,Idioma del juego
+languages,,,ja-JP,Idioma del juego
+languages,,,ar-SA,Idioma del juego
+languages,,,pt-BR,Idioma del juego
+timeOfDay,,,Dawn,Hora del mundo
+timeOfDay,,,Day,Hora del mundo
+timeOfDay,,,Dusk,Hora del mundo
+timeOfDay,,,Night,Hora del mundo
+weather,,,Clear,Clima
+weather,,,Rain,Clima
+weather,,,Fog,Clima
+weather,,,Snow,Clima
+weather,,,Storm,Clima
+questStates,,,Not started,Estado de misión
+questStates,,,Active - objective 2/4,Estado de misión
+questStates,,,Completed,Estado de misión
+questStates,,,Failed,Estado de misión
+questStates,,,Replay / memory,Estado de misión
+combatStates,,,Exploration,Estado del jugador
+combatStates,,,Stealth,Estado del jugador
+combatStates,,,Combat,Estado del jugador
+combatStates,,,Traversal,Estado del jugador
+combatStates,,,Cinematic,Estado del jugador
+combatStates,,,Loading / respawn,Estado del jugador
+gameModes,,,Ranked,Modo de juego
+gameModes,,,Standard,Modo de juego
+gameModes,,,Quick Match,Modo de juego
+gameModes,,,Custom Game,Modo de juego
+gameModes,,,Training,Modo de juego
+networkModes,,,Offline,Conexión
+networkModes,,,LAN test,Conexión
+networkModes,,,Online - dedicated server,Conexión
+networkModes,,,Online - peer host,Conexión
+serverRegions,,,US Central - QA,Región del servidor
+serverRegions,,,EU West - QA,Región del servidor
+serverRegions,,,Brazil South - QA,Región del servidor
+serverRegions,,,Japan East - QA,Región del servidor
+teams,,,Gameplay / Traversal,Equipo QA
+teams,,,World / Streaming,Equipo QA
+teams,,,Online / Replication,Equipo QA
+teams,,,UI / Localization,Equipo QA
+teams,,,Performance / Rendering,Equipo QA
+teams,,,Accessibility / Input,Equipo QA
+gpuModels,,,NVIDIA RTX 4080 (test rig),GPU
+gpuModels,,,AMD RX 7900 XTX (test rig),GPU
+gpuModels,,,Intel Arc A770 (test rig),GPU
+crashTypes,,,Unhandled exception,Tipo de crash
+crashTypes,,,GPU device removed,Tipo de crash
+crashTypes,,,Out of memory,Tipo de crash
+crashTypes,,,Watchdog timeout,Tipo de crash
+crashTypes,,,Application termination,Tipo de crash
+crashStages,,,Boot / splash,Fase del crash
+crashStages,,,Loading save,Fase del crash
+crashStages,,,Fast travel,Fase del crash
+crashStages,,,Gameplay,Fase del crash
+crashStages,,,Match end,Fase del crash
+crashStages,,,Suspend / resume,Fase del crash
+accessibilityFeatures,,,Large subtitles,Funciones de accesibilidad
+accessibilityFeatures,,,High contrast UI,Funciones de accesibilidad
+accessibilityFeatures,,,Colorblind - Deuteranopia,Funciones de accesibilidad
+accessibilityFeatures,,,Hold instead of toggle,Funciones de accesibilidad
+accessibilityFeatures,,,Remapped controls,Funciones de accesibilidad
+accessibilityFeatures,,,Screen narration,Funciones de accesibilidad
+evidenceTypes,,,Video capture,Evidencias disponibles
+evidenceTypes,,,Position screenshot,Evidencias disponibles
+evidenceTypes,,,Debug log,Evidencias disponibles
+evidenceTypes,,,Test save,Evidencias disponibles
+evidenceTypes,,,Profiler capture,Evidencias disponibles
+evidenceTypes,,,Network trace,Evidencias disponibles
+evidenceTypes,,,Crash dump,Evidencias disponibles
+coveragePlatforms,,,PlayStation 5,Cobertura de plataformas
+coveragePlatforms,,,PlayStation 5 Pro,Cobertura de plataformas
+coveragePlatforms,,,Xbox Series X,Cobertura de plataformas
+coveragePlatforms,,,Xbox Series S,Cobertura de plataformas
+coveragePlatforms,,,PC - Windows 11,Cobertura de plataformas
+regressionStatuses,,,Pending,Resultado de verificación
+regressionStatuses,,,Verified Fixed,Resultado de verificación
+regressionStatuses,,,Still Present,Resultado de verificación
+regressionStatuses,,,Cannot Reproduce,Resultado de verificación
+regressionStatuses,,,Blocked,Resultado de verificación
+mediaTypes,,,Repro.mp4,Tipos de evidencia
+mediaTypes,,,Position.png,Tipos de evidencia
+mediaTypes,,,DebugLog.txt,Tipos de evidencia
+mediaTypes,,,CrashDump.dmp,Tipos de evidencia
+mediaTypes,,,ConsoleCrash.log,Tipos de evidencia
+mediaTypes,,,Profiler.csv,Tipos de evidencia
+mediaTypes,,,NetworkTrace.pcap,Tipos de evidencia
+mediaTypes,,,TestSave.sav,Tipos de evidencia
+keywordSuggestions,,,qa-gate,Keywords sugeridas
+keywordSuggestions,,,edge-case,Keywords sugeridas
+keywordSuggestions,,,physics-loop,Keywords sugeridas
+keywordSuggestions,,,checkpoint-recovery,Keywords sugeridas
+keywordSuggestions,,,nightly-only,Keywords sugeridas
+keywordSuggestions,,,crash,Keywords sugeridas
+keywordSuggestions,,,perf-budget,Keywords sugeridas
+keywordSuggestions,,,packet-loss,Keywords sugeridas
+keywordSuggestions,,,rtl-layout,Keywords sugeridas
+keywordSuggestions,,,input-remap,Keywords sugeridas
+keywordSuggestions,,,cert-risk,Keywords sugeridas
+flightPhases,,,Launch,Fases de vuelo
+flightPhases,,,Cruise,Fases de vuelo
+flightPhases,,,Approach,Fases de vuelo
+flightPhases,,,Docking,Fases de vuelo
+flightPhases,,,Emergency landing,Fases de vuelo
+vehicles,,,Kestrel Mk II,Vehículos
+vehicles,,,Peregrine cargo rig,Vehículos
+vehicles,,,Swift training glider,Vehículos
+components,products,Assassin's Creed Shadows,Gameplay / Traversal,Componente
+components,products,Assassin's Creed Shadows,Combat / AI,Componente
+components,products,Assassin's Creed Shadows,World / Streaming,Componente
+components,products,Assassin's Creed Shadows,Quests / Progression,Componente
+components,products,Assassin's Creed Shadows,UI / HUD,Componente
+components,products,Assassin's Creed Shadows,Audio,Componente
+components,products,Rainbow Six Siege,Gameplay / Operators,Componente
+components,products,Rainbow Six Siege,Online / Replication,Componente
+components,products,Rainbow Six Siege,Matchmaking,Componente
+components,products,Rainbow Six Siege,UI / HUD,Componente
+components,products,Rainbow Six Siege,Rendering / Performance,Componente
+components,products,Project Kestrel (fictional),Flight / Controls,Componente
+components,products,Project Kestrel (fictional),Co-op / Sync,Componente
+components,products,Project Kestrel (fictional),World / Streaming,Componente
+components,products,Project Kestrel (fictional),UI / Localization,Componente
+components,products,Project Kestrel (fictional),Accessibility,Componente
+characters,products,Assassin's Creed Shadows,Naoe,Personaje / operador
+characters,products,Assassin's Creed Shadows,Yasuke,Personaje / operador
+characters,products,Rainbow Six Siege,Ash,Personaje / operador
+characters,products,Rainbow Six Siege,Sledge,Personaje / operador
+characters,products,Rainbow Six Siege,Hibana,Personaje / operador
+characters,products,Rainbow Six Siege,Doc,Personaje / operador
+characters,products,Rainbow Six Siege,Valkyrie,Personaje / operador
+characters,products,Rainbow Six Siege,Azami,Personaje / operador
+characters,products,Project Kestrel (fictional),Mira (test pilot),Personaje / operador
+characters,products,Project Kestrel (fictional),Rook (test engineer),Personaje / operador
+characters,products,Project Kestrel (fictional),Sable (test navigator),Personaje / operador
+regions,products,Assassin's Creed Shadows,Harima,Región / mapa
+regions,products,Assassin's Creed Shadows,Kyoto,Región / mapa
+regions,products,Assassin's Creed Shadows,Iga,Región / mapa
+regions,products,Assassin's Creed Shadows,Omi,Región / mapa
+regions,products,Rainbow Six Siege,Clubhouse,Región / mapa
+regions,products,Rainbow Six Siege,Bank,Región / mapa
+regions,products,Rainbow Six Siege,Oregon,Región / mapa
+regions,products,Rainbow Six Siege,Consulate,Región / mapa
+regions,products,Rainbow Six Siege,Border,Región / mapa
+regions,products,Project Kestrel (fictional),Glass Coast,Región / mapa
+regions,products,Project Kestrel (fictional),Ember Basin,Región / mapa
+regions,products,Project Kestrel (fictional),Skybreak Ridge,Región / mapa
+locations,regions,Harima,Himeji Castle - western rooftops,Ubicación / punto de interés
+locations,regions,Harima,Himeji Castle - inner courtyard,Ubicación / punto de interés
+locations,regions,Harima,Harbor training route,Ubicación / punto de interés
+locations,regions,Kyoto,Northern market rooftops,Ubicación / punto de interés
+locations,regions,Kyoto,Temple test courtyard,Ubicación / punto de interés
+locations,regions,Iga,Forest hideout,Ubicación / punto de interés
+locations,regions,Iga,River crossing,Ubicación / punto de interés
+locations,regions,Omi,Lakeside fort,Ubicación / punto de interés
+locations,regions,Omi,Mountain checkpoint,Ubicación / punto de interés
+locations,regions,Clubhouse,CCTV room,Ubicación / punto de interés
+locations,regions,Clubhouse,Cash room,Ubicación / punto de interés
+locations,regions,Clubhouse,Garage,Ubicación / punto de interés
+locations,regions,Bank,Vault lobby,Ubicación / punto de interés
+locations,regions,Bank,Server room,Ubicación / punto de interés
+locations,regions,Oregon,Dormitory,Ubicación / punto de interés
+locations,regions,Oregon,Laundry,Ubicación / punto de interés
+locations,regions,Consulate,Garage,Ubicación / punto de interés
+locations,regions,Consulate,Meeting room,Ubicación / punto de interés
+locations,regions,Border,Armory,Ubicación / punto de interés
+locations,regions,Border,Customs,Ubicación / punto de interés
+locations,regions,Glass Coast,Beacon 07,Ubicación / punto de interés
+locations,regions,Glass Coast,Hangar Delta,Ubicación / punto de interés
+locations,regions,Ember Basin,Relay tower,Ubicación / punto de interés
+locations,regions,Ember Basin,Thermal canyon,Ubicación / punto de interés
+locations,regions,Skybreak Ridge,Observation deck,Ubicación / punto de interés
+locations,regions,Skybreak Ridge,Wind tunnel,Ubicación / punto de interés
+missions,products,Assassin's Creed Shadows,QA_TRV_014 - West rooftop route,Misión / escenario
+missions,products,Assassin's Creed Shadows,QA_QST_028 - Castle infiltration,Misión / escenario
+missions,products,Assassin's Creed Shadows,QA_WLD_006 - Fast travel loop,Misión / escenario
+missions,products,Rainbow Six Siege,QA_NET_011 - Round transition,Misión / escenario
+missions,products,Rainbow Six Siege,QA_OPR_023 - Gadget interaction,Misión / escenario
+missions,products,Project Kestrel (fictional),QA_FLT_004 - Crosswind landing,Misión / escenario
+missions,products,Project Kestrel (fictional),QA_LOC_019 - Arabic briefing,Misión / escenario
+missions,products,Project Kestrel (fictional),QA_ACC_007 - Remapped docking,Misión / escenario

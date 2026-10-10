@@ -1,0 +1,3741 @@
+{
+  "exportedAt": "2026-10-10T12:00:00Z",
+  "config": {
+    "version": 3,
+    "projectId": "aaa-qa-demo",
+    "data": {
+      "lists": {
+        "products": [
+          "Assassin's Creed Shadows",
+          "Rainbow Six Siege",
+          "Project Kestrel (fictional)"
+        ],
+        "statuses": [
+          "Open",
+          "In triage",
+          "In progress",
+          "Resolved",
+          "Closed",
+          "Reopened"
+        ],
+        "issueTypes": [
+          "Bug",
+          "Crash",
+          "Performance",
+          "Network / Desync",
+          "Localization",
+          "Accessibility"
+        ],
+        "priorities": [
+          "P0 - Critical",
+          "P1 - High",
+          "P2 - Normal",
+          "P3 - Low",
+          "P4 - Backlog"
+        ],
+        "severities": [
+          "Blocker",
+          "Critical",
+          "Major",
+          "Minor",
+          "Cosmetic"
+        ],
+        "resolutions": [
+          "Unresolved",
+          "Fixed",
+          "Duplicate",
+          "Cannot reproduce",
+          "By design",
+          "Deferred"
+        ],
+        "platforms": [
+          "PlayStation 5",
+          "PlayStation 5 Pro",
+          "Xbox Series X",
+          "Xbox Series S",
+          "PC - Windows 11"
+        ],
+        "pcPlatforms": [
+          "PC - Windows 11"
+        ],
+        "consolePlatforms": [
+          "PlayStation 5",
+          "PlayStation 5 Pro",
+          "Xbox Series X",
+          "Xbox Series S"
+        ],
+        "environments": [
+          "Development / QA",
+          "Certification lab",
+          "Staging - synthetic accounts",
+          "Offline test bench"
+        ],
+        "branches": [
+          "release/1.0",
+          "main/qa-nightly",
+          "hotfix/traversal",
+          "performance/capture",
+          "network/replication"
+        ],
+        "renderModes": [
+          "Performance - 60 fps",
+          "Quality - 30 fps",
+          "Balanced - 40 fps",
+          "Uncapped - PC"
+        ],
+        "inputDevices": [
+          "DualSense",
+          "DualSense Edge",
+          "Xbox Wireless Controller",
+          "Keyboard + mouse",
+          "Adaptive controller"
+        ],
+        "languages": [
+          "en-US",
+          "es-MX",
+          "es-ES",
+          "fr-FR",
+          "de-DE",
+          "ja-JP",
+          "ar-SA",
+          "pt-BR"
+        ],
+        "timeOfDay": [
+          "Dawn",
+          "Day",
+          "Dusk",
+          "Night"
+        ],
+        "weather": [
+          "Clear",
+          "Rain",
+          "Fog",
+          "Snow",
+          "Storm"
+        ],
+        "questStates": [
+          "Not started",
+          "Active - objective 2/4",
+          "Completed",
+          "Failed",
+          "Replay / memory"
+        ],
+        "combatStates": [
+          "Exploration",
+          "Stealth",
+          "Combat",
+          "Traversal",
+          "Cinematic",
+          "Loading / respawn"
+        ],
+        "gameModes": [
+          "Ranked",
+          "Standard",
+          "Quick Match",
+          "Custom Game",
+          "Training"
+        ],
+        "networkModes": [
+          "Offline",
+          "LAN test",
+          "Online - dedicated server",
+          "Online - peer host"
+        ],
+        "serverRegions": [
+          "US Central - QA",
+          "EU West - QA",
+          "Brazil South - QA",
+          "Japan East - QA"
+        ],
+        "teams": [
+          "Gameplay / Traversal",
+          "World / Streaming",
+          "Online / Replication",
+          "UI / Localization",
+          "Performance / Rendering",
+          "Accessibility / Input"
+        ],
+        "gpuModels": [
+          "NVIDIA RTX 4080 (test rig)",
+          "AMD RX 7900 XTX (test rig)",
+          "Intel Arc A770 (test rig)"
+        ],
+        "crashTypes": [
+          "Unhandled exception",
+          "GPU device removed",
+          "Out of memory",
+          "Watchdog timeout",
+          "Application termination"
+        ],
+        "crashStages": [
+          "Boot / splash",
+          "Loading save",
+          "Fast travel",
+          "Gameplay",
+          "Match end",
+          "Suspend / resume"
+        ],
+        "accessibilityFeatures": [
+          "Large subtitles",
+          "High contrast UI",
+          "Colorblind - Deuteranopia",
+          "Hold instead of toggle",
+          "Remapped controls",
+          "Screen narration"
+        ],
+        "evidenceTypes": [
+          "Video capture",
+          "Position screenshot",
+          "Debug log",
+          "Test save",
+          "Profiler capture",
+          "Network trace",
+          "Crash dump"
+        ],
+        "coveragePlatforms": [
+          "PlayStation 5",
+          "PlayStation 5 Pro",
+          "Xbox Series X",
+          "Xbox Series S",
+          "PC - Windows 11"
+        ],
+        "regressionStatuses": [
+          "Pending",
+          "Verified Fixed",
+          "Still Present",
+          "Cannot Reproduce",
+          "Blocked"
+        ],
+        "mediaTypes": [
+          "Repro.mp4",
+          "Position.png",
+          "DebugLog.txt",
+          "CrashDump.dmp",
+          "ConsoleCrash.log",
+          "Profiler.csv",
+          "NetworkTrace.pcap",
+          "TestSave.sav"
+        ],
+        "keywordSuggestions": [
+          "qa-gate",
+          "edge-case",
+          "physics-loop",
+          "checkpoint-recovery",
+          "nightly-only",
+          "crash",
+          "perf-budget",
+          "packet-loss",
+          "rtl-layout",
+          "input-remap",
+          "cert-risk"
+        ],
+        "flightPhases": [
+          "Launch",
+          "Cruise",
+          "Approach",
+          "Docking",
+          "Emergency landing"
+        ],
+        "vehicles": [
+          "Kestrel Mk II",
+          "Peregrine cargo rig",
+          "Swift training glider"
+        ]
+      },
+      "childLists": {
+        "components": {
+          "parent": "products",
+          "values": {
+            "Assassin's Creed Shadows": [
+              "Gameplay / Traversal",
+              "Combat / AI",
+              "World / Streaming",
+              "Quests / Progression",
+              "UI / HUD",
+              "Audio"
+            ],
+            "Rainbow Six Siege": [
+              "Gameplay / Operators",
+              "Online / Replication",
+              "Matchmaking",
+              "UI / HUD",
+              "Rendering / Performance"
+            ],
+            "Project Kestrel (fictional)": [
+              "Flight / Controls",
+              "Co-op / Sync",
+              "World / Streaming",
+              "UI / Localization",
+              "Accessibility"
+            ]
+          }
+        },
+        "characters": {
+          "parent": "products",
+          "values": {
+            "Assassin's Creed Shadows": [
+              "Naoe",
+              "Yasuke"
+            ],
+            "Rainbow Six Siege": [
+              "Ash",
+              "Sledge",
+              "Hibana",
+              "Doc",
+              "Valkyrie",
+              "Azami"
+            ],
+            "Project Kestrel (fictional)": [
+              "Mira (test pilot)",
+              "Rook (test engineer)",
+              "Sable (test navigator)"
+            ]
+          }
+        },
+        "regions": {
+          "parent": "products",
+          "values": {
+            "Assassin's Creed Shadows": [
+              "Harima",
+              "Kyoto",
+              "Iga",
+              "Omi"
+            ],
+            "Rainbow Six Siege": [
+              "Clubhouse",
+              "Bank",
+              "Oregon",
+              "Consulate",
+              "Border"
+            ],
+            "Project Kestrel (fictional)": [
+              "Glass Coast",
+              "Ember Basin",
+              "Skybreak Ridge"
+            ]
+          }
+        },
+        "locations": {
+          "parent": "regions",
+          "values": {
+            "Harima": [
+              "Himeji Castle - western rooftops",
+              "Himeji Castle - inner courtyard",
+              "Harbor training route"
+            ],
+            "Kyoto": [
+              "Northern market rooftops",
+              "Temple test courtyard"
+            ],
+            "Iga": [
+              "Forest hideout",
+              "River crossing"
+            ],
+            "Omi": [
+              "Lakeside fort",
+              "Mountain checkpoint"
+            ],
+            "Clubhouse": [
+              "CCTV room",
+              "Cash room",
+              "Garage"
+            ],
+            "Bank": [
+              "Vault lobby",
+              "Server room"
+            ],
+            "Oregon": [
+              "Dormitory",
+              "Laundry"
+            ],
+            "Consulate": [
+              "Garage",
+              "Meeting room"
+            ],
+            "Border": [
+              "Armory",
+              "Customs"
+            ],
+            "Glass Coast": [
+              "Beacon 07",
+              "Hangar Delta"
+            ],
+            "Ember Basin": [
+              "Relay tower",
+              "Thermal canyon"
+            ],
+            "Skybreak Ridge": [
+              "Observation deck",
+              "Wind tunnel"
+            ]
+          }
+        },
+        "missions": {
+          "parent": "products",
+          "values": {
+            "Assassin's Creed Shadows": [
+              "QA_TRV_014 - West rooftop route",
+              "QA_QST_028 - Castle infiltration",
+              "QA_WLD_006 - Fast travel loop"
+            ],
+            "Rainbow Six Siege": [
+              "QA_NET_011 - Round transition",
+              "QA_OPR_023 - Gadget interaction"
+            ],
+            "Project Kestrel (fictional)": [
+              "QA_FLT_004 - Crosswind landing",
+              "QA_LOC_019 - Arabic briefing",
+              "QA_ACC_007 - Remapped docking"
+            ]
+          }
+        }
+      },
+      "listMeta": {
+        "products": {
+          "label": "Proyecto"
+        },
+        "statuses": {
+          "label": "Estado"
+        },
+        "issueTypes": {
+          "label": "Tipo de incidencia"
+        },
+        "priorities": {
+          "label": "Prioridad"
+        },
+        "severities": {
+          "label": "Severidad"
+        },
+        "resolutions": {
+          "label": "Resolución"
+        },
+        "platforms": {
+          "label": "Plataforma"
+        },
+        "pcPlatforms": {
+          "label": "Plataformas PC"
+        },
+        "consolePlatforms": {
+          "label": "Consolas"
+        },
+        "environments": {
+          "label": "Entorno de prueba"
+        },
+        "branches": {
+          "label": "Rama"
+        },
+        "renderModes": {
+          "label": "Modo gráfico"
+        },
+        "inputDevices": {
+          "label": "Dispositivo de entrada"
+        },
+        "languages": {
+          "label": "Idioma del juego"
+        },
+        "timeOfDay": {
+          "label": "Hora del mundo"
+        },
+        "weather": {
+          "label": "Clima"
+        },
+        "questStates": {
+          "label": "Estado de misión"
+        },
+        "combatStates": {
+          "label": "Estado del jugador"
+        },
+        "gameModes": {
+          "label": "Modo de juego"
+        },
+        "networkModes": {
+          "label": "Conexión"
+        },
+        "serverRegions": {
+          "label": "Región del servidor"
+        },
+        "teams": {
+          "label": "Equipo QA"
+        },
+        "gpuModels": {
+          "label": "GPU"
+        },
+        "crashTypes": {
+          "label": "Tipo de crash"
+        },
+        "crashStages": {
+          "label": "Fase del crash"
+        },
+        "accessibilityFeatures": {
+          "label": "Funciones de accesibilidad"
+        },
+        "evidenceTypes": {
+          "label": "Evidencias disponibles"
+        },
+        "coveragePlatforms": {
+          "label": "Cobertura de plataformas"
+        },
+        "regressionStatuses": {
+          "label": "Resultado de verificación"
+        },
+        "mediaTypes": {
+          "label": "Tipos de evidencia"
+        },
+        "keywordSuggestions": {
+          "label": "Keywords sugeridas"
+        },
+        "flightPhases": {
+          "label": "Fases de vuelo"
+        },
+        "vehicles": {
+          "label": "Vehículos"
+        },
+        "components": {
+          "label": "Componente"
+        },
+        "characters": {
+          "label": "Personaje / operador"
+        },
+        "regions": {
+          "label": "Región / mapa"
+        },
+        "locations": {
+          "label": "Ubicación / punto de interés"
+        },
+        "missions": {
+          "label": "Misión / escenario"
+        }
+      },
+      "rules": {
+        "media_fmt": "{issueId}_{platformCode}_{type}",
+        "issue_re": "^(ACS|R6S|KES)-[0-9]{4,6}$",
+        "version_re": "^[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+$",
+        "count_re": "^[0-9]+$",
+        "number_re": "^[0-9]+(?:\\.[0-9]+)?$",
+        "coordinates_re": "^X=-?[0-9]+(?:\\.[0-9]+)?; Y=-?[0-9]+(?:\\.[0-9]+)?; Z=-?[0-9]+(?:\\.[0-9]+)?$",
+        "date_re": "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$",
+        "crash_re": "(?<!\\bno\\s)(?<!\\bwithout\\s)(?<!\\bsin\\s)(?<!\\bnon-)(?<!\\bnot a\\s)\\bcrash(?:es|ed|ing)?\\b",
+        "default_environment": "Development / QA",
+        "network_context": "networkMode in (\"Online - dedicated server\", \"Online - peer host\") OR issueType = \"Network / Desync\"",
+        "crash_context": "issueType = \"Crash\" OR shortDescription matches @crash_re OR description matches @crash_re OR preconditions matches @crash_re OR reproSteps matches @crash_re OR actual matches @crash_re OR expected matches @crash_re OR impact matches @crash_re OR workaround matches @crash_re OR additionalInfo matches @crash_re OR keywords matches @crash_re OR attachments matches @crash_re"
+      }
+    },
+    "schema": {
+      "forms": [
+        {
+          "id": "bug",
+          "label": "Bug",
+          "sections": [
+            {
+              "id": "resumen",
+              "label": "Resumen (encabezado)",
+              "mode": "joined",
+              "fields": [
+                {
+                  "id": "shortDescription",
+                  "label": "Resumen",
+                  "type": "text",
+                  "default": "Naoe becomes stuck in falling animation after performing a wall eject near Himeji Castle",
+                  "template": "[{platformCode}][{component}] {value}",
+                  "required": true
+                }
+              ],
+              "sep": ""
+            },
+            {
+              "id": "identification",
+              "label": "Identificación y clasificación",
+              "mode": "lines",
+              "fields": [
+                {
+                  "id": "issueId",
+                  "label": "ID del ticket",
+                  "type": "text",
+                  "size": "third",
+                  "default": "ACS-18427",
+                  "template": "Issue: {value}",
+                  "regex": "@issue_re",
+                  "regexMsg": "Usa ACS-, R6S- o KES- y de 4 a 6 dígitos.",
+                  "required": true
+                },
+                {
+                  "id": "product",
+                  "label": "Proyecto",
+                  "type": "autocomplete",
+                  "source": "products",
+                  "size": "twoThirds",
+                  "default": "Assassin's Creed Shadows",
+                  "template": "Project: {value}",
+                  "required": true
+                },
+                {
+                  "id": "issueType",
+                  "label": "Tipo de incidencia",
+                  "type": "autocomplete",
+                  "source": "issueTypes",
+                  "size": "third",
+                  "default": "Bug",
+                  "template": "Issue type: {value}",
+                  "required": true
+                },
+                {
+                  "id": "component",
+                  "label": "Componente",
+                  "type": "autocomplete",
+                  "source": "child:components:product",
+                  "size": "twoThirds",
+                  "default": "Gameplay / Traversal",
+                  "template": "Component: {value}",
+                  "required": true
+                },
+                {
+                  "id": "status",
+                  "label": "Estado",
+                  "type": "autocomplete",
+                  "source": "statuses",
+                  "size": "third",
+                  "default": "Open",
+                  "template": "Status: {value}",
+                  "required": true
+                },
+                {
+                  "id": "priority",
+                  "label": "Prioridad",
+                  "type": "autocomplete",
+                  "source": "priorities",
+                  "size": "third",
+                  "default": "P2 - Normal",
+                  "template": "Priority: {value}",
+                  "required": true
+                },
+                {
+                  "id": "severity",
+                  "label": "Severidad",
+                  "type": "autocomplete",
+                  "source": "severities",
+                  "size": "third",
+                  "default": "Major",
+                  "template": "Severity: {value}",
+                  "required": true
+                },
+                {
+                  "id": "team",
+                  "label": "Equipo QA",
+                  "type": "autocomplete",
+                  "source": "teams",
+                  "size": "half",
+                  "default": "Gameplay / Traversal",
+                  "template": "QA team: {value}"
+                },
+                {
+                  "id": "created",
+                  "label": "Fecha de creación",
+                  "type": "text",
+                  "size": "half",
+                  "default": "2026-10-10",
+                  "template": "Created: {value}",
+                  "regex": "@date_re",
+                  "regexMsg": "Usa el formato AAAA-MM-DD.",
+                  "required": true
+                },
+                {
+                  "id": "resolution",
+                  "label": "Resolución",
+                  "type": "autocomplete",
+                  "source": "resolutions",
+                  "size": "half",
+                  "default": "Unresolved",
+                  "template": "Resolution: {value}",
+                  "required": true,
+                  "hidden": true
+                },
+                {
+                  "id": "resolved",
+                  "label": "Fecha de resolución",
+                  "type": "text",
+                  "size": "half",
+                  "placeholder": "2026-10-12",
+                  "template": "Resolved: {value}",
+                  "regex": "@date_re",
+                  "required": true,
+                  "hidden": true
+                }
+              ],
+              "heading": "**Ticket metadata**"
+            },
+            {
+              "id": "environment",
+              "label": "Build y entorno",
+              "mode": "lines",
+              "fields": [
+                {
+                  "id": "version",
+                  "label": "Build afectada (ficticia)",
+                  "type": "text",
+                  "size": "third",
+                  "default": "1.0.0.1842",
+                  "template": "Build: {value} (fictional)",
+                  "regex": "@version_re",
+                  "regexMsg": "Usa cuatro números, por ejemplo 1.0.0.1842.",
+                  "required": true
+                },
+                {
+                  "id": "cl",
+                  "label": "Changelist",
+                  "type": "text",
+                  "size": "third",
+                  "default": "1842",
+                  "template": "Changelist: {value}",
+                  "regex": "@count_re",
+                  "required": true
+                },
+                {
+                  "id": "branch",
+                  "label": "Rama",
+                  "type": "autocomplete",
+                  "source": "branches",
+                  "size": "third",
+                  "default": "release/1.0",
+                  "template": "Branch: {value}"
+                },
+                {
+                  "id": "platform",
+                  "label": "Plataforma",
+                  "type": "autocomplete",
+                  "source": "platforms",
+                  "size": "third",
+                  "default": "PlayStation 5",
+                  "template": "Platform: {value}",
+                  "required": true
+                },
+                {
+                  "id": "platformCode",
+                  "label": "Código de plataforma",
+                  "type": "mirror",
+                  "template": "{value}",
+                  "includeOutput": false
+                },
+                {
+                  "id": "environment",
+                  "label": "Entorno de prueba",
+                  "type": "autocomplete",
+                  "source": "environments",
+                  "size": "third",
+                  "default": "@default_environment",
+                  "template": "Environment: {value}",
+                  "required": true
+                },
+                {
+                  "id": "renderMode",
+                  "label": "Modo gráfico",
+                  "type": "autocomplete",
+                  "source": "renderModes",
+                  "size": "third",
+                  "default": "Performance - 60 fps",
+                  "template": "Graphics mode: {value}",
+                  "required": true
+                },
+                {
+                  "id": "inputDevice",
+                  "label": "Dispositivo de entrada",
+                  "type": "autocomplete",
+                  "source": "inputDevices",
+                  "size": "half",
+                  "default": "DualSense",
+                  "template": "Input: {value}",
+                  "required": true
+                },
+                {
+                  "id": "gameLanguage",
+                  "label": "Idioma del juego",
+                  "type": "autocomplete",
+                  "source": "languages",
+                  "size": "half",
+                  "default": "en-US",
+                  "template": "Game language: {value}",
+                  "required": true
+                },
+                {
+                  "id": "gpu",
+                  "label": "GPU",
+                  "type": "autocomplete",
+                  "source": "gpuModels",
+                  "size": "half",
+                  "template": "GPU: {value}",
+                  "required": true,
+                  "hidden": true
+                },
+                {
+                  "id": "driver",
+                  "label": "Versión del driver",
+                  "type": "text",
+                  "size": "half",
+                  "placeholder": "561.09 (fictional)",
+                  "help": "Aparece sólo en PC; documenta el driver de la máquina de prueba.",
+                  "template": "Driver: {value}",
+                  "required": true,
+                  "hidden": true
+                }
+              ],
+              "heading": "**Build / Environment**"
+            },
+            {
+              "id": "context",
+              "label": "Contexto del juego",
+              "mode": "lines",
+              "fields": [
+                {
+                  "id": "character",
+                  "label": "Personaje / operador",
+                  "type": "autocomplete",
+                  "source": "child:characters:product",
+                  "size": "third",
+                  "default": "Naoe",
+                  "template": "Character / operator: {value}",
+                  "required": true
+                },
+                {
+                  "id": "region",
+                  "label": "Región / mapa",
+                  "type": "autocomplete",
+                  "source": "child:regions:product",
+                  "size": "third",
+                  "default": "Harima",
+                  "template": "Region / map: {value}",
+                  "required": true
+                },
+                {
+                  "id": "location",
+                  "label": "Ubicación / punto de interés",
+                  "type": "autocomplete",
+                  "source": "child:locations:region",
+                  "size": "third",
+                  "default": "Himeji Castle - western rooftops",
+                  "template": "Location: {value}",
+                  "required": true
+                },
+                {
+                  "id": "mission",
+                  "label": "Misión / escenario",
+                  "type": "autocomplete",
+                  "source": "child:missions:product",
+                  "size": "full",
+                  "default": "QA_TRV_014 - West rooftop route",
+                  "template": "Test scenario: {value}",
+                  "required": true
+                },
+                {
+                  "id": "coordinates",
+                  "label": "Coordenadas XYZ",
+                  "type": "text",
+                  "size": "full",
+                  "default": "X=124.50; Y=38.25; Z=-72.10",
+                  "template": "Position: {value}",
+                  "regex": "@coordinates_re",
+                  "regexMsg": "Usa X=124.50; Y=38.25; Z=-72.10.",
+                  "required": true,
+                  "hidden": true
+                },
+                {
+                  "id": "questState",
+                  "label": "Estado de misión",
+                  "type": "autocomplete",
+                  "source": "questStates",
+                  "size": "third",
+                  "default": "Active - objective 2/4",
+                  "template": "Quest state: {value}",
+                  "required": true,
+                  "hidden": true
+                },
+                {
+                  "id": "worldTime",
+                  "label": "Hora del mundo",
+                  "type": "autocomplete",
+                  "source": "timeOfDay",
+                  "size": "third",
+                  "default": "Dusk",
+                  "template": "World time: {value}",
+                  "required": true,
+                  "hidden": true
+                },
+                {
+                  "id": "weather",
+                  "label": "Clima",
+                  "type": "autocomplete",
+                  "source": "weather",
+                  "size": "third",
+                  "default": "Rain",
+                  "template": "Weather: {value}",
+                  "required": true,
+                  "hidden": true
+                },
+                {
+                  "id": "gameState",
+                  "label": "Estado del jugador",
+                  "type": "autocomplete",
+                  "source": "combatStates",
+                  "size": "half",
+                  "default": "Traversal",
+                  "template": "Player state: {value}",
+                  "required": true
+                },
+                {
+                  "id": "savegame",
+                  "label": "Save de prueba",
+                  "type": "text",
+                  "size": "half",
+                  "default": "QA_Himeji_Naoe_WestRoof_04.sav",
+                  "template": "Test save: {value}",
+                  "regex": "^[A-Za-z0-9_-]+\\.sav$",
+                  "regexMsg": "Indica un nombre de save .sav sin rutas.",
+                  "required": true,
+                  "hidden": true
+                },
+                {
+                  "id": "gameMode",
+                  "label": "Modo de juego",
+                  "type": "autocomplete",
+                  "source": "gameModes",
+                  "size": "half",
+                  "template": "Game mode: {value}",
+                  "required": true,
+                  "hidden": true
+                },
+                {
+                  "id": "round",
+                  "label": "Ronda",
+                  "type": "text",
+                  "size": "half",
+                  "placeholder": "3",
+                  "template": "Round: {value}",
+                  "regex": "@count_re",
+                  "required": true,
+                  "hidden": true
+                },
+                {
+                  "id": "flightPhase",
+                  "label": "Fase de vuelo",
+                  "type": "autocomplete",
+                  "source": "flightPhases",
+                  "size": "half",
+                  "template": "Flight phase: {value}",
+                  "required": true,
+                  "hidden": true
+                },
+                {
+                  "id": "vehicle",
+                  "label": "Vehículo de prueba",
+                  "type": "autocomplete",
+                  "source": "vehicles",
+                  "size": "half",
+                  "template": "Test vehicle: {value}",
+                  "required": true,
+                  "hidden": true
+                }
+              ],
+              "heading": "**Game context**"
+            },
+            {
+              "id": "description",
+              "label": "Descripción y precondiciones",
+              "mode": "lines",
+              "fields": [
+                {
+                  "id": "description",
+                  "label": "Descripción",
+                  "type": "textarea",
+                  "default": "When performing a wall eject as Naoe near the western rooftops of Himeji Castle, the character may become suspended in mid-air while the falling animation continues to loop. Player movement is disabled, but the pause menu remains accessible.",
+                  "template": "{value}",
+                  "rows": 4,
+                  "required": true
+                },
+                {
+                  "id": "preconditions",
+                  "label": "Precondiciones",
+                  "type": "textarea",
+                  "default": "Load the synthetic QA save at Himeji Castle. Naoe is selected, the adjacent roof is streamed in, and no combat encounter is active.",
+                  "template": "Preconditions: {value}",
+                  "rows": 3,
+                  "required": true
+                }
+              ],
+              "heading": "**Description**"
+            },
+            {
+              "id": "repro",
+              "label": "Pasos para reproducir",
+              "mode": "lines",
+              "fields": [
+                {
+                  "id": "reproSteps",
+                  "label": "Pasos (uno por línea)",
+                  "type": "textarea",
+                  "default": "Launch the title using build 1.0.0.1842.\nLoad QA_Himeji_Naoe_WestRoof_04.sav.\nSelect Naoe as the playable character.\nClimb the western exterior wall of Himeji Castle.\nPerform a wall eject toward the adjacent rooftop while holding the movement stick forward.\nObserve the character animation and position.",
+                  "template": "# {value}",
+                  "rows": 6,
+                  "required": true,
+                  "perLine": true
+                }
+              ],
+              "heading": "**Steps to Reproduce**"
+            },
+            {
+              "id": "results",
+              "label": "Resultados y reproducibilidad",
+              "mode": "lines",
+              "fields": [
+                {
+                  "id": "actual",
+                  "label": "Resultado actual",
+                  "type": "textarea",
+                  "default": "Naoe remains suspended in mid-air with a looping falling animation. Movement inputs have no effect.",
+                  "template": "Actual result: {value}",
+                  "rows": 3,
+                  "required": true
+                },
+                {
+                  "id": "expected",
+                  "label": "Resultado esperado",
+                  "type": "textarea",
+                  "default": "Naoe should complete the wall eject, land on the adjacent rooftop, and regain normal movement control.",
+                  "template": "Expected result: {value}",
+                  "rows": 3,
+                  "required": true
+                },
+                {
+                  "id": "attempts",
+                  "label": "Intentos",
+                  "type": "text",
+                  "size": "third",
+                  "default": "5",
+                  "template": "Attempts: {value}",
+                  "regex": "@count_re",
+                  "required": true
+                },
+                {
+                  "id": "failures",
+                  "label": "Reproducciones",
+                  "type": "text",
+                  "size": "third",
+                  "default": "4",
+                  "template": "Reproductions: {value}",
+                  "regex": "@count_re",
+                  "required": true
+                },
+                {
+                  "id": "reproRatio",
+                  "label": "Ratio de reproducción",
+                  "type": "mirror",
+                  "size": "third",
+                  "template": "Repro: {failures}/{attempts}"
+                }
+              ],
+              "heading": "**Results / Reproducibility**"
+            },
+            {
+              "id": "assessment",
+              "label": "Impacto y notas",
+              "mode": "lines",
+              "fields": [
+                {
+                  "id": "impact",
+                  "label": "Impacto",
+                  "type": "textarea",
+                  "default": "Traversal is blocked until the checkpoint is reloaded. Pause and menus remain usable.",
+                  "template": "Impact: {value}",
+                  "rows": 2,
+                  "required": true
+                },
+                {
+                  "id": "workaround",
+                  "label": "Alternativa temporal",
+                  "type": "textarea",
+                  "default": "Reload the last checkpoint to restore normal gameplay.",
+                  "template": "Workaround: {value}",
+                  "rows": 2
+                },
+                {
+                  "id": "additionalInfo",
+                  "label": "Notas adicionales",
+                  "type": "textarea",
+                  "default": "Reproduced in 4 out of 5 attempts.\nNot reproduced when performing the same action with Yasuke.\nNo crash or application termination observed.",
+                  "template": "* {value}",
+                  "rows": 3,
+                  "perLine": true
+                },
+                {
+                  "id": "keywords",
+                  "label": "Keywords",
+                  "type": "keywords",
+                  "source": "keywordSuggestions",
+                  "default": "[\"qa-gate\", \"edge-case\", \"physics-loop\"]",
+                  "help": "Mínimo 3 keywords únicas; no deben repetirse en el cuerpo del ticket. Prueba crash para activar los diagnósticos.",
+                  "template": "Keywords: {value}",
+                  "kwCount": ">=3",
+                  "kwSep": ", ",
+                  "required": true,
+                  "kwOverlap": true,
+                  "kwSpace": true
+                },
+                {
+                  "id": "coverage",
+                  "label": "Plataformas verificadas",
+                  "type": "checklist",
+                  "source": "coveragePlatforms",
+                  "default": "[\"PlayStation 5\"]",
+                  "template": "{value}",
+                  "checkTitle": "Tested platforms:",
+                  "allLabel": "Todas las plataformas",
+                  "allOutput": "All configured platforms",
+                  "required": true,
+                  "allOption": true
+                },
+                {
+                  "id": "accessibilityEnabled",
+                  "label": "Documentar accesibilidad",
+                  "type": "checkbox",
+                  "help": "Activa la captura de ajustes de accesibilidad y su resultado esperado."
+                },
+                {
+                  "id": "accessibility",
+                  "label": "Ajustes de accesibilidad",
+                  "type": "checklist",
+                  "source": "accessibilityFeatures",
+                  "template": "{value}",
+                  "checkLayout": "newline",
+                  "checkTitle": "Accessibility settings:",
+                  "required": true,
+                  "hidden": true
+                },
+                {
+                  "id": "accessibilityExpected",
+                  "label": "Comportamiento accesible esperado",
+                  "type": "textarea",
+                  "template": "Accessibility expectation: {value}",
+                  "rows": 2,
+                  "required": true,
+                  "hidden": true
+                }
+              ],
+              "heading": "**Additional Information**"
+            },
+            {
+              "id": "network",
+              "label": "Diagnóstico de red",
+              "mode": "lines",
+              "fields": [
+                {
+                  "id": "networkMode",
+                  "label": "Conexión",
+                  "type": "autocomplete",
+                  "source": "networkModes",
+                  "default": "Offline",
+                  "template": "Connection: {value}",
+                  "required": true
+                },
+                {
+                  "id": "serverRegion",
+                  "label": "Región del servidor",
+                  "type": "autocomplete",
+                  "source": "serverRegions",
+                  "size": "third",
+                  "template": "Server region: {value}",
+                  "required": true,
+                  "hidden": true
+                },
+                {
+                  "id": "latency",
+                  "label": "Latencia (ms)",
+                  "type": "text",
+                  "size": "third",
+                  "placeholder": "42",
+                  "template": "Latency: {value} ms",
+                  "regex": "@number_re",
+                  "required": true,
+                  "hidden": true
+                },
+                {
+                  "id": "packetLoss",
+                  "label": "Pérdida de paquetes (%)",
+                  "type": "text",
+                  "size": "third",
+                  "placeholder": "2.5",
+                  "template": "Packet loss: {value}%",
+                  "regex": "@number_re",
+                  "required": true,
+                  "hidden": true
+                },
+                {
+                  "id": "networkTrace",
+                  "label": "Traza de red",
+                  "type": "text",
+                  "placeholder": "R6S_22018_NetworkTrace.pcap",
+                  "help": "Nombre de evidencia simulada; no sube archivos.",
+                  "template": "Network trace: {value}",
+                  "regex": "^[A-Za-z0-9_.-]+\\.(pcap|pcapng)$",
+                  "required": true,
+                  "hidden": true
+                }
+              ],
+              "heading": "**Network diagnostics**"
+            },
+            {
+              "id": "crash",
+              "label": "Diagnóstico de crash",
+              "mode": "lines",
+              "fields": [
+                {
+                  "id": "crashType",
+                  "label": "Tipo de crash",
+                  "type": "autocomplete",
+                  "source": "crashTypes",
+                  "size": "half",
+                  "template": "Crash type: {value}",
+                  "required": true,
+                  "hidden": true
+                },
+                {
+                  "id": "crashStage",
+                  "label": "Fase del crash",
+                  "type": "autocomplete",
+                  "source": "crashStages",
+                  "size": "half",
+                  "template": "Crash stage: {value}",
+                  "required": true,
+                  "hidden": true
+                },
+                {
+                  "id": "crashSignature",
+                  "label": "Firma del crash",
+                  "type": "text",
+                  "placeholder": "EXCEPTION_ACCESS_VIOLATION / QA-0xC0000005",
+                  "template": "Crash signature: {value}",
+                  "required": true,
+                  "hidden": true
+                },
+                {
+                  "id": "crashLog",
+                  "label": "Log específico del crash",
+                  "type": "text",
+                  "placeholder": "ACS_18428_PS5_ConsoleCrash.log",
+                  "help": "Se exige al seleccionar Crash o detectar una mención positiva en el ticket. Es un nombre de evidencia ficticia.",
+                  "template": "Crash log: {value}",
+                  "regex": "^[A-Za-z0-9_.-]+\\.(log|txt)$",
+                  "regexMsg": "Usa un nombre de archivo .log o .txt sin rutas.",
+                  "required": true,
+                  "hidden": true
+                },
+                {
+                  "id": "crashDump",
+                  "label": "Dump del crash (PC)",
+                  "type": "text",
+                  "placeholder": "ACS_18428_PC_CrashDump.dmp",
+                  "template": "Crash dump: {value}",
+                  "regex": "^[A-Za-z0-9_.-]+\\.dmp$",
+                  "regexMsg": "En PC se requiere un dump .dmp.",
+                  "required": true,
+                  "hidden": true
+                },
+                {
+                  "id": "consoleReport",
+                  "label": "Reporte de crash de consola",
+                  "type": "text",
+                  "placeholder": "QA-PS5-CR-18428",
+                  "template": "Console crash report: {value}",
+                  "regex": "^QA-(PS5|PS5Pro|XSX|XSS)-CR-[0-9]{4,6}$",
+                  "regexMsg": "Usa QA-PS5-CR-18428 (o PS5Pro, XSX, XSS).",
+                  "required": true,
+                  "hidden": true
+                }
+              ],
+              "heading": "**Crash diagnostics**"
+            },
+            {
+              "id": "performance",
+              "label": "Captura de rendimiento",
+              "mode": "lines",
+              "fields": [
+                {
+                  "id": "targetFps",
+                  "label": "FPS objetivo",
+                  "type": "text",
+                  "size": "third",
+                  "placeholder": "60",
+                  "template": "Target FPS: {value}",
+                  "regex": "@number_re",
+                  "required": true,
+                  "hidden": true
+                },
+                {
+                  "id": "observedFps",
+                  "label": "FPS observados",
+                  "type": "text",
+                  "size": "third",
+                  "placeholder": "24.5",
+                  "template": "Observed FPS: {value}",
+                  "regex": "@number_re",
+                  "required": true,
+                  "hidden": true
+                },
+                {
+                  "id": "frameTime",
+                  "label": "Frame time p95 (ms)",
+                  "type": "text",
+                  "size": "third",
+                  "placeholder": "40.8",
+                  "template": "Frame time p95: {value} ms",
+                  "regex": "@number_re",
+                  "required": true,
+                  "hidden": true
+                },
+                {
+                  "id": "profilerCapture",
+                  "label": "Captura del profiler",
+                  "type": "text",
+                  "placeholder": "ACS_18429_PS5_Profiler.csv",
+                  "template": "Profiler capture: {value}",
+                  "regex": "^[A-Za-z0-9_.-]+\\.(csv|json|utrace)$",
+                  "required": true,
+                  "hidden": true
+                }
+              ],
+              "heading": "**Performance diagnostics**"
+            },
+            {
+              "id": "localization",
+              "label": "Contexto de localización",
+              "mode": "lines",
+              "fields": [
+                {
+                  "id": "stringId",
+                  "label": "ID de string",
+                  "type": "text",
+                  "placeholder": "UI_BRIEFING_OBJECTIVE_019",
+                  "template": "String ID: {value}",
+                  "regex": "^[A-Z][A-Z0-9_]+$",
+                  "required": true,
+                  "hidden": true
+                },
+                {
+                  "id": "sourceText",
+                  "label": "Texto fuente",
+                  "type": "textarea",
+                  "template": "Source text: {value}",
+                  "rows": 2,
+                  "required": true,
+                  "hidden": true
+                },
+                {
+                  "id": "localizedText",
+                  "label": "Texto localizado",
+                  "type": "textarea",
+                  "template": "Localized text: {value}",
+                  "rows": 2,
+                  "required": true,
+                  "hidden": true
+                }
+              ],
+              "heading": "**Localization diagnostics**"
+            },
+            {
+              "id": "evidence",
+              "label": "Evidencia y procedencia",
+              "mode": "lines",
+              "fields": [
+                {
+                  "id": "evidenceTypes",
+                  "label": "Evidencias disponibles",
+                  "type": "checklist",
+                  "source": "evidenceTypes",
+                  "default": "[\"Video capture\", \"Position screenshot\", \"Debug log\", \"Test save\"]",
+                  "template": "{value}",
+                  "checkTitle": "Evidence:",
+                  "required": true
+                },
+                {
+                  "id": "attachments",
+                  "label": "Nombres de adjuntos",
+                  "type": "textarea",
+                  "default": "ACS_18427_PS5_Repro.mp4\nACS_18427_PS5_Position.png\nACS_18427_PS5_DebugLog.txt",
+                  "help": "Referencias ficticias para el output. El panel Media genera nombres; estos campos no adjuntan archivos.",
+                  "template": "* {value}",
+                  "rows": 3,
+                  "required": true,
+                  "perLine": true
+                },
+                {
+                  "id": "demoNotice",
+                  "label": "Procedencia",
+                  "type": "textarea",
+                  "default": "FICTIONAL QA DEMO. Original synthetic report inspired by public game settings. Not an internal Ubisoft ticket or leaked template. Builds, coordinates, saves, logs and attachment names are invented.",
+                  "template": "Provenance: {value}",
+                  "rows": 3
+                }
+              ],
+              "heading": "**Attachments (simulated)**"
+            }
+          ],
+          "rules": [
+            {
+              "id": "platform_PS5",
+              "whenExpr": "platform = \"PlayStation 5\"",
+              "editorCondition": false,
+              "then": {
+                "action": "valueOf",
+                "field": "platformCode",
+                "value": "PS5"
+              }
+            },
+            {
+              "id": "platform_PS5Pro",
+              "whenExpr": "platform = \"PlayStation 5 Pro\"",
+              "editorCondition": false,
+              "then": {
+                "action": "valueOf",
+                "field": "platformCode",
+                "value": "PS5Pro"
+              }
+            },
+            {
+              "id": "platform_XSX",
+              "whenExpr": "platform = \"Xbox Series X\"",
+              "editorCondition": false,
+              "then": {
+                "action": "valueOf",
+                "field": "platformCode",
+                "value": "XSX"
+              }
+            },
+            {
+              "id": "platform_XSS",
+              "whenExpr": "platform = \"Xbox Series S\"",
+              "editorCondition": false,
+              "then": {
+                "action": "valueOf",
+                "field": "platformCode",
+                "value": "XSS"
+              }
+            },
+            {
+              "id": "platform_PC",
+              "whenExpr": "platform = \"PC - Windows 11\"",
+              "editorCondition": false,
+              "then": {
+                "action": "valueOf",
+                "field": "platformCode",
+                "value": "PC"
+              }
+            },
+            {
+              "id": "platform_known",
+              "whenExpr": "platform notEmpty AND NOT (platform inList platforms)",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "platform",
+                "value": "Selecciona una plataforma de la lista."
+              }
+            },
+            {
+              "id": "id_ACS",
+              "whenExpr": "product = \"Assassin's Creed Shadows\" AND issueId not matches \"^ACS-[0-9]{4,6}$\"",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "issueId",
+                "value": "Este proyecto utiliza IDs ACS- seguidos de 4 a 6 dígitos."
+              }
+            },
+            {
+              "id": "id_R6S",
+              "whenExpr": "product = \"Rainbow Six Siege\" AND issueId not matches \"^R6S-[0-9]{4,6}$\"",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "issueId",
+                "value": "Este proyecto utiliza IDs R6S- seguidos de 4 a 6 dígitos."
+              }
+            },
+            {
+              "id": "id_KES",
+              "whenExpr": "product = \"Project Kestrel (fictional)\" AND issueId not matches \"^KES-[0-9]{4,6}$\"",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "issueId",
+                "value": "Este proyecto utiliza IDs KES- seguidos de 4 a 6 dígitos."
+              }
+            },
+            {
+              "id": "product_known",
+              "whenExpr": "product notEmpty AND NOT (product inList products)",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "product",
+                "value": "Selecciona un proyecto de la lista."
+              }
+            },
+            {
+              "id": "attempts_positive",
+              "whenExpr": "attempts < 1",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "attempts",
+                "value": "Registra al menos un intento."
+              }
+            },
+            {
+              "id": "failures_bound",
+              "whenExpr": "failures > attempts",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "failures",
+                "value": "Las reproducciones no pueden superar los intentos."
+              }
+            },
+            {
+              "id": "issueType_known",
+              "whenExpr": "issueType notEmpty AND NOT (issueType inList issueTypes)",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "issueType",
+                "value": "Selecciona una opción de la lista."
+              }
+            },
+            {
+              "id": "status_known",
+              "whenExpr": "status notEmpty AND NOT (status inList statuses)",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "status",
+                "value": "Selecciona una opción de la lista."
+              }
+            },
+            {
+              "id": "priority_known",
+              "whenExpr": "priority notEmpty AND NOT (priority inList priorities)",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "priority",
+                "value": "Selecciona una opción de la lista."
+              }
+            },
+            {
+              "id": "severity_known",
+              "whenExpr": "severity notEmpty AND NOT (severity inList severities)",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "severity",
+                "value": "Selecciona una opción de la lista."
+              }
+            },
+            {
+              "id": "resolution_known",
+              "whenExpr": "resolution notEmpty AND NOT (resolution inList resolutions)",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "resolution",
+                "value": "Selecciona una opción de la lista."
+              }
+            },
+            {
+              "id": "environment_known",
+              "whenExpr": "environment notEmpty AND NOT (environment inList environments)",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "environment",
+                "value": "Selecciona una opción de la lista."
+              }
+            },
+            {
+              "id": "renderMode_known",
+              "whenExpr": "renderMode notEmpty AND NOT (renderMode inList renderModes)",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "renderMode",
+                "value": "Selecciona una opción de la lista."
+              }
+            },
+            {
+              "id": "inputDevice_known",
+              "whenExpr": "inputDevice notEmpty AND NOT (inputDevice inList inputDevices)",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "inputDevice",
+                "value": "Selecciona una opción de la lista."
+              }
+            },
+            {
+              "id": "gameLanguage_known",
+              "whenExpr": "gameLanguage notEmpty AND NOT (gameLanguage inList languages)",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "gameLanguage",
+                "value": "Selecciona una opción de la lista."
+              }
+            },
+            {
+              "id": "gameState_known",
+              "whenExpr": "gameState notEmpty AND NOT (gameState inList combatStates)",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "gameState",
+                "value": "Selecciona una opción de la lista."
+              }
+            },
+            {
+              "id": "networkMode_known",
+              "whenExpr": "networkMode notEmpty AND NOT (networkMode inList networkModes)",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "networkMode",
+                "value": "Selecciona una opción de la lista."
+              }
+            },
+            {
+              "id": "components_parent_0",
+              "whenExpr": "product = \"Assassin's Creed Shadows\" AND component notEmpty AND component not in (\"Gameplay / Traversal\", \"Combat / AI\", \"World / Streaming\", \"Quests / Progression\", \"UI / HUD\", \"Audio\")",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "component",
+                "value": "El valor no pertenece al proyecto o región seleccionados."
+              }
+            },
+            {
+              "id": "components_parent_1",
+              "whenExpr": "product = \"Rainbow Six Siege\" AND component notEmpty AND component not in (\"Gameplay / Operators\", \"Online / Replication\", \"Matchmaking\", \"UI / HUD\", \"Rendering / Performance\")",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "component",
+                "value": "El valor no pertenece al proyecto o región seleccionados."
+              }
+            },
+            {
+              "id": "components_parent_2",
+              "whenExpr": "product = \"Project Kestrel (fictional)\" AND component notEmpty AND component not in (\"Flight / Controls\", \"Co-op / Sync\", \"World / Streaming\", \"UI / Localization\", \"Accessibility\")",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "component",
+                "value": "El valor no pertenece al proyecto o región seleccionados."
+              }
+            },
+            {
+              "id": "characters_parent_0",
+              "whenExpr": "product = \"Assassin's Creed Shadows\" AND character notEmpty AND character not in (\"Naoe\", \"Yasuke\")",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "character",
+                "value": "El valor no pertenece al proyecto o región seleccionados."
+              }
+            },
+            {
+              "id": "characters_parent_1",
+              "whenExpr": "product = \"Rainbow Six Siege\" AND character notEmpty AND character not in (\"Ash\", \"Sledge\", \"Hibana\", \"Doc\", \"Valkyrie\", \"Azami\")",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "character",
+                "value": "El valor no pertenece al proyecto o región seleccionados."
+              }
+            },
+            {
+              "id": "characters_parent_2",
+              "whenExpr": "product = \"Project Kestrel (fictional)\" AND character notEmpty AND character not in (\"Mira (test pilot)\", \"Rook (test engineer)\", \"Sable (test navigator)\")",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "character",
+                "value": "El valor no pertenece al proyecto o región seleccionados."
+              }
+            },
+            {
+              "id": "regions_parent_0",
+              "whenExpr": "product = \"Assassin's Creed Shadows\" AND region notEmpty AND region not in (\"Harima\", \"Kyoto\", \"Iga\", \"Omi\")",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "region",
+                "value": "El valor no pertenece al proyecto o región seleccionados."
+              }
+            },
+            {
+              "id": "regions_parent_1",
+              "whenExpr": "product = \"Rainbow Six Siege\" AND region notEmpty AND region not in (\"Clubhouse\", \"Bank\", \"Oregon\", \"Consulate\", \"Border\")",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "region",
+                "value": "El valor no pertenece al proyecto o región seleccionados."
+              }
+            },
+            {
+              "id": "regions_parent_2",
+              "whenExpr": "product = \"Project Kestrel (fictional)\" AND region notEmpty AND region not in (\"Glass Coast\", \"Ember Basin\", \"Skybreak Ridge\")",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "region",
+                "value": "El valor no pertenece al proyecto o región seleccionados."
+              }
+            },
+            {
+              "id": "missions_parent_0",
+              "whenExpr": "product = \"Assassin's Creed Shadows\" AND mission notEmpty AND mission not in (\"QA_TRV_014 - West rooftop route\", \"QA_QST_028 - Castle infiltration\", \"QA_WLD_006 - Fast travel loop\")",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "mission",
+                "value": "El valor no pertenece al proyecto o región seleccionados."
+              }
+            },
+            {
+              "id": "missions_parent_1",
+              "whenExpr": "product = \"Rainbow Six Siege\" AND mission notEmpty AND mission not in (\"QA_NET_011 - Round transition\", \"QA_OPR_023 - Gadget interaction\")",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "mission",
+                "value": "El valor no pertenece al proyecto o región seleccionados."
+              }
+            },
+            {
+              "id": "missions_parent_2",
+              "whenExpr": "product = \"Project Kestrel (fictional)\" AND mission notEmpty AND mission not in (\"QA_FLT_004 - Crosswind landing\", \"QA_LOC_019 - Arabic briefing\", \"QA_ACC_007 - Remapped docking\")",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "mission",
+                "value": "El valor no pertenece al proyecto o región seleccionados."
+              }
+            },
+            {
+              "id": "locations_parent_0",
+              "whenExpr": "region = \"Harima\" AND location notEmpty AND location not in (\"Himeji Castle - western rooftops\", \"Himeji Castle - inner courtyard\", \"Harbor training route\")",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "location",
+                "value": "El valor no pertenece al proyecto o región seleccionados."
+              }
+            },
+            {
+              "id": "locations_parent_1",
+              "whenExpr": "region = \"Kyoto\" AND location notEmpty AND location not in (\"Northern market rooftops\", \"Temple test courtyard\")",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "location",
+                "value": "El valor no pertenece al proyecto o región seleccionados."
+              }
+            },
+            {
+              "id": "locations_parent_2",
+              "whenExpr": "region = \"Iga\" AND location notEmpty AND location not in (\"Forest hideout\", \"River crossing\")",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "location",
+                "value": "El valor no pertenece al proyecto o región seleccionados."
+              }
+            },
+            {
+              "id": "locations_parent_3",
+              "whenExpr": "region = \"Omi\" AND location notEmpty AND location not in (\"Lakeside fort\", \"Mountain checkpoint\")",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "location",
+                "value": "El valor no pertenece al proyecto o región seleccionados."
+              }
+            },
+            {
+              "id": "locations_parent_4",
+              "whenExpr": "region = \"Clubhouse\" AND location notEmpty AND location not in (\"CCTV room\", \"Cash room\", \"Garage\")",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "location",
+                "value": "El valor no pertenece al proyecto o región seleccionados."
+              }
+            },
+            {
+              "id": "locations_parent_5",
+              "whenExpr": "region = \"Bank\" AND location notEmpty AND location not in (\"Vault lobby\", \"Server room\")",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "location",
+                "value": "El valor no pertenece al proyecto o región seleccionados."
+              }
+            },
+            {
+              "id": "locations_parent_6",
+              "whenExpr": "region = \"Oregon\" AND location notEmpty AND location not in (\"Dormitory\", \"Laundry\")",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "location",
+                "value": "El valor no pertenece al proyecto o región seleccionados."
+              }
+            },
+            {
+              "id": "locations_parent_7",
+              "whenExpr": "region = \"Consulate\" AND location notEmpty AND location not in (\"Garage\", \"Meeting room\")",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "location",
+                "value": "El valor no pertenece al proyecto o región seleccionados."
+              }
+            },
+            {
+              "id": "locations_parent_8",
+              "whenExpr": "region = \"Border\" AND location notEmpty AND location not in (\"Armory\", \"Customs\")",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "location",
+                "value": "El valor no pertenece al proyecto o región seleccionados."
+              }
+            },
+            {
+              "id": "locations_parent_9",
+              "whenExpr": "region = \"Glass Coast\" AND location notEmpty AND location not in (\"Beacon 07\", \"Hangar Delta\")",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "location",
+                "value": "El valor no pertenece al proyecto o región seleccionados."
+              }
+            },
+            {
+              "id": "locations_parent_10",
+              "whenExpr": "region = \"Ember Basin\" AND location notEmpty AND location not in (\"Relay tower\", \"Thermal canyon\")",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "location",
+                "value": "El valor no pertenece al proyecto o región seleccionados."
+              }
+            },
+            {
+              "id": "locations_parent_11",
+              "whenExpr": "region = \"Skybreak Ridge\" AND location notEmpty AND location not in (\"Observation deck\", \"Wind tunnel\")",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "location",
+                "value": "El valor no pertenece al proyecto o región seleccionados."
+              }
+            },
+            {
+              "id": "resolution_show",
+              "whenExpr": "status in (\"Resolved\", \"Closed\")",
+              "editorCondition": false,
+              "then": {
+                "action": "show",
+                "field": "resolution",
+                "value": ""
+              }
+            },
+            {
+              "id": "resolved_show",
+              "whenExpr": "status in (\"Resolved\", \"Closed\")",
+              "editorCondition": false,
+              "then": {
+                "action": "show",
+                "field": "resolved",
+                "value": ""
+              }
+            },
+            {
+              "id": "resolution_required",
+              "whenExpr": "status in (\"Resolved\", \"Closed\") AND resolution = \"Unresolved\"",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "resolution",
+                "value": "Selecciona una resolución antes de cerrar el ticket."
+              }
+            },
+            {
+              "id": "gpu_show",
+              "whenExpr": "platform inList pcPlatforms",
+              "editorCondition": false,
+              "then": {
+                "action": "show",
+                "field": "gpu",
+                "value": ""
+              }
+            },
+            {
+              "id": "driver_show",
+              "whenExpr": "platform inList pcPlatforms",
+              "editorCondition": false,
+              "then": {
+                "action": "show",
+                "field": "driver",
+                "value": ""
+              }
+            },
+            {
+              "id": "coordinates_show",
+              "whenExpr": "product in (\"Assassin's Creed Shadows\", \"Project Kestrel (fictional)\")",
+              "editorCondition": false,
+              "then": {
+                "action": "show",
+                "field": "coordinates",
+                "value": ""
+              }
+            },
+            {
+              "id": "savegame_show",
+              "whenExpr": "product in (\"Assassin's Creed Shadows\", \"Project Kestrel (fictional)\")",
+              "editorCondition": false,
+              "then": {
+                "action": "show",
+                "field": "savegame",
+                "value": ""
+              }
+            },
+            {
+              "id": "questState_show",
+              "whenExpr": "product = \"Assassin's Creed Shadows\"",
+              "editorCondition": false,
+              "then": {
+                "action": "show",
+                "field": "questState",
+                "value": ""
+              }
+            },
+            {
+              "id": "worldTime_show",
+              "whenExpr": "product = \"Assassin's Creed Shadows\"",
+              "editorCondition": false,
+              "then": {
+                "action": "show",
+                "field": "worldTime",
+                "value": ""
+              }
+            },
+            {
+              "id": "weather_show",
+              "whenExpr": "product = \"Assassin's Creed Shadows\"",
+              "editorCondition": false,
+              "then": {
+                "action": "show",
+                "field": "weather",
+                "value": ""
+              }
+            },
+            {
+              "id": "gameMode_show",
+              "whenExpr": "product = \"Rainbow Six Siege\"",
+              "editorCondition": false,
+              "then": {
+                "action": "show",
+                "field": "gameMode",
+                "value": ""
+              }
+            },
+            {
+              "id": "round_show",
+              "whenExpr": "product = \"Rainbow Six Siege\"",
+              "editorCondition": false,
+              "then": {
+                "action": "show",
+                "field": "round",
+                "value": ""
+              }
+            },
+            {
+              "id": "flightPhase_show",
+              "whenExpr": "product = \"Project Kestrel (fictional)\"",
+              "editorCondition": false,
+              "then": {
+                "action": "show",
+                "field": "flightPhase",
+                "value": ""
+              }
+            },
+            {
+              "id": "vehicle_show",
+              "whenExpr": "product = \"Project Kestrel (fictional)\"",
+              "editorCondition": false,
+              "then": {
+                "action": "show",
+                "field": "vehicle",
+                "value": ""
+              }
+            },
+            {
+              "id": "round_min",
+              "whenExpr": "round < 1",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "round",
+                "value": "La ronda debe ser al menos 1."
+              }
+            },
+            {
+              "id": "round_max",
+              "whenExpr": "round > 15",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "round",
+                "value": "Esta demo admite rondas del 1 al 15."
+              }
+            },
+            {
+              "id": "accessibility_show",
+              "whenExpr": "accessibilityEnabled notEmpty OR issueType = \"Accessibility\"",
+              "editorCondition": false,
+              "then": {
+                "action": "show",
+                "field": "accessibility",
+                "value": ""
+              }
+            },
+            {
+              "id": "accessibilityExpected_show",
+              "whenExpr": "accessibilityEnabled notEmpty OR issueType = \"Accessibility\"",
+              "editorCondition": false,
+              "then": {
+                "action": "show",
+                "field": "accessibilityExpected",
+                "value": ""
+              }
+            },
+            {
+              "id": "serverRegion_show",
+              "whenExpr": "@network_context",
+              "editorCondition": false,
+              "then": {
+                "action": "show",
+                "field": "serverRegion",
+                "value": ""
+              }
+            },
+            {
+              "id": "latency_show",
+              "whenExpr": "@network_context",
+              "editorCondition": false,
+              "then": {
+                "action": "show",
+                "field": "latency",
+                "value": ""
+              }
+            },
+            {
+              "id": "packetLoss_show",
+              "whenExpr": "@network_context",
+              "editorCondition": false,
+              "then": {
+                "action": "show",
+                "field": "packetLoss",
+                "value": ""
+              }
+            },
+            {
+              "id": "networkTrace_show",
+              "whenExpr": "@network_context AND (issueType = \"Network / Desync\" OR packetLoss > 0)",
+              "editorCondition": false,
+              "then": {
+                "action": "show",
+                "field": "networkTrace",
+                "value": ""
+              }
+            },
+            {
+              "id": "packetLoss_max",
+              "whenExpr": "packetLoss > 100",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "packetLoss",
+                "value": "La pérdida de paquetes debe estar entre 0 y 100."
+              }
+            },
+            {
+              "id": "network_mode_required",
+              "whenExpr": "issueType = \"Network / Desync\" AND networkMode in (\"Offline\", \"LAN test\")",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "networkMode",
+                "value": "Selecciona una conexión online para el diagnóstico de desync."
+              }
+            },
+            {
+              "id": "crashType_show",
+              "whenExpr": "@crash_context",
+              "editorCondition": false,
+              "then": {
+                "action": "show",
+                "field": "crashType",
+                "value": ""
+              }
+            },
+            {
+              "id": "crashStage_show",
+              "whenExpr": "@crash_context",
+              "editorCondition": false,
+              "then": {
+                "action": "show",
+                "field": "crashStage",
+                "value": ""
+              }
+            },
+            {
+              "id": "crashSignature_show",
+              "whenExpr": "@crash_context",
+              "editorCondition": false,
+              "then": {
+                "action": "show",
+                "field": "crashSignature",
+                "value": ""
+              }
+            },
+            {
+              "id": "crashLog_show",
+              "whenExpr": "@crash_context",
+              "editorCondition": false,
+              "then": {
+                "action": "show",
+                "field": "crashLog",
+                "value": ""
+              }
+            },
+            {
+              "id": "crashDump_show",
+              "whenExpr": "@crash_context AND platform inList pcPlatforms",
+              "editorCondition": false,
+              "then": {
+                "action": "show",
+                "field": "crashDump",
+                "value": ""
+              }
+            },
+            {
+              "id": "consoleReport_show",
+              "whenExpr": "@crash_context AND platform inList consolePlatforms",
+              "editorCondition": false,
+              "then": {
+                "action": "show",
+                "field": "consoleReport",
+                "value": ""
+              }
+            },
+            {
+              "id": "console_code_0",
+              "whenExpr": "@crash_context AND platform = \"PlayStation 5\" AND consoleReport notEmpty AND consoleReport not matches \"^QA-PS5-CR-[0-9]{4,6}$\"",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "consoleReport",
+                "value": "El reporte de crash debe corresponder a la consola seleccionada."
+              }
+            },
+            {
+              "id": "console_code_1",
+              "whenExpr": "@crash_context AND platform = \"PlayStation 5 Pro\" AND consoleReport notEmpty AND consoleReport not matches \"^QA-PS5Pro-CR-[0-9]{4,6}$\"",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "consoleReport",
+                "value": "El reporte de crash debe corresponder a la consola seleccionada."
+              }
+            },
+            {
+              "id": "console_code_2",
+              "whenExpr": "@crash_context AND platform = \"Xbox Series X\" AND consoleReport notEmpty AND consoleReport not matches \"^QA-XSX-CR-[0-9]{4,6}$\"",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "consoleReport",
+                "value": "El reporte de crash debe corresponder a la consola seleccionada."
+              }
+            },
+            {
+              "id": "console_code_3",
+              "whenExpr": "@crash_context AND platform = \"Xbox Series S\" AND consoleReport notEmpty AND consoleReport not matches \"^QA-XSS-CR-[0-9]{4,6}$\"",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "consoleReport",
+                "value": "El reporte de crash debe corresponder a la consola seleccionada."
+              }
+            },
+            {
+              "id": "crash_evidence",
+              "whenExpr": "@crash_context AND NOT (evidenceTypes contains \"Debug log\")",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "evidenceTypes",
+                "value": "Incluye Debug log entre las evidencias del crash."
+              }
+            },
+            {
+              "id": "dump_evidence",
+              "whenExpr": "@crash_context AND platform inList pcPlatforms AND NOT (evidenceTypes contains \"Crash dump\")",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "evidenceTypes",
+                "value": "Incluye Crash dump entre las evidencias de PC."
+              }
+            },
+            {
+              "id": "targetFps_show",
+              "whenExpr": "issueType = \"Performance\"",
+              "editorCondition": false,
+              "then": {
+                "action": "show",
+                "field": "targetFps",
+                "value": ""
+              }
+            },
+            {
+              "id": "observedFps_show",
+              "whenExpr": "issueType = \"Performance\"",
+              "editorCondition": false,
+              "then": {
+                "action": "show",
+                "field": "observedFps",
+                "value": ""
+              }
+            },
+            {
+              "id": "frameTime_show",
+              "whenExpr": "issueType = \"Performance\"",
+              "editorCondition": false,
+              "then": {
+                "action": "show",
+                "field": "frameTime",
+                "value": ""
+              }
+            },
+            {
+              "id": "profilerCapture_show",
+              "whenExpr": "issueType = \"Performance\"",
+              "editorCondition": false,
+              "then": {
+                "action": "show",
+                "field": "profilerCapture",
+                "value": ""
+              }
+            },
+            {
+              "id": "targetFps_min",
+              "whenExpr": "targetFps <= 0",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "targetFps",
+                "value": "El objetivo de FPS debe ser mayor que cero."
+              }
+            },
+            {
+              "id": "frameTime_min",
+              "whenExpr": "frameTime <= 0",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "frameTime",
+                "value": "El frame time debe ser mayor que cero."
+              }
+            },
+            {
+              "id": "perf_evidence",
+              "whenExpr": "issueType = \"Performance\" AND NOT (evidenceTypes contains \"Profiler capture\")",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "evidenceTypes",
+                "value": "Incluye Profiler capture entre las evidencias."
+              }
+            },
+            {
+              "id": "stringId_show",
+              "whenExpr": "issueType = \"Localization\"",
+              "editorCondition": false,
+              "then": {
+                "action": "show",
+                "field": "stringId",
+                "value": ""
+              }
+            },
+            {
+              "id": "sourceText_show",
+              "whenExpr": "issueType = \"Localization\"",
+              "editorCondition": false,
+              "then": {
+                "action": "show",
+                "field": "sourceText",
+                "value": ""
+              }
+            },
+            {
+              "id": "localizedText_show",
+              "whenExpr": "issueType = \"Localization\"",
+              "editorCondition": false,
+              "then": {
+                "action": "show",
+                "field": "localizedText",
+                "value": ""
+              }
+            },
+            {
+              "id": "loc_language",
+              "whenExpr": "issueType = \"Localization\" AND gameLanguage = \"en-US\"",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "gameLanguage",
+                "value": "Selecciona el idioma de destino de la traducción."
+              }
+            },
+            {
+              "id": "coverage_platform_0",
+              "whenExpr": "platform = \"PlayStation 5\" AND NOT (coverage contains \"PlayStation 5\")",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "coverage",
+                "value": "Incluye la plataforma afectada en las plataformas verificadas."
+              }
+            },
+            {
+              "id": "coverage_platform_1",
+              "whenExpr": "platform = \"PlayStation 5 Pro\" AND NOT (coverage contains \"PlayStation 5 Pro\")",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "coverage",
+                "value": "Incluye la plataforma afectada en las plataformas verificadas."
+              }
+            },
+            {
+              "id": "coverage_platform_2",
+              "whenExpr": "platform = \"Xbox Series X\" AND NOT (coverage contains \"Xbox Series X\")",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "coverage",
+                "value": "Incluye la plataforma afectada en las plataformas verificadas."
+              }
+            },
+            {
+              "id": "coverage_platform_3",
+              "whenExpr": "platform = \"Xbox Series S\" AND NOT (coverage contains \"Xbox Series S\")",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "coverage",
+                "value": "Incluye la plataforma afectada en las plataformas verificadas."
+              }
+            },
+            {
+              "id": "coverage_platform_4",
+              "whenExpr": "platform = \"PC - Windows 11\" AND NOT (coverage contains \"PC - Windows 11\")",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "coverage",
+                "value": "Incluye la plataforma afectada en las plataformas verificadas."
+              }
+            },
+            {
+              "id": "video_evidence",
+              "whenExpr": "severity in (\"Blocker\", \"Critical\", \"Major\") AND NOT (evidenceTypes contains \"Video capture\")",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "evidenceTypes",
+                "value": "Para esta severidad se requiere Video capture."
+              }
+            },
+            {
+              "id": "urgent_impact",
+              "whenExpr": "priority in (\"P0 - Critical\", \"P1 - High\") AND workaround empty",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "workaround",
+                "value": "Documenta un workaround o explica que no existe."
+              }
+            }
+          ],
+          "tiles": [
+            {
+              "id": "fictional",
+              "text": "Demo AAA · todos los datos son ficticios",
+              "whenExpr": "issueId notEmpty",
+              "severity": "warn",
+              "field": "demoNotice",
+              "color": "blue",
+              "group": "Contexto",
+              "message": ""
+            },
+            {
+              "id": "repro",
+              "text": "Repro: {failures}/{attempts}",
+              "whenExpr": "attempts > 0",
+              "severity": "warn",
+              "field": "failures",
+              "color": "blue",
+              "group": "Contexto",
+              "message": ""
+            },
+            {
+              "id": "crash",
+              "text": "Crash detectado · requiere log específico",
+              "whenExpr": "@crash_context",
+              "severity": "warn",
+              "field": "crashLog",
+              "color": "amber",
+              "group": "Diagnóstico",
+              "message": ""
+            },
+            {
+              "id": "pc_dump",
+              "text": "Crash PC · dump .dmp requerido",
+              "whenExpr": "@crash_context AND platform inList pcPlatforms",
+              "severity": "warn",
+              "field": "crashDump",
+              "color": "amber",
+              "group": "Diagnóstico",
+              "message": ""
+            },
+            {
+              "id": "console_log",
+              "text": "Crash consola · reporte de plataforma requerido",
+              "whenExpr": "@crash_context AND platform inList consolePlatforms",
+              "severity": "warn",
+              "field": "consoleReport",
+              "color": "amber",
+              "group": "Diagnóstico",
+              "message": ""
+            },
+            {
+              "id": "perf",
+              "text": "Rendimiento · documenta FPS y profiler",
+              "whenExpr": "issueType = \"Performance\"",
+              "severity": "warn",
+              "field": "profilerCapture",
+              "color": "blue",
+              "group": "Diagnóstico",
+              "message": ""
+            },
+            {
+              "id": "perf_above",
+              "text": "FPS dentro del objetivo · revisa frame time y picos",
+              "whenExpr": "issueType = \"Performance\" AND observedFps >= targetFps",
+              "severity": "warn",
+              "field": "observedFps",
+              "color": "amber",
+              "group": "Revisión",
+              "message": ""
+            },
+            {
+              "id": "packet_loss",
+              "text": "Pérdida de paquetes · adjunta traza",
+              "whenExpr": "@network_context AND packetLoss > 0",
+              "severity": "warn",
+              "field": "networkTrace",
+              "color": "amber",
+              "group": "Diagnóstico",
+              "message": ""
+            },
+            {
+              "id": "urgent",
+              "text": "Prioridad alta · confirmar impacto y workaround",
+              "whenExpr": "priority in (\"P0 - Critical\", \"P1 - High\")",
+              "severity": "warn",
+              "field": "impact",
+              "color": "amber",
+              "group": "Revisión",
+              "message": ""
+            },
+            {
+              "id": "multiple_platforms",
+              "text": "Cobertura ampliada: {coverage.length} plataformas",
+              "whenExpr": "coverage.length > 1",
+              "severity": "warn",
+              "field": "coverage",
+              "color": "blue",
+              "group": "Contexto",
+              "message": ""
+            }
+          ]
+        },
+        {
+          "id": "regression",
+          "label": "Regression",
+          "sections": [
+            {
+              "id": "resumen",
+              "label": "Resumen (encabezado)",
+              "mode": "joined",
+              "fields": [
+                {
+                  "id": "shortDescription",
+                  "label": "Resumen",
+                  "type": "text",
+                  "default": "Verify Naoe wall eject recovery at Himeji Castle",
+                  "template": "[{platformCode}][Regression] {value}",
+                  "required": true
+                }
+              ],
+              "sep": ""
+            },
+            {
+              "id": "verification",
+              "label": "Verificación",
+              "mode": "lines",
+              "fields": [
+                {
+                  "id": "issueId",
+                  "label": "ID del ticket",
+                  "type": "text",
+                  "size": "half",
+                  "default": "ACS-18427",
+                  "template": "Original issue: {value}",
+                  "regex": "@issue_re",
+                  "required": true
+                },
+                {
+                  "id": "product",
+                  "label": "Proyecto",
+                  "type": "autocomplete",
+                  "source": "products",
+                  "size": "half",
+                  "default": "Assassin's Creed Shadows",
+                  "template": "Project: {value}",
+                  "required": true
+                },
+                {
+                  "id": "regressionStatus",
+                  "label": "Resultado de verificación",
+                  "type": "autocomplete",
+                  "source": "regressionStatuses",
+                  "default": "Pending",
+                  "template": "Verification: {value}",
+                  "required": true
+                },
+                {
+                  "id": "originalBuild",
+                  "label": "Build original",
+                  "type": "text",
+                  "size": "half",
+                  "default": "1.0.0.1842",
+                  "template": "Original build: {value} (fictional)",
+                  "regex": "@version_re",
+                  "required": true
+                },
+                {
+                  "id": "version",
+                  "label": "Build verificada (ficticia)",
+                  "type": "text",
+                  "size": "half",
+                  "default": "1.0.0.1856",
+                  "template": "Verified build: {value} (fictional)",
+                  "regex": "@version_re",
+                  "required": true
+                },
+                {
+                  "id": "cl",
+                  "label": "Changelist",
+                  "type": "text",
+                  "size": "third",
+                  "default": "1856",
+                  "template": "Changelist: {value}",
+                  "regex": "@count_re",
+                  "required": true
+                },
+                {
+                  "id": "platform",
+                  "label": "Plataforma",
+                  "type": "autocomplete",
+                  "source": "platforms",
+                  "size": "third",
+                  "default": "PlayStation 5",
+                  "template": "Platform: {value}",
+                  "required": true
+                },
+                {
+                  "id": "platformCode",
+                  "label": "Código de plataforma",
+                  "type": "mirror",
+                  "template": "{value}",
+                  "includeOutput": false
+                },
+                {
+                  "id": "environment",
+                  "label": "Entorno de prueba",
+                  "type": "autocomplete",
+                  "source": "environments",
+                  "size": "third",
+                  "default": "@default_environment",
+                  "template": "Environment: {value}",
+                  "required": true
+                },
+                {
+                  "id": "savegame",
+                  "label": "Save de prueba",
+                  "type": "text",
+                  "default": "QA_Himeji_Naoe_WestRoof_04.sav",
+                  "template": "Test save: {value}"
+                },
+                {
+                  "id": "verificationSteps",
+                  "label": "Procedimiento",
+                  "type": "textarea",
+                  "default": "Repeat the original wall eject route with Naoe five times.\nRepeat with Yasuke as a control.\nVerify movement, landing animation and checkpoint recovery.",
+                  "template": "# {value}",
+                  "rows": 4,
+                  "required": true,
+                  "perLine": true
+                },
+                {
+                  "id": "verificationResult",
+                  "label": "Observación",
+                  "type": "textarea",
+                  "default": "Verification pending on the synthetic candidate build; no real fix is claimed.",
+                  "template": "Observation: {value}",
+                  "rows": 3,
+                  "required": true
+                },
+                {
+                  "id": "attempts",
+                  "label": "Intentos",
+                  "type": "text",
+                  "size": "third",
+                  "default": "0",
+                  "template": "Attempts: {value}",
+                  "regex": "@count_re",
+                  "required": true
+                },
+                {
+                  "id": "failures",
+                  "label": "Reproducciones",
+                  "type": "text",
+                  "size": "third",
+                  "default": "0",
+                  "template": "Reproductions: {value}",
+                  "regex": "@count_re",
+                  "required": true
+                },
+                {
+                  "id": "reproRatio",
+                  "label": "Ratio de reproducción",
+                  "type": "mirror",
+                  "size": "third",
+                  "template": "Repro: {failures}/{attempts}"
+                },
+                {
+                  "id": "coverage",
+                  "label": "Plataformas verificadas",
+                  "type": "checklist",
+                  "source": "coveragePlatforms",
+                  "default": "[\"PlayStation 5\"]",
+                  "template": "{value}",
+                  "checkTitle": "Tested platforms:",
+                  "allLabel": "Todas las plataformas",
+                  "allOutput": "All configured platforms",
+                  "required": true,
+                  "allOption": true
+                },
+                {
+                  "id": "blockerReason",
+                  "label": "Motivo del bloqueo",
+                  "type": "textarea",
+                  "template": "Blocked by: {value}",
+                  "rows": 2,
+                  "required": true,
+                  "hidden": true
+                },
+                {
+                  "id": "fixEvidence",
+                  "label": "Evidencia de corrección",
+                  "type": "text",
+                  "placeholder": "ACS_18427_PS5_FixedRepro.mp4",
+                  "template": "Fix evidence: {value}",
+                  "regex": "^[A-Za-z0-9_.-]+\\.(mp4|mov|webm)$",
+                  "required": true,
+                  "hidden": true
+                },
+                {
+                  "id": "remainingIssue",
+                  "label": "Ticket de seguimiento",
+                  "type": "text",
+                  "placeholder": "ACS-18430",
+                  "template": "Follow-up: {value}",
+                  "regex": "@issue_re",
+                  "required": true,
+                  "hidden": true
+                },
+                {
+                  "id": "demoNotice",
+                  "label": "Procedencia",
+                  "type": "textarea",
+                  "default": "FICTIONAL QA DEMO. Synthetic regression of ACS-18427; no real builds, fixes or attachments.",
+                  "template": "Provenance: {value}",
+                  "rows": 2
+                }
+              ],
+              "heading": "**Regression verification**"
+            }
+          ],
+          "rules": [
+            {
+              "id": "platform_PS5",
+              "whenExpr": "platform = \"PlayStation 5\"",
+              "editorCondition": false,
+              "then": {
+                "action": "valueOf",
+                "field": "platformCode",
+                "value": "PS5"
+              }
+            },
+            {
+              "id": "platform_PS5Pro",
+              "whenExpr": "platform = \"PlayStation 5 Pro\"",
+              "editorCondition": false,
+              "then": {
+                "action": "valueOf",
+                "field": "platformCode",
+                "value": "PS5Pro"
+              }
+            },
+            {
+              "id": "platform_XSX",
+              "whenExpr": "platform = \"Xbox Series X\"",
+              "editorCondition": false,
+              "then": {
+                "action": "valueOf",
+                "field": "platformCode",
+                "value": "XSX"
+              }
+            },
+            {
+              "id": "platform_XSS",
+              "whenExpr": "platform = \"Xbox Series S\"",
+              "editorCondition": false,
+              "then": {
+                "action": "valueOf",
+                "field": "platformCode",
+                "value": "XSS"
+              }
+            },
+            {
+              "id": "platform_PC",
+              "whenExpr": "platform = \"PC - Windows 11\"",
+              "editorCondition": false,
+              "then": {
+                "action": "valueOf",
+                "field": "platformCode",
+                "value": "PC"
+              }
+            },
+            {
+              "id": "platform_known",
+              "whenExpr": "platform notEmpty AND NOT (platform inList platforms)",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "platform",
+                "value": "Selecciona una plataforma de la lista."
+              }
+            },
+            {
+              "id": "id_ACS",
+              "whenExpr": "product = \"Assassin's Creed Shadows\" AND issueId not matches \"^ACS-[0-9]{4,6}$\"",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "issueId",
+                "value": "Este proyecto utiliza IDs ACS- seguidos de 4 a 6 dígitos."
+              }
+            },
+            {
+              "id": "id_R6S",
+              "whenExpr": "product = \"Rainbow Six Siege\" AND issueId not matches \"^R6S-[0-9]{4,6}$\"",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "issueId",
+                "value": "Este proyecto utiliza IDs R6S- seguidos de 4 a 6 dígitos."
+              }
+            },
+            {
+              "id": "id_KES",
+              "whenExpr": "product = \"Project Kestrel (fictional)\" AND issueId not matches \"^KES-[0-9]{4,6}$\"",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "issueId",
+                "value": "Este proyecto utiliza IDs KES- seguidos de 4 a 6 dígitos."
+              }
+            },
+            {
+              "id": "product_known",
+              "whenExpr": "product notEmpty AND NOT (product inList products)",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "product",
+                "value": "Selecciona un proyecto de la lista."
+              }
+            },
+            {
+              "id": "attempts_positive",
+              "whenExpr": "regressionStatus = \"Verified Fixed\" AND attempts < 1",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "attempts",
+                "value": "Registra al menos un intento."
+              }
+            },
+            {
+              "id": "failures_bound",
+              "whenExpr": "failures > attempts",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "failures",
+                "value": "Las reproducciones no pueden superar los intentos."
+              }
+            },
+            {
+              "id": "blocked_show",
+              "whenExpr": "regressionStatus = \"Blocked\"",
+              "editorCondition": false,
+              "then": {
+                "action": "show",
+                "field": "blockerReason",
+                "value": ""
+              }
+            },
+            {
+              "id": "fixed_show",
+              "whenExpr": "regressionStatus = \"Verified Fixed\"",
+              "editorCondition": false,
+              "then": {
+                "action": "show",
+                "field": "fixEvidence",
+                "value": ""
+              }
+            },
+            {
+              "id": "remaining_show",
+              "whenExpr": "regressionStatus = \"Still Present\"",
+              "editorCondition": false,
+              "then": {
+                "action": "show",
+                "field": "remainingIssue",
+                "value": ""
+              }
+            },
+            {
+              "id": "fixed_failures",
+              "whenExpr": "regressionStatus = \"Verified Fixed\" AND failures > 0",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "failures",
+                "value": "No marques corregido si el fallo persiste."
+              }
+            },
+            {
+              "id": "remaining_failures",
+              "whenExpr": "regressionStatus = \"Still Present\" AND failures < 1",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "failures",
+                "value": "Registra al menos una reproducción si el fallo persiste."
+              }
+            },
+            {
+              "id": "same_build",
+              "whenExpr": "regressionStatus = \"Verified Fixed\" AND version = originalBuild",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "version",
+                "value": "Verifica en una build distinta de la afectada."
+              }
+            },
+            {
+              "id": "coverage_platform_0",
+              "whenExpr": "platform = \"PlayStation 5\" AND NOT (coverage contains \"PlayStation 5\")",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "coverage",
+                "value": "Incluye la plataforma verificada en la cobertura."
+              }
+            },
+            {
+              "id": "coverage_platform_1",
+              "whenExpr": "platform = \"PlayStation 5 Pro\" AND NOT (coverage contains \"PlayStation 5 Pro\")",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "coverage",
+                "value": "Incluye la plataforma verificada en la cobertura."
+              }
+            },
+            {
+              "id": "coverage_platform_2",
+              "whenExpr": "platform = \"Xbox Series X\" AND NOT (coverage contains \"Xbox Series X\")",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "coverage",
+                "value": "Incluye la plataforma verificada en la cobertura."
+              }
+            },
+            {
+              "id": "coverage_platform_3",
+              "whenExpr": "platform = \"Xbox Series S\" AND NOT (coverage contains \"Xbox Series S\")",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "coverage",
+                "value": "Incluye la plataforma verificada en la cobertura."
+              }
+            },
+            {
+              "id": "coverage_platform_4",
+              "whenExpr": "platform = \"PC - Windows 11\" AND NOT (coverage contains \"PC - Windows 11\")",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "coverage",
+                "value": "Incluye la plataforma verificada en la cobertura."
+              }
+            },
+            {
+              "id": "status_known",
+              "whenExpr": "regressionStatus notEmpty AND NOT (regressionStatus inList regressionStatuses)",
+              "editorCondition": false,
+              "then": {
+                "action": "error",
+                "field": "regressionStatus",
+                "value": "Selecciona un resultado de verificación de la lista."
+              }
+            }
+          ],
+          "tiles": [
+            {
+              "id": "pending",
+              "text": "Regresión pendiente · no se afirma una corrección",
+              "whenExpr": "regressionStatus = \"Pending\"",
+              "severity": "warn",
+              "field": "regressionStatus",
+              "color": "blue",
+              "group": "Revisión",
+              "message": ""
+            },
+            {
+              "id": "fixed",
+              "text": "Corrección verificada · adjunta video",
+              "whenExpr": "regressionStatus = \"Verified Fixed\" AND failures = 0 AND attempts > 0",
+              "severity": "warn",
+              "field": "fixEvidence",
+              "color": "blue",
+              "group": "Revisión",
+              "message": ""
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "session": {
+    "topTab": "bug",
+    "instances": [
+      {
+        "id": "qa_traversal",
+        "formId": "bug",
+        "title": "Traversal · Himeji",
+        "values": {
+          "shortDescription": "Naoe becomes stuck in falling animation after performing a wall eject near Himeji Castle",
+          "issueId": "ACS-18427",
+          "product": "Assassin's Creed Shadows",
+          "issueType": "Bug",
+          "component": "Gameplay / Traversal",
+          "status": "Open",
+          "priority": "P2 - Normal",
+          "severity": "Major",
+          "team": "Gameplay / Traversal",
+          "created": "2026-10-10",
+          "resolution": "Unresolved",
+          "resolved": "",
+          "version": "1.0.0.1842",
+          "cl": "1842",
+          "branch": "release/1.0",
+          "platform": "PlayStation 5",
+          "environment": "Development / QA",
+          "renderMode": "Performance - 60 fps",
+          "inputDevice": "DualSense",
+          "gameLanguage": "en-US",
+          "gpu": "",
+          "driver": "",
+          "character": "Naoe",
+          "region": "Harima",
+          "location": "Himeji Castle - western rooftops",
+          "mission": "QA_TRV_014 - West rooftop route",
+          "coordinates": "X=124.50; Y=38.25; Z=-72.10",
+          "questState": "Active - objective 2/4",
+          "worldTime": "Dusk",
+          "weather": "Rain",
+          "gameState": "Traversal",
+          "savegame": "QA_Himeji_Naoe_WestRoof_04.sav",
+          "gameMode": "",
+          "round": "",
+          "flightPhase": "",
+          "vehicle": "",
+          "description": "When performing a wall eject as Naoe near the western rooftops of Himeji Castle, the character may become suspended in mid-air while the falling animation continues to loop. Player movement is disabled, but the pause menu remains accessible.",
+          "preconditions": "Load the synthetic QA save at Himeji Castle. Naoe is selected, the adjacent roof is streamed in, and no combat encounter is active.",
+          "reproSteps": "Launch the title using build 1.0.0.1842.\nLoad QA_Himeji_Naoe_WestRoof_04.sav.\nSelect Naoe as the playable character.\nClimb the western exterior wall of Himeji Castle.\nPerform a wall eject toward the adjacent rooftop while holding the movement stick forward.\nObserve the character animation and position.",
+          "actual": "Naoe remains suspended in mid-air with a looping falling animation. Movement inputs have no effect.",
+          "expected": "Naoe should complete the wall eject, land on the adjacent rooftop, and regain normal movement control.",
+          "attempts": "5",
+          "failures": "4",
+          "impact": "Traversal is blocked until the checkpoint is reloaded. Pause and menus remain usable.",
+          "workaround": "Reload the last checkpoint to restore normal gameplay.",
+          "additionalInfo": "Reproduced in 4 out of 5 attempts.\nNot reproduced when performing the same action with Yasuke.\nNo crash or application termination observed.",
+          "keywords": [
+            "qa-gate",
+            "edge-case",
+            "physics-loop"
+          ],
+          "coverage": [
+            "PlayStation 5"
+          ],
+          "accessibilityEnabled": "",
+          "accessibility": [],
+          "accessibilityExpected": "",
+          "networkMode": "Offline",
+          "serverRegion": "",
+          "latency": "",
+          "packetLoss": "",
+          "networkTrace": "",
+          "crashType": "",
+          "crashStage": "",
+          "crashSignature": "",
+          "crashLog": "",
+          "crashDump": "",
+          "consoleReport": "",
+          "targetFps": "",
+          "observedFps": "",
+          "frameTime": "",
+          "profilerCapture": "",
+          "stringId": "",
+          "sourceText": "",
+          "localizedText": "",
+          "evidenceTypes": [
+            "Video capture",
+            "Position screenshot",
+            "Debug log",
+            "Test save"
+          ],
+          "attachments": "ACS_18427_PS5_Repro.mp4\nACS_18427_PS5_Position.png\nACS_18427_PS5_DebugLog.txt",
+          "demoNotice": "FICTIONAL QA DEMO. Original synthetic report inspired by public game settings. Not an internal Ubisoft ticket or leaked template. Builds, coordinates, saves, logs and attachment names are invented."
+        },
+        "ticketKey": "ACS-18427",
+        "media": [
+          {
+            "id": "media1",
+            "type": "Repro.mp4"
+          },
+          {
+            "id": "media2",
+            "type": "Position.png"
+          },
+          {
+            "id": "media3",
+            "type": "DebugLog.txt"
+          }
+        ],
+        "output": "",
+        "outputEdited": false,
+        "outputLayoutEdited": false,
+        "outputDetached": {},
+        "outputSegments": [],
+        "outputRanges": {},
+        "outputSectionRanges": {},
+        "checklistExtras": {},
+        "errors": {},
+        "dirty": false
+      },
+      {
+        "id": "qa_crash",
+        "formId": "bug",
+        "title": "Crash · PC",
+        "values": {
+          "shortDescription": "Application crash after fast travel with an active smoke effect",
+          "issueId": "ACS-18428",
+          "product": "Assassin's Creed Shadows",
+          "issueType": "Crash",
+          "component": "World / Streaming",
+          "status": "Open",
+          "priority": "P1 - High",
+          "severity": "Critical",
+          "team": "World / Streaming",
+          "created": "2026-10-10",
+          "resolution": "Unresolved",
+          "resolved": "",
+          "version": "1.0.0.1842",
+          "cl": "1842",
+          "branch": "release/1.0",
+          "platform": "PC - Windows 11",
+          "environment": "Development / QA",
+          "renderMode": "Uncapped - PC",
+          "inputDevice": "Keyboard + mouse",
+          "gameLanguage": "en-US",
+          "gpu": "NVIDIA RTX 4080 (test rig)",
+          "driver": "561.09 (fictional)",
+          "character": "Naoe",
+          "region": "Harima",
+          "location": "Himeji Castle - western rooftops",
+          "mission": "QA_WLD_006 - Fast travel loop",
+          "coordinates": "X=124.50; Y=38.25; Z=-72.10",
+          "questState": "Active - objective 2/4",
+          "worldTime": "Dusk",
+          "weather": "Rain",
+          "gameState": "Loading / respawn",
+          "savegame": "QA_Himeji_Naoe_WestRoof_04.sav",
+          "gameMode": "",
+          "round": "",
+          "flightPhase": "",
+          "vehicle": "",
+          "description": "The application terminates during destination streaming when a smoke effect remains active in the departure scene.",
+          "preconditions": "Load the synthetic castle save with a smoke effect spawned. Keep the test rig offline.",
+          "reproSteps": "Load the QA smoke-effect save.\nSpawn the smoke effect beside the west gate.\nFast travel to the harbor training route.\nObserve application termination during loading.",
+          "actual": "Application exits to the desktop before destination load completes.",
+          "expected": "The destination loads and the player regains control.",
+          "attempts": "5",
+          "failures": "5",
+          "impact": "Session ends; unsaved progress since the last checkpoint is lost.",
+          "workaround": "Wait for the smoke effect to finish before fast travel.",
+          "additionalInfo": "Reproduced only on the synthetic PC rig. Console control runs complete normally.",
+          "keywords": [
+            "memory-lifetime",
+            "stream-boundary",
+            "release-gate"
+          ],
+          "coverage": [
+            "PC - Windows 11"
+          ],
+          "accessibilityEnabled": "",
+          "accessibility": [],
+          "accessibilityExpected": "",
+          "networkMode": "Offline",
+          "serverRegion": "",
+          "latency": "",
+          "packetLoss": "",
+          "networkTrace": "",
+          "crashType": "Unhandled exception",
+          "crashStage": "Fast travel",
+          "crashSignature": "EXCEPTION_ACCESS_VIOLATION / QA-0xC0000005",
+          "crashLog": "ACS_18428_PC_Crash.log",
+          "crashDump": "ACS_18428_PC_CrashDump.dmp",
+          "consoleReport": "",
+          "targetFps": "",
+          "observedFps": "",
+          "frameTime": "",
+          "profilerCapture": "",
+          "stringId": "",
+          "sourceText": "",
+          "localizedText": "",
+          "evidenceTypes": [
+            "Video capture",
+            "Debug log",
+            "Crash dump",
+            "Test save"
+          ],
+          "attachments": "ACS_18428_PC_Repro.mp4\nACS_18428_PC_Crash.log\nACS_18428_PC_CrashDump.dmp",
+          "demoNotice": "FICTIONAL QA DEMO. Original synthetic report inspired by public game settings. Not an internal Ubisoft ticket or leaked template. Builds, coordinates, saves, logs and attachment names are invented."
+        },
+        "ticketKey": "ACS-18428",
+        "media": [
+          {
+            "id": "media1",
+            "type": "Repro.mp4"
+          },
+          {
+            "id": "media2",
+            "type": "Position.png"
+          },
+          {
+            "id": "media3",
+            "type": "DebugLog.txt"
+          }
+        ],
+        "output": "",
+        "outputEdited": false,
+        "outputLayoutEdited": false,
+        "outputDetached": {},
+        "outputSegments": [],
+        "outputRanges": {},
+        "outputSectionRanges": {},
+        "checklistExtras": {},
+        "errors": {},
+        "dirty": false
+      },
+      {
+        "id": "qa_performance",
+        "formId": "bug",
+        "title": "Performance · lluvia",
+        "values": {
+          "shortDescription": "Frame rate drops below target in the rainy Kyoto market",
+          "issueId": "ACS-18429",
+          "product": "Assassin's Creed Shadows",
+          "issueType": "Performance",
+          "component": "World / Streaming",
+          "status": "Open",
+          "priority": "P2 - Normal",
+          "severity": "Major",
+          "team": "Performance / Rendering",
+          "created": "2026-10-10",
+          "resolution": "Unresolved",
+          "resolved": "",
+          "version": "1.0.0.1842",
+          "cl": "1842",
+          "branch": "release/1.0",
+          "platform": "PlayStation 5",
+          "environment": "Development / QA",
+          "renderMode": "Performance - 60 fps",
+          "inputDevice": "DualSense",
+          "gameLanguage": "en-US",
+          "gpu": "",
+          "driver": "",
+          "character": "Naoe",
+          "region": "Kyoto",
+          "location": "Northern market rooftops",
+          "mission": "QA_QST_028 - Castle infiltration",
+          "coordinates": "X=-56.20; Y=12.00; Z=203.40",
+          "questState": "Active - objective 2/4",
+          "worldTime": "Dusk",
+          "weather": "Rain",
+          "gameState": "Exploration",
+          "savegame": "QA_Kyoto_Rain_Stress_02.sav",
+          "gameMode": "",
+          "round": "",
+          "flightPhase": "",
+          "vehicle": "",
+          "description": "Dense crowds and rain cause sustained frame pacing degradation during the market route.",
+          "preconditions": "Load the synthetic Kyoto stress save. Use Performance mode and rain.",
+          "reproSteps": "Load the Kyoto stress save.\nStart a profiler capture.\nRun through the northern market for 60 seconds.\nRecord FPS and frame time p95.",
+          "actual": "The synthetic capture averages 24.5 FPS with 40.8 ms frame time p95.",
+          "expected": "The 60 FPS target should be maintained within the test budget.",
+          "attempts": "5",
+          "failures": "4",
+          "impact": "Camera movement and traversal feedback become uneven.",
+          "workaround": "Use the smaller courtyard route for the remaining test pass.",
+          "additionalInfo": "Quality mode is a separate control run. No crash observed.",
+          "keywords": [
+            "perf-budget",
+            "crowd-density",
+            "rain-pass"
+          ],
+          "coverage": [
+            "PlayStation 5"
+          ],
+          "accessibilityEnabled": "",
+          "accessibility": [],
+          "accessibilityExpected": "",
+          "networkMode": "Offline",
+          "serverRegion": "",
+          "latency": "",
+          "packetLoss": "",
+          "networkTrace": "",
+          "crashType": "",
+          "crashStage": "",
+          "crashSignature": "",
+          "crashLog": "",
+          "crashDump": "",
+          "consoleReport": "",
+          "targetFps": "60",
+          "observedFps": "24.5",
+          "frameTime": "40.8",
+          "profilerCapture": "ACS_18429_PS5_Profiler.csv",
+          "stringId": "",
+          "sourceText": "",
+          "localizedText": "",
+          "evidenceTypes": [
+            "Video capture",
+            "Profiler capture",
+            "Test save"
+          ],
+          "attachments": "ACS_18429_PS5_Repro.mp4\nACS_18429_PS5_Profiler.csv",
+          "demoNotice": "FICTIONAL QA DEMO. Original synthetic report inspired by public game settings. Not an internal Ubisoft ticket or leaked template. Builds, coordinates, saves, logs and attachment names are invented."
+        },
+        "ticketKey": "ACS-18429",
+        "media": [
+          {
+            "id": "media1",
+            "type": "Repro.mp4"
+          },
+          {
+            "id": "media2",
+            "type": "Position.png"
+          },
+          {
+            "id": "media3",
+            "type": "DebugLog.txt"
+          }
+        ],
+        "output": "",
+        "outputEdited": false,
+        "outputLayoutEdited": false,
+        "outputDetached": {},
+        "outputSegments": [],
+        "outputRanges": {},
+        "outputSectionRanges": {},
+        "checklistExtras": {},
+        "errors": {},
+        "dirty": false
+      },
+      {
+        "id": "qa_network",
+        "formId": "bug",
+        "title": "Siege · desync",
+        "values": {
+          "shortDescription": "Operator position desynchronizes after the round transition",
+          "issueId": "R6S-22018",
+          "product": "Rainbow Six Siege",
+          "issueType": "Network / Desync",
+          "component": "Online / Replication",
+          "status": "Open",
+          "priority": "P2 - Normal",
+          "severity": "Major",
+          "team": "Online / Replication",
+          "created": "2026-10-10",
+          "resolution": "Unresolved",
+          "resolved": "",
+          "version": "9.2.0.4117",
+          "cl": "4117",
+          "branch": "network/replication",
+          "platform": "PlayStation 5",
+          "environment": "Development / QA",
+          "renderMode": "Performance - 60 fps",
+          "inputDevice": "DualSense",
+          "gameLanguage": "en-US",
+          "gpu": "",
+          "driver": "",
+          "character": "Hibana",
+          "region": "Clubhouse",
+          "location": "CCTV room",
+          "mission": "QA_NET_011 - Round transition",
+          "coordinates": "X=124.50; Y=38.25; Z=-72.10",
+          "questState": "Active - objective 2/4",
+          "worldTime": "Dusk",
+          "weather": "Rain",
+          "gameState": "Combat",
+          "savegame": "QA_Himeji_Naoe_WestRoof_04.sav",
+          "gameMode": "Custom Game",
+          "round": "3",
+          "flightPhase": "",
+          "vehicle": "",
+          "description": "The operator appears at the previous round position on the observer client after a simulated packet-loss interval.",
+          "preconditions": "Use two synthetic QA clients in a custom match. Apply a controlled 2.5% loss profile.",
+          "reproSteps": "Start a custom match on Clubhouse.\nSelect Hibana and reach the CCTV room.\nEnable the synthetic packet-loss profile.\nAdvance to round 3.\nCompare player and observer positions.",
+          "actual": "Observer position remains stale for several seconds.",
+          "expected": "Both clients agree on the operator position after the round transition.",
+          "attempts": "5",
+          "failures": "3",
+          "impact": "Observer state does not represent the active player.",
+          "workaround": "Reconnect the observer client between test rounds.",
+          "additionalInfo": "The zero-loss control run passes. No crash observed.",
+          "keywords": [
+            "net-chaos",
+            "observer-state",
+            "round-boundary"
+          ],
+          "coverage": [
+            "PlayStation 5"
+          ],
+          "accessibilityEnabled": "",
+          "accessibility": [],
+          "accessibilityExpected": "",
+          "networkMode": "Online - dedicated server",
+          "serverRegion": "US Central - QA",
+          "latency": "85",
+          "packetLoss": "2.5",
+          "networkTrace": "R6S_22018_NetworkTrace.pcap",
+          "crashType": "",
+          "crashStage": "",
+          "crashSignature": "",
+          "crashLog": "",
+          "crashDump": "",
+          "consoleReport": "",
+          "targetFps": "",
+          "observedFps": "",
+          "frameTime": "",
+          "profilerCapture": "",
+          "stringId": "",
+          "sourceText": "",
+          "localizedText": "",
+          "evidenceTypes": [
+            "Video capture",
+            "Debug log",
+            "Network trace"
+          ],
+          "attachments": "R6S_22018_PS5_Repro.mp4\nR6S_22018_NetworkTrace.pcap\nR6S_22018_PS5_DebugLog.txt",
+          "demoNotice": "FICTIONAL QA DEMO. Original synthetic report inspired by public game settings. Not an internal Ubisoft ticket or leaked template. Builds, coordinates, saves, logs and attachment names are invented."
+        },
+        "ticketKey": "R6S-22018",
+        "media": [
+          {
+            "id": "media1",
+            "type": "Repro.mp4"
+          },
+          {
+            "id": "media2",
+            "type": "Position.png"
+          },
+          {
+            "id": "media3",
+            "type": "DebugLog.txt"
+          }
+        ],
+        "output": "",
+        "outputEdited": false,
+        "outputLayoutEdited": false,
+        "outputDetached": {},
+        "outputSegments": [],
+        "outputRanges": {},
+        "outputSectionRanges": {},
+        "checklistExtras": {},
+        "errors": {},
+        "dirty": false
+      },
+      {
+        "id": "qa_localization",
+        "formId": "bug",
+        "title": "Kestrel · árabe",
+        "values": {
+          "shortDescription": "Arabic briefing text clips at the right edge of the objective panel",
+          "issueId": "KES-03104",
+          "product": "Project Kestrel (fictional)",
+          "issueType": "Localization",
+          "component": "UI / Localization",
+          "status": "Open",
+          "priority": "P3 - Low",
+          "severity": "Minor",
+          "team": "UI / Localization",
+          "created": "2026-10-10",
+          "resolution": "Unresolved",
+          "resolved": "",
+          "version": "0.8.0.7301",
+          "cl": "7301",
+          "branch": "release/1.0",
+          "platform": "PlayStation 5",
+          "environment": "Development / QA",
+          "renderMode": "Performance - 60 fps",
+          "inputDevice": "DualSense",
+          "gameLanguage": "ar-SA",
+          "gpu": "",
+          "driver": "",
+          "character": "Mira (test pilot)",
+          "region": "Glass Coast",
+          "location": "Beacon 07",
+          "mission": "QA_LOC_019 - Arabic briefing",
+          "coordinates": "X=7.00; Y=-14.25; Z=105.50",
+          "questState": "Active - objective 2/4",
+          "worldTime": "Dusk",
+          "weather": "Rain",
+          "gameState": "Cinematic",
+          "savegame": "QA_Kestrel_Briefing_019.sav",
+          "gameMode": "",
+          "round": "",
+          "flightPhase": "Approach",
+          "vehicle": "Kestrel Mk II",
+          "description": "The synthetic Arabic objective label exceeds the briefing panel bounds when subtitle scaling is enabled.",
+          "preconditions": "Select ar-SA and use the QA briefing save with large subtitles.",
+          "reproSteps": "Load the briefing save.\nOpen the objective panel.\nSelect Arabic and large subtitles.\nInspect the panel right edge.",
+          "actual": "The final words of the objective label are clipped.",
+          "expected": "The objective wraps and remains fully legible.",
+          "attempts": "3",
+          "failures": "3",
+          "impact": "Part of the navigation instruction is unreadable.",
+          "workaround": "Use the default text size during this synthetic test.",
+          "additionalInfo": "Japanese and Spanish controls wrap correctly. No crash observed.",
+          "keywords": [
+            "rtl-layout",
+            "glyph-boundary",
+            "text-scale"
+          ],
+          "coverage": [
+            "PlayStation 5"
+          ],
+          "accessibilityEnabled": "",
+          "accessibility": [],
+          "accessibilityExpected": "",
+          "networkMode": "Offline",
+          "serverRegion": "",
+          "latency": "",
+          "packetLoss": "",
+          "networkTrace": "",
+          "crashType": "",
+          "crashStage": "",
+          "crashSignature": "",
+          "crashLog": "",
+          "crashDump": "",
+          "consoleReport": "",
+          "targetFps": "",
+          "observedFps": "",
+          "frameTime": "",
+          "profilerCapture": "",
+          "stringId": "UI_BRIEFING_OBJECTIVE_019",
+          "sourceText": "Reach Beacon 07 before landing.",
+          "localizedText": "الوصول إلى المنارة 07 قبل الهبوط.",
+          "evidenceTypes": [
+            "Position screenshot",
+            "Test save"
+          ],
+          "attachments": "KES_03104_PS5_Position.png\nKES_03104_TestSave.sav",
+          "demoNotice": "FICTIONAL QA DEMO. Original synthetic report inspired by public game settings. Not an internal Ubisoft ticket or leaked template. Builds, coordinates, saves, logs and attachment names are invented."
+        },
+        "ticketKey": "KES-03104",
+        "media": [
+          {
+            "id": "media1",
+            "type": "Repro.mp4"
+          },
+          {
+            "id": "media2",
+            "type": "Position.png"
+          },
+          {
+            "id": "media3",
+            "type": "DebugLog.txt"
+          }
+        ],
+        "output": "",
+        "outputEdited": false,
+        "outputLayoutEdited": false,
+        "outputDetached": {},
+        "outputSegments": [],
+        "outputRanges": {},
+        "outputSectionRanges": {},
+        "checklistExtras": {},
+        "errors": {},
+        "dirty": false
+      },
+      {
+        "id": "qa_accessibility",
+        "formId": "bug",
+        "title": "Kestrel · controles",
+        "values": {
+          "shortDescription": "Docking confirmation ignores the remapped hold action",
+          "issueId": "KES-03105",
+          "product": "Project Kestrel (fictional)",
+          "issueType": "Accessibility",
+          "component": "Accessibility",
+          "status": "Open",
+          "priority": "P2 - Normal",
+          "severity": "Major",
+          "team": "Accessibility / Input",
+          "created": "2026-10-10",
+          "resolution": "Unresolved",
+          "resolved": "",
+          "version": "0.8.0.7301",
+          "cl": "7301",
+          "branch": "release/1.0",
+          "platform": "PlayStation 5",
+          "environment": "Development / QA",
+          "renderMode": "Performance - 60 fps",
+          "inputDevice": "Adaptive controller",
+          "gameLanguage": "en-US",
+          "gpu": "",
+          "driver": "",
+          "character": "Rook (test engineer)",
+          "region": "Ember Basin",
+          "location": "Relay tower",
+          "mission": "QA_ACC_007 - Remapped docking",
+          "coordinates": "X=18.00; Y=22.75; Z=-5.00",
+          "questState": "Active - objective 2/4",
+          "worldTime": "Dusk",
+          "weather": "Rain",
+          "gameState": "Exploration",
+          "savegame": "QA_Kestrel_Docking_007.sav",
+          "gameMode": "",
+          "round": "",
+          "flightPhase": "Docking",
+          "vehicle": "Peregrine cargo rig",
+          "description": "The docking prompt continues to listen for the default input binding after a custom hold binding is configured.",
+          "preconditions": "Connect a synthetic adaptive-controller profile and remap the docking action.",
+          "reproSteps": "Load the docking save.\nEnable hold interaction and remap confirm.\nApproach the relay dock.\nHold the new confirm control.",
+          "actual": "The prompt remains active and docking does not complete.",
+          "expected": "Docking completes using the selected binding.",
+          "attempts": "5",
+          "failures": "5",
+          "impact": "The configured interaction cannot be completed.",
+          "workaround": "Restore the default binding for this test step.",
+          "additionalInfo": "Normal controller defaults complete the action. No crash observed.",
+          "keywords": [
+            "input-remap",
+            "hold-action",
+            "assistive-profile"
+          ],
+          "coverage": [
+            "PlayStation 5"
+          ],
+          "accessibilityEnabled": "yes",
+          "accessibility": [
+            "Hold instead of toggle",
+            "Remapped controls"
+          ],
+          "accessibilityExpected": "The remapped hold action should confirm docking without requiring the original button.",
+          "networkMode": "Offline",
+          "serverRegion": "",
+          "latency": "",
+          "packetLoss": "",
+          "networkTrace": "",
+          "crashType": "",
+          "crashStage": "",
+          "crashSignature": "",
+          "crashLog": "",
+          "crashDump": "",
+          "consoleReport": "",
+          "targetFps": "",
+          "observedFps": "",
+          "frameTime": "",
+          "profilerCapture": "",
+          "stringId": "",
+          "sourceText": "",
+          "localizedText": "",
+          "evidenceTypes": [
+            "Video capture",
+            "Position screenshot",
+            "Test save"
+          ],
+          "attachments": "KES_03105_PS5_Repro.mp4\nKES_03105_PS5_Position.png",
+          "demoNotice": "FICTIONAL QA DEMO. Original synthetic report inspired by public game settings. Not an internal Ubisoft ticket or leaked template. Builds, coordinates, saves, logs and attachment names are invented."
+        },
+        "ticketKey": "KES-03105",
+        "media": [
+          {
+            "id": "media1",
+            "type": "Repro.mp4"
+          },
+          {
+            "id": "media2",
+            "type": "Position.png"
+          },
+          {
+            "id": "media3",
+            "type": "DebugLog.txt"
+          }
+        ],
+        "output": "",
+        "outputEdited": false,
+        "outputLayoutEdited": false,
+        "outputDetached": {},
+        "outputSegments": [],
+        "outputRanges": {},
+        "outputSectionRanges": {},
+        "checklistExtras": {},
+        "errors": {},
+        "dirty": false
+      },
+      {
+        "id": "qa_fixed",
+        "formId": "regression",
+        "title": "Regression · corregido",
+        "values": {
+          "shortDescription": "Verify Naoe wall eject recovery at Himeji Castle",
+          "issueId": "ACS-18427",
+          "product": "Assassin's Creed Shadows",
+          "regressionStatus": "Verified Fixed",
+          "originalBuild": "1.0.0.1842",
+          "version": "1.0.0.1856",
+          "cl": "1856",
+          "platform": "PlayStation 5",
+          "environment": "Development / QA",
+          "savegame": "QA_Himeji_Naoe_WestRoof_04.sav",
+          "verificationSteps": "Repeat the original wall eject route with Naoe five times.\nRepeat with Yasuke as a control.\nVerify movement, landing animation and checkpoint recovery.",
+          "verificationResult": "All five synthetic attempts land correctly and restore player movement. Yasuke control pass also succeeds.",
+          "attempts": "5",
+          "failures": "0",
+          "coverage": [
+            "PlayStation 5"
+          ],
+          "blockerReason": "",
+          "fixEvidence": "ACS_18427_PS5_FixedRepro.mp4",
+          "remainingIssue": "",
+          "demoNotice": "FICTIONAL QA DEMO. Synthetic regression of ACS-18427; no real builds, fixes or attachments."
+        },
+        "ticketKey": "ACS-18427",
+        "media": [
+          {
+            "id": "media1",
+            "type": "Repro.mp4"
+          },
+          {
+            "id": "media2",
+            "type": "Position.png"
+          },
+          {
+            "id": "media3",
+            "type": "DebugLog.txt"
+          }
+        ],
+        "output": "",
+        "outputEdited": false,
+        "outputLayoutEdited": false,
+        "outputDetached": {},
+        "outputSegments": [],
+        "outputRanges": {},
+        "outputSectionRanges": {},
+        "checklistExtras": {},
+        "errors": {},
+        "dirty": false
+      }
+    ],
+    "activeInstanceId": "qa_traversal",
+    "activeInstanceByForm": {
+      "bug": "qa_traversal",
+      "regression": "qa_fixed"
+    },
+    "notebook": {
+      "tabs": [
+        {
+          "id": "qa_guide",
+          "title": "Guía demo / Demo guide",
+          "content": "All scenarios are fictional. Switch ticket tabs to compare traversal, PC crash, performance, network, localization and accessibility. Change an issue type to reveal required diagnostics; clear the trigger to hide them again. Evidence entries are invented filenames, not attached files."
+        }
+      ],
+      "activeTabId": "qa_guide",
+      "mode": "closed"
+    }
+  }
+}

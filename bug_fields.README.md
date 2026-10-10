@@ -37,7 +37,7 @@ field.
 | `source` | Lista de Data, lista dependiente o field origen de un mirror. |
 | `size` | `full`, `half`, `third` o `twoThirds`. |
 | `required` | `yes` para exigir valor; no desactiva otras validaciones. |
-| `default_value` | Valor inicial; admite `@setting` de Rules. |
+| `default_value` | Valor inicial; admite `@setting` de Rules. En keywords/checklist, un array JSON de strings. |
 | `placeholder` | Ejemplo visual cuando el control está vacío. |
 | `help_text` | Ayuda debajo del control. |
 | `rows` | Altura inicial de un textarea. |
@@ -78,6 +78,10 @@ Las columnas `checklist_*` sólo configuran fields `checklist`:
 - `checklist_all_label`, `checklist_all_output`,
   `checklist_all_dependency`, `checklist_all_value`.
 
+Fuera del modo de edición, las secciones sin campos visibles también se
+ocultan. Al activarse una condición vuelven a aparecer junto con sus campos;
+el editor conserva todas las secciones disponibles.
+
 ## Plantillas
 
 - `\n` o `<br>` fuerzan un salto de línea.
@@ -114,3 +118,9 @@ Si un field conserva una `source`, `regex` o referencia de template cuyo
 elemento ya fue eliminado de Data o Fields, Live se activa con una **Relación
 huérfana** visible en ambos registros de Settings. El botón del aviso elimina
 ese field del Tester mediante un override reversible; no modifica el CSV.
+
+Los defaults múltiples se copian por instancia: `["qa-gate","edge-case"]`
+precarga chips y `["PlayStation 5"]` precarga una checklist. Un JSON inválido,
+un escalar o un default vacío inicia la colección vacía; se omiten elementos
+no textuales, vacíos y duplicados exactos. Los valores ya capturados se conservan
+al completar nuevos fields en una sesión existente.

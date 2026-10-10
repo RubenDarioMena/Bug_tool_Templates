@@ -33,7 +33,7 @@ Columnas relevantes:
 
 - `form_id`, `rule_id`: identidad estable.
 - `when_expression`: DSL booleana (`AND`, `OR`, `NOT`, `=`, `!=`, `<`, `<=`,
-  `>`, `>=`, `empty`, `notEmpty`, `contains`, `isAll`, `in`, `matches`, `not matches`). Los
+  `>`, `>=`, `empty`, `notEmpty`, `contains`, `isAll`, `in`, `inList`, `matches`, `not matches`). Los
   cuatro comparadores relacionales son exclusivamente numéricos; `=<` y `=>`
   no son aliases válidos y `=` continúa significando igualdad.
 - `action`: `show`, `hide`, `disable`, `setDefault`, `valueOf` o `error`.
@@ -46,6 +46,15 @@ Columnas relevantes:
 - `value`: default o mensaje, según la acción.
 - `editor_condition`: `yes` cuando pertenece al editor del propio field.
 
+Las validaciones usan sólo campos activos: los ocultos por defecto o por una
+condition, y los bloqueados, conservan sus valores pero no generan errores ni
+participan en comparaciones de error o en el chequeo de keywords contra el
+cuerpo. Esto también aplica a tiles con `severity=error`. Una comparación con
+un campo inactivo no dispara, incluso dentro de `NOT`; una rama `OR` sobre
+campos activos sí puede disparar. Al mostrar de nuevo el campo, se valida su
+valor guardado. Las acciones de visibilidad y los tiles `warn` siguen pudiendo
+consultar valores guardados de campos ocultos.
+
 ## Referencias de la DSL
 
 - `key` es la Key global de la instancia/ticket activo.
@@ -55,6 +64,9 @@ Columnas relevantes:
 - En una checklist, `campo = "Android"` y `campo contains "Android"`
   comprueban pertenencia; `campo in ("Android", "iPhone")` acepta cualquier
   intersección.
+- Para comparar con una lista de DATA por su ID, usa `campo inList idLista` o
+  `campo contains idLista[]`. Ambas expresiones son equivalentes y se cumplen
+  cuando cualquier valor actual del campo aparece en la lista configurada.
 - Los IDs y operadores son canónicos y sensibles a su sintaxis; las
   comparaciones de texto continúan siendo insensibles a mayúsculas.
 
@@ -96,7 +108,8 @@ que la utiliza.
 
 ## `rule_type=tile`
 
-Muestra contexto o errores en la barra superior.
+Muestra contexto o errores en la barra superior cuando `when_expression` es
+verdadera. Si la expresión está vacía, el tile no aparece.
 
 ```csv
 bug,tile,product_context,product notEmpty,,product,Producto: {product},warn,blue,Contexto,,,,
