@@ -13442,7 +13442,28 @@ function clearPreviewHighlight() {
   }), 280);
 }
 
-function highlightPreviewField(fieldId) {
+function scrollOutputPreviewToField(fieldId) {
+  const preview = $("outputPreview");
+  if (!preview || normalizeOutputPreviewMode(state.prefs.outputPreviewMode) !== "jira") return;
+  const target = [...preview.querySelectorAll("[data-output-field]")]
+    .find(node => node.dataset.outputField === fieldId);
+  if (!target) return;
+
+  const previewRect = preview.getBoundingClientRect();
+  const targetRect = target.getBoundingClientRect();
+  const visibleTop = previewRect.top + preview.clientTop;
+  const visibleBottom = visibleTop + preview.clientHeight;
+  if (targetRect.top >= visibleTop && targetRect.bottom <= visibleBottom) return;
+
+  const targetTop = preview.scrollTop + targetRect.top - visibleTop;
+  const centeredTop = targetTop - Math.max(0, (preview.clientHeight - targetRect.height) / 2);
+  preview.scrollTo({
+    top: Math.max(0, Math.min(centeredTop, preview.scrollHeight - preview.clientHeight)),
+    behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"
+  });
+}
+
+function highlightPreviewField(fieldId, shouldScroll) {
   clearTimeout(affectedPreviewTimer);
   document.querySelectorAll("#outputPreview .output-field-affected").forEach(node =>
     node.classList.remove("output-field-affected", "is-leaving"));
@@ -13451,6 +13472,7 @@ function highlightPreviewField(fieldId) {
   document.querySelectorAll("#outputPreview [data-output-field]").forEach(node => {
     if (node.dataset.outputField === fieldId) node.classList.add("output-field-affected");
   });
+  if (shouldScroll) scrollOutputPreviewToField(fieldId);
 }
 
 function outputTargetFromPreviewNode(node) {
@@ -17804,7 +17826,7 @@ function wireBidirectionalOutputNavigation() {
   panel.addEventListener("focusin", event => {
     if (!affectedControl(event.target)) return;
     const field = event.target.closest(".field[data-field]");
-    if (field) highlightPreviewField(field.dataset.field);
+    if (field) highlightPreviewField(field.dataset.field, true);
   });
   panel.addEventListener("focusout", event => {
     if (!affectedControl(event.target)) return;
